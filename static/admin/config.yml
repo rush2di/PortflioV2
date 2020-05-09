@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: rush2di/portfolio
+  repo: rush2di/PortfolioV2
   branch: master
 
 publish_mode: editorial_workflow
@@ -21,15 +21,15 @@ collections:
           widget: "hidden",
           default: "home-template",
         }
-  #     - name: "english"
-  #     - label: "English"
-  #     - widget: "object"
-  #     - identifier_field: "title"
-  #     - fields:
-  #       - { label: "Title", name: "title", widget: "string" }
-  #       - { label: "Introduction", name: "introduction", widget: "text" }
-  #       - { label: "Paragraph", name: "paragraph", widget: "text"}
-  #       - { label: "Speciality", name: "speciality", widget: "string" }
+      - name: "english"
+        label: "English"
+        widget: "object"
+        identifier_field: "title"
+        fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Introduction", name: "introduction", widget: "text" }
+        - { label: "Paragraph", name: "paragraph", widget: "text"}
+        - { label: "Speciality", name: "speciality", widget: "string" }
   #     - name: "french"
   #     - label: "French"
   #     - widget: "object"
