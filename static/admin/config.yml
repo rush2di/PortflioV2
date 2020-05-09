@@ -1,0 +1,107 @@
+backend:
+  name: git-gateway
+  repo: rush2di/portfolio
+  branch: master
+
+publish_mode: editorial_workflow
+media_folder: static/images
+public_folder: /images
+
+collections:
+  - name: "home"
+    label: "Home"
+    folder: "static/home"
+    create: true
+    slug: "home-content"
+    identifier_field: "templateKey"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "home-template",
+        }
+        - name: "en"
+        - label: "En"
+        - widget: "object"
+        - fields:
+          - { label: "title", name: "title", widget: "string" }
+          - { label: "introduction", name: "introduction", widget: "text" }
+          - { label: "paragraph", name: "paragraph", widget: "text"}
+          - { label: "speciality", name: "speciality", widget: "string" }
+        - name: "fr"
+        - label: "Fr"
+        - widget: "object"
+        - fields:
+          - { label: "title", name: "title", widget: "string" }
+          - { label: "introduction", name: "introduction", widget: "text" }
+          - { label: "paragraph", name: "paragraph", widget: "text"}
+          - { label: "speciality", name: "speciality", widget: "string" }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "static/projects"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: "templateKey"
+    fields:
+      - {
+          name: "templateKey",
+          label: "Template Key",
+          widget: "hidden",
+          default: "projects-template",
+        }
+        - name: "en"
+        - label: "En"
+        - widget: "object"
+        - fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro', name: 'intro', widget: 'text' }
+          - { label: 'Type', name: 'type', widget: 'select', options: ['Personal project', 'Freelance project'] }
+          - { label: 'Description', name: 'description', widget: 'text' }
+          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+        - name: "fr"
+        - label: "Fr"
+        - widget: "object"
+        - fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro', name: 'intro', widget: 'text' }
+          - { label: 'Type', name: 'type', widget: 'select', options: ['Projet personnel', 'Projet freelance'] }
+          - { label: 'Description', name: 'description', widget: 'text' }
+          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+
+  - name: "info"
+    label: "Personal Information"
+    folder: "static/info"
+    slug: "personal-information"
+    identifier_field: "templateKey"   
+    editor: 
+      preview: false
+    fields:
+      - {
+          name: "templateKey",
+          label: "Template Key",
+          widget: "hidden",
+          default: "personal-information",
+        }
+        - name: "en"
+        - label: "En"
+        - widget: "object" 
+        - collapsed: true
+        - fields:
+          - { name: "aboutHead", label: "Heading", widget: "text" }
+          - { name: "aboutText", label: "Text", widget: "text" }          
+          - { name: "github", label: "Github", widget: "text" }
+          - { name: "linkedin", label: "Linkedin", widget: "text" }        
+          - { name: "email", label: "Email", widget: "text" }
+          - { name: "phone", label: "Phone", widget: "text" }
+        - name: "fr"
+        - label: "Fr"
+        - widget: "object" 
+        - collapsed: true
+        - fields:
+          - { name: "aboutHead", label: "Heading", widget: "text" }
+          - { name: "aboutText", label: "Text", widget: "text" }          
+          - { name: "github", label: "Github", widget: "text" }
+          - { name: "linkedin", label: "Linkedin", widget: "text" }        
+          - { name: "email", label: "Email", widget: "text" }
+          - { name: "phone", label: "Phone", widget: "text" }
