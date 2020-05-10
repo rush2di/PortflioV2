@@ -22,34 +22,34 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `info`,
-        path: `${__dirname}/static/info`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `home`,
-        path: `${__dirname}/static/home`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `projects`,
-        path: `${__dirname}/static/projects`,
-      },
-    },    
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/static/images`,
-      },
-    },
+//     {
+//       resolve: `gatsby-source-filesystem`,
+//       options: {
+//         name: `info`,
+//         path: `${__dirname}/static/info`,
+//       },
+//     },
+//     {
+//       resolve: `gatsby-source-filesystem`,
+//       options: {
+//         name: `home`,
+//         path: `${__dirname}/static/home`,
+//       },
+//     },
+//     {
+//       resolve: `gatsby-source-filesystem`,
+//       options: {
+//         name: `projects`,
+//         path: `${__dirname}/static/projects`,
+//       },
+//     },    
+//     {
+//       resolve: `gatsby-source-filesystem`,
+//       options: {
+//         name: `images`,
+//         path: `${__dirname}/static/images`,
+//       },
+//     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
