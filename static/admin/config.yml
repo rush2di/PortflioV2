@@ -11,12 +11,12 @@ collections:
   - name: "home"
     label: "Home"
     folder: "static/home"
-    create: true
     slug: "home-content"
-    identifier_field: "templateKey"
+    create: true
+    identifier_field: templateKey
     fields:
       - {
-          label: "Template Key",
+          label: "TemplateKey",
           name: "templateKey",
           widget: "hidden",
           default: "home-template",
@@ -24,7 +24,7 @@ collections:
       - name: "english"
         label: "English"
         widget: "object"
-        identifier_field: "title"
+        collapsed: true
         fields:
         - { label: "Title", name: "title", widget: "string" }
         - { label: "Introduction", name: "introduction", widget: "text" }
@@ -33,7 +33,7 @@ collections:
       - name: "french"
         label: "French"
         widget: "object"
-        identifier_field: "title"
+        collapsed: true
         fields:
         - { label: "Title", name: "title", widget: "string" }
         - { label: "Introduction", name: "introduction", widget: "text" }
@@ -44,7 +44,8 @@ collections:
     label: "Projects"
     folder: "static/projects"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    identifier_field: "templateKey"
+    create: true
+    identifier_field: templateKey
     fields:
       - {
           name: "templateKey",
@@ -52,9 +53,11 @@ collections:
           widget: "hidden",
           default: "projects-template",
         }
+      - { label: "Date", name: "date", widget: "datetime" }
       - name: "english"
         label: "English"
         widget: "object"
+        collapsed: true
         fields:
         - { label: 'Title', name: 'title', widget: 'string' }
         - { label: 'Intro', name: 'intro', widget: 'text' }
@@ -64,6 +67,7 @@ collections:
       - name: "french"
         label: "French"
         widget: "object"
+        collapsed: true
         fields:
         - { label: 'Title', name: 'title', widget: 'string' }
         - { label: 'Intro', name: 'intro', widget: 'text' }
@@ -75,7 +79,8 @@ collections:
     label: "Personal Information"
     folder: "static/info"
     slug: "personal-information"
-    identifier_field: "templateKey"   
+    create: true
+    identifier_field: templateKey
     editor: 
       preview: false
     fields:
