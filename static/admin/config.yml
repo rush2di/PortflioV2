@@ -54,12 +54,12 @@ collections:
           default: "projects-template",
         }
       - { label: "Date", name: "date", widget: "datetime" }
+      - { label: 'Title', name: 'title', widget: 'string' }
       - name: "english"
         label: "English"
         widget: "object"
         collapsed: true
         fields:
-        - { label: 'Title', name: 'title', widget: 'string' }
         - { label: 'Intro', name: 'intro', widget: 'text' }
         - { label: 'Type', name: 'type', widget: 'select', options: ['Personal project', 'Freelance project'] }
         - { label: 'Description', name: 'description', widget: 'text' }
@@ -69,7 +69,6 @@ collections:
         widget: "object"
         collapsed: true
         fields:
-        - { label: 'Title', name: 'title', widget: 'string' }
         - { label: 'Intro', name: 'intro', widget: 'text' }
         - { label: 'Type', name: 'type', widget: 'select', options: ['Projet personnel', 'Projet freelance'] }
         - { label: 'Description', name: 'description', widget: 'text' }
@@ -89,26 +88,22 @@ collections:
           label: "Template Key",
           widget: "hidden",
           default: "personal-information",
-        }
+        }    
+      - { name: "github", label: "Github", widget: "text" }
+      - { name: "linkedin", label: "Linkedin", widget: "text" }        
+      - { name: "email", label: "Email", widget: "text" }
+      - { name: "phone", label: "Phone", widget: "text" }
       - name: "english"
         label: "English"
         widget: "object" 
         collapsed: true
         fields:
         - { name: "aboutHead", label: "Heading", widget: "text" }
-        - { name: "aboutText", label: "Text", widget: "text" }          
-        - { name: "github", label: "Github", widget: "text" }
-        - { name: "linkedin", label: "Linkedin", widget: "text" }        
-        - { name: "email", label: "Email", widget: "text" }
-        - { name: "phone", label: "Phone", widget: "text" }
+        - { name: "aboutText", label: "Text", widget: "text" }
       - name: "french"
         label: "French"
         widget: "object" 
         collapsed: true
         fields:
         - { name: "aboutHead", label: "Heading", widget: "text" }
-        - { name: "aboutText", label: "Text", widget: "text" }          
-        - { name: "github", label: "Github", widget: "text" }
-        - { name: "linkedin", label: "Linkedin", widget: "text" }        
-        - { name: "email", label: "Email", widget: "text" }
-        - { name: "phone", label: "Phone", widget: "text" }
+        - { name: "aboutText", label: "Text", widget: "text" }      
