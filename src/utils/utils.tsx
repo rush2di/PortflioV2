@@ -1,7 +1,10 @@
-import { createContext, useContext, useRef, useEffect, useState} from "react"
+import React, { createContext, useContext, useRef, useEffect, useState} from "react"
 
 import logoLight from "../assets/logo-light.svg"
 import logoDark from "../assets/logo-dark.svg"
+import moonIcon from "../assets/moon.svg"
+import sunIcon from "../assets/sun.svg"
+
 
 /*
  useScreenSpy hook checks the window screen width on first 
@@ -42,16 +45,24 @@ export const ThemeContextProvider = ({children}) => {
 
 	const paragraphStyles = isDark ? "pp-light" : "pp-dark"
 	const logoStyles = isDark ? logoLight : logoDark
+	const iconStyles = isDark ? moonIcon : sunIcon
 
 	const handleThemeToggle = ():void => (
 			isDark ? setIsDark(false) : setIsDark(true)
 		)
 
 	return (
-		<themeContext.Provider value={{logoStyles, paragraphStyles, handleThemeToggle}}>
+		<themeContext.Provider value={{logoStyles, paragraphStyles, iconStyles, handleThemeToggle}}>
 			{children}
 		</themeContext.Provider>
 		)
 }
 
-export const useThemes = () => useContext(themeContext)
+type Config = {
+	paragraphStyles: string,
+	logoStyles: string,
+	iconStyles: string
+	handleThemeToggle: void
+}
+
+export const useThemes = ():Config  => useContext(themeContext)

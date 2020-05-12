@@ -1,32 +1,15 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+
+import { ThemeContextProvider } from "../utils/utils"
+import Header from "./header"
+
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `0 1.0875rem 1.45rem`,
-      }}
-    >
+    <ThemeContextProvider>
+      <Header />
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </div>
+    </ThemeContextProvider>
   )
 }
 

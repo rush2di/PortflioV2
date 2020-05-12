@@ -55,7 +55,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve(`./src/components/layout.tsx`),
+        component: require.resolve(`./src/components/layout.js`),
       },
     },
     {
@@ -73,7 +73,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/assets/favicon.png`,
       },
     },
   ],
