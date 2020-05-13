@@ -37,32 +37,58 @@ export const useScreenSpy = () => useContext(ScreenSpy)
 useThemeSet hook passes the theme configs to child elements 
 of themeContextProvider
 */
-
-const themeContext = createContext<any>(null)
+const themeContext = createContext(null)
 
 export const ThemeContextProvider = ({children}) => {
 	const [ isDark, setIsDark ] = useState<boolean>(false)
 
-	const paragraphStyles = isDark ? "pp-light" : "pp-dark"
-	const logoStyles = isDark ? logoLight : logoDark
-	const iconStyles = isDark ? moonIcon : sunIcon
+	const paragraphStyle = isDark ? "pp-light" : "pp-dark"
+	const logoStyle = isDark ? logoLight : logoDark
+	const iconStyle = isDark ? moonIcon : sunIcon
 
 	const handleThemeToggle = ():void => (
 			isDark ? setIsDark(false) : setIsDark(true)
 		)
 
 	return (
-		<themeContext.Provider value={{logoStyles, paragraphStyles, iconStyles, handleThemeToggle}}>
+		<themeContext.Provider value={{logoStyle, paragraphStyle, iconStyle, handleThemeToggle}}>
 			{children}
 		</themeContext.Provider>
 		)
 }
 
-type Config = {
-	paragraphStyles: string,
-	logoStyles: string,
-	iconStyles: string
-	handleThemeToggle: void
+type themeConfig = {
+	paragraphStyle: string,
+	logoStyle: string,
+	iconStyle: string
+	handleThemeToggle: any
 }
 
-export const useThemes = ():Config  => useContext(themeContext)
+export const useThemes = ():themeConfig  => useContext(themeContext)
+
+/*
+useThemeSet hook passes the theme configs to child elements 
+of themeContextProvider
+*/
+const langContext = createContext(null)
+
+
+export const LangContextProvider = ({children}) => {
+	const [ lang, setLang ] = useState<string>("english")
+	const setEnglish = ():void => lang === "french" && setLang("english")
+	const setFrench = ():void => lang === "english" && setLang("french")
+
+	return (
+		<langContext.Provider value={{lang, setEnglish, setFrench}}>
+			{children}
+		</langContext.Provider>
+		)
+}
+
+type langConfig = {
+	lang: string,
+	setEnglish: any,
+	setFrench: any
+}
+
+export const useLanguages = ():langConfig  => useContext(langContext)

@@ -1,20 +1,31 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { useThemes } from "../utils/utils"
+import { useThemes, useLanguages } from "../utils/utils"
 
-const Header = () => {
-  const configs = useThemes()
-
-  console.log(configs)
+const Header = (props) => {
+  const { iconStyle, logoStyle, handleThemeToggle } = useThemes()
+  const { setEnglish, setFrench } = useLanguages()
 
   return ( 
     <header>
       <nav>
         <div className="nav--logo">
           <Link to="/" >
-            <img src="" alt=""/>
+            <img src={logoStyle} alt=""/>
           </Link>
+        </div>
+        <div className="nav--btns-wrapper">
+          <div className="btn-box">
+            <button onClick={() => setEnglish()}>en</button>
+            <span>|</span>
+            <button onClick={() => setFrench()}>fr</button>
+          </div>
+          <div className="btn-box">
+            <button onClick={() => handleThemeToggle()}>
+              <img src={iconStyle} alt=""/>
+            </button>
+          </div>
         </div>
       </nav>
     </header>
