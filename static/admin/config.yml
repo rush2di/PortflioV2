@@ -30,6 +30,9 @@ collections:
         - { label: "Introduction", name: "introduction", widget: "text" }
         - { label: "Paragraph", name: "paragraph", widget: "text"}
         - { label: "Speciality", name: "speciality", widget: "string" }
+        - { label: "TS Title", name: "tsheading", widget: "string"}
+        - { label: "TS Paragraph", name: "tsparagraph", widget: "text"}
+        - { label: "PS Title", name: "psheading", widget: "string"}
       - name: "french"
         label: "French"
         widget: "object"
@@ -39,6 +42,9 @@ collections:
         - { label: "Introduction", name: "introduction", widget: "text" }
         - { label: "Paragraph", name: "paragraph", widget: "text"}
         - { label: "Speciality", name: "speciality", widget: "string" }
+        - { label: "TS Title", name: "tsheading", widget: "string"}
+        - { label: "TS Paragraph", name: "tsparagraph", widget: "text"}
+        - { label: "PS Title", name: "psheading", widget: "string"}
 
   - name: "projects"
     label: "Projects"

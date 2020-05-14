@@ -1,11 +1,11 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-import { useLanguages } from "../utils/utils"
+import { useLanguages, languageFilter } from "../utils/utils"
 
 const HomePage = () => {
 	const { lang } = useLanguages()
-	const {allMarkdownRemark} = useStaticQuery(graphql`
+	const { allMarkdownRemark } = useStaticQuery(graphql`
 {
   allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "home-template"}}}) {
     edges {
@@ -29,16 +29,15 @@ const HomePage = () => {
   }
 }
 `)
+	const { frontmatter } = allMarkdownRemark.edges[0].node
+	const content = languageFilter(frontmatter, lang)
+	const { title, introduction, paragraph, speciality } = content
 
-	// const { frontmatter } = allMarkdownRemark.edges[0].node
-	// const languageFilter = frontmatter.filter(obj => Object.keys(obj).includes(lang))
-
-	// console.log([...frontmatter])
 	return (
 	  <React.Fragment>
-	    <h1>Hi people</h1>
-	    <p>Welcome to your new Gatsby site.</p>
-	    <p>Now go build something great.</p>
+	    <h1>{title}</h1>
+	    <span>{speciality}</span>
+	    <p><span>{introduction}</span>{paragraph}</p>
 	    <Link to="/page-2/">Go to page 2</Link>
 	  </React.Fragment>
 	)

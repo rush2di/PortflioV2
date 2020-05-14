@@ -92,3 +92,14 @@ type langConfig = {
 }
 
 export const useLanguages = ():langConfig  => useContext(langContext)
+
+/*
+function to transform query results to an array and returns 
+a filtred one depending on the selected language
+*/
+export const languageFilter = (obj: object,lang: string):object => {
+	const toArray = Object.keys(obj).map((key) => ({[key]: obj[key]}))
+	const filtred = toArray.filter( val => Object.keys(val).includes(lang))
+
+	return filtred[0][lang]
+}
