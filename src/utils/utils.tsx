@@ -42,7 +42,8 @@ const themeContext = createContext(null)
 export const ThemeContextProvider = ({children}) => {
 	const [ isDark, setIsDark ] = useState<boolean>(false)
 
-	const paragraphStyle = isDark ? "pp-light" : "pp-dark"
+	const backgroundStyle = isDark ? "dark-bg" : "light-bg"
+	const textStyle = isDark ? "dark-spans" : "ligh-spans"
 	const logoStyle = isDark ? logoLight : logoDark
 	const iconStyle = isDark ? moonIcon : sunIcon
 
@@ -51,7 +52,7 @@ export const ThemeContextProvider = ({children}) => {
 		)
 
 	return (
-		<themeContext.Provider value={{logoStyle, paragraphStyle, iconStyle, handleThemeToggle}}>
+		<themeContext.Provider value={{logoStyle, textStyle, backgroundStyle, iconStyle, handleThemeToggle}}>
 			{children}
 		</themeContext.Provider>
 		)
