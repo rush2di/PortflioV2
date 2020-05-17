@@ -8,8 +8,8 @@ const Header = (props) => {
   const { setEnglish, setFrench } = useLanguages()
 
   return ( 
-    <header>
-      <nav>
+    <header className="container">
+      <nav className="nav--wrapper">
         <div className="nav--logo">
           <Link to="/" >
             <img src={logoStyle} alt=""/>
