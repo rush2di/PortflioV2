@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import "./variables.scss";
+
 * {
 	margin: 0;
 	padding: 0;
@@ -11,4 +15,75 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// Dynamic theming styles //////////////////////////////
+///////////////////////////////////////////////////////
+.light {
+	&-bg {
+		background-color: $lightBG;
+		transition: .2s all ease-out;
+	}
+	-spans {
+		color: $lightSPANS;
+		transition: .2s all ease-out;
+	}
+}
+.dark {
+	&-bg {
+		background-color: $darkBG;
+		transition: .2s all ease-out;
+	}
+	&-spans {
+		color: $darkSPANS;
+		transition: .2s all ease-out;
+	}
+}
+
+// Containers ////////////////////////////////////////
+/////////////////////////////////////////////////////
+.container {
+	width: 1200px;
+	margin: auto;
+	padding: 0 3rem;
+}
+
+.section {
+	min-height: calc(100vh - 4rem)
+}
+// Navbar styles ////////////////////////////////////
+////////////////////////////////////////////////////
+.nav{
+	&--wrapper {
+		position: relative;
+		height: 4rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&--btns-wrapper {
+		display: flex;
+		align-items:center;
+	}
+	&--btns-wrapper .btn-box {
+		&:first-child {
+			margin-right: 1rem;
+		}
+		&:first-child button{
+			margin: 0 .3rem;
+		}
+		button {
+			border: 0;
+			background-color: transparent;
+			font-family: "Source Sans Pro", Arial, Helvatica;
+			font-size: 1rem;
+			color: $paragraph;
+			outline: none;
+			cursor: pointer;
+		}
+		span {
+			display: inline-block;
+			color: $paragraph;
+		}
+	}
 }
