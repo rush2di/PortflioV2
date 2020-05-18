@@ -1,7 +1,7 @@
 ---
 templateKey: home-template
 english:
-  title: Roshdi Belhirsh
+  title: Hello, I'm Roshdi Belhirsh
   introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
     eiusmod temaliqua, enim ad minim veniam
   paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -21,7 +21,7 @@ english:
     products.
   psheading: "Featured projects:"
 french:
-  title: Rochdi Belhirch
+  title: Hello, c'est Rochdi Belhirch
   introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
     eiusmod temaliqua, enim ad minim veniam
   paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
