@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;500&display=swap');
 @import "./variables.scss";
 
 * {
@@ -17,30 +17,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-// Dynamic theming styles //////////////////////////////
-///////////////////////////////////////////////////////
-.light {
-	&-bg {
-		background-color: $lightBG;
-		transition: .2s all ease-out;
-	}
-	-spans {
-		color: $lightSPANS;
-		transition: .2s all ease-out;
-	}
-}
-.dark {
-	&-bg {
-		background-color: $darkBG;
-		transition: .2s all ease-out;
-	}
-	&-spans {
-		color: $darkSPANS;
-		transition: .2s all ease-out;
-	}
-}
-
-// Containers ////////////////////////////////////////
+// Main layout styles ////////////////////////////////
 /////////////////////////////////////////////////////
 .container {
 	width: 1200px;
@@ -49,8 +26,56 @@ body {
 }
 
 .section {
-	min-height: calc(100vh - 4rem)
+	min-height: calc(100vh - 4rem);
+	p {
+		color: $paragraph;
+		font-family: "Source Sans Pro", arial, sans-serif;
+		line-height: 1.5;
+		font-weight: 500;		
+    font-size: $textSIZE;
+	}
 }
+
+.light {
+	&-bg {
+		background-color: $lightBG;
+		transition: .2s all ease-out;
+	}
+	&-spans {
+		color: $lightSPANS;
+		transition: .2s all ease-out;
+		font-family: "Source Sans Pro", arial, sans-serif;
+		line-height: 1.5;
+		font-weight: 500;
+    font-size: $textSIZE;
+	}
+}
+
+.dark {
+	&-bg {
+		background-color: $darkBG;
+		transition: .2s all ease-out;
+	}
+	&-spans {
+		color: $darkSPANS;
+		transition: .2s all ease-out;
+		font-family: "Source Sans Pro", arial, sans-serif;
+		line-height: 1.5;
+		font-weight: 500;
+    font-size: $textSIZE;
+	}
+}
+
+.heading {
+	color: $colorPEARL;
+	font-family: "Montserrat",sans-serif,helvatica;
+	&-xl {
+		font-size: 9vw;
+		font-weight: 800;
+		letter-spacing: -.05rem;
+	}
+}
+
 // Navbar styles ////////////////////////////////////
 ////////////////////////////////////////////////////
 .nav{
@@ -85,5 +110,40 @@ body {
 			display: inline-block;
 			color: $paragraph;
 		}
+	}
+}
+
+
+// Home Page styles /////////////////////////////////
+////////////////////////////////////////////////////
+.section {
+	&-hero-wrapper {
+		margin: 2rem 0 4rem;
+	}
+	&-hero {
+		display: block;
+		position: relative;
+	}
+	&-hero-grid {
+		display: grid;
+		margin: 2.25rem 0 0;
+		padding: 0 .5rem;
+		grid-template-columns: 1fr 1fr;
+		align-items: baseline;
+		justify-content: flex-start;
+	}
+	&-skills-wrapper {
+		margin: 0 0 4rem;		
+    padding-top: 2rem;
+	}
+	&-skills-grid {
+		display: grid;
+		padding: 0 .5rem;
+    grid-template-columns: 1.5fr 2fr;
+		align-items: baseline;
+		justify-content: flex-start;
+	}
+	&-skills-grid .heading {
+		margin-bottom: 1.5rem;
 	}
 }
