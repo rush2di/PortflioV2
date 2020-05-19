@@ -48,8 +48,8 @@ const HomePage = ({data}) => {
 			    </div>
 		    </div>
 	    </div>	    
-	    <div>
-	    	<h3>{psheading}</h3>
+	    <div className="section-projects-wrapper">
+	    	<h3 className="heading">{psheading}</h3>
 	    	<ProjectsSection lang={lang}/>
 	    </div>
 	    <Link to="/page-2/">Go to page 2</Link>
@@ -85,9 +85,21 @@ const ProjectsSection = ({lang}) => {
 `)
 	console.log(allMarkdownRemark)
 	return (
-		<ul>
-			<UImapper data={allMarkdownRemark} lang={lang} />
-		</ul>
+		<div className="section-projects-grid">
+			<div className="section-projects-box">
+				<div className="list-wrapper">
+					<ul>
+						<UImapper data={allMarkdownRemark} lang={lang} />
+					</ul>
+				</div>
+			</div>
+			<div className="section-projects-box">
+				<div className="project-card"/>
+				<div className="project-card-wrapper">
+					<div className="project-card-image"></div>
+				</div>
+			</div>
+		</div>
 		)
 }
 
@@ -97,9 +109,9 @@ const UImapper = ({data, lang}) => (
 		const { frontmatter } = items.node
 
 		const content = languageFilter(frontmatter, lang)
-		const index = i.toFixed(2)
+		const index = ""+i+1
 
-		const { intro, type } = content
+		const { type } = content
 		const { title } = frontmatter
 
 		return (
