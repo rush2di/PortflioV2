@@ -27,6 +27,7 @@ body {
 
 .section {
 	min-height: calc(100vh - 4rem);
+	padding-bottom: 2rem;
 	p {
 		color: $paragraph;
 		font-family: "Source Sans Pro", arial, sans-serif;
@@ -70,7 +71,7 @@ body {
 	color: $colorPEARL;
 	font-family: "Montserrat",sans-serif,helvatica;
 	&-xl {
-		font-size: 9vw;
+		font-size: 9.5vw;
 		font-weight: 800;
 		letter-spacing: -.05rem;
 	}
@@ -129,8 +130,8 @@ body {
 		margin: 2.25rem 0 0;
 		padding: 0 .5rem;
 		grid-template-columns: 1fr 1fr;
-		align-items: baseline;
-		justify-content: flex-start;
+    align-items: normal;
+    justify-content: stretch;
 	}
 	&-skills-wrapper {
 		margin: 0 0 4rem;		
@@ -140,10 +141,83 @@ body {
 		display: grid;
 		padding: 0 .5rem;
     grid-template-columns: 1.5fr 2fr;
-		align-items: baseline;
-		justify-content: flex-start;
+    align-items: normal;
+    justify-content: stretch;
 	}
 	&-skills-grid .heading {
 		margin-bottom: 1.5rem;
+	}
+	&-skills-box {
+    padding: 0 0 5rem;
+		display: block;
+	}
+	&-skills-box:last-of-type {		
+		position: relative;
+		perspective: 500px;
+	}
+	&-skills-box .box {
+		background-color: $colorPEARL;
+		width: 8vw;
+		height: 8vw;		
+    margin: .5rem;
+    display: inline-block;
+    transform: skew(-5deg, -5deg);
+    border-radius: .75rem;
+	}
+	&-projects-wrapper .heading {
+		margin-bottom: 1.5rem;
+	}
+	&-projects-grid {
+    min-height: 470px;
+		display: grid;
+		grid-template-columns: 2fr 1.5fr;
+    align-items: normal;
+    justify-content: stretch;
+	}
+	&-projects-box .list-wrapper ul {
+		list-style: none;
+	}
+	&-projects-box .list-wrapper ul a {
+		font-family: "Montserrat",arial,helvatica;
+		transition: .2s color ease-out;
+		text-decoration: none;
+		display: inline-block;
+		color: $PROtitle;
+		&:hover, 
+		&:focus {
+			color: $PROtitleHover;
+		}
+		span {
+			font-size: 1.15rem;
+			font-weight: 500;
+		}
+		h3 {
+			font-size: 5.5rem;
+			font-weight: 800;
+		}
+	}
+	&-projects-box:last-of-type {
+		display: block;
+		position: relative;
+	}
+	&-projects-box .project-card {
+		width: 305px;
+    height: 420px;
+    transform: skew(-9deg, -6deg) rotate(-16deg);
+    margin: 0rem 0.5rem 0 auto;
+    position: relative;
+    border-radius: 1.5rem;
+    background-color: $colorPEARL;
+    &-wrapper {
+			width: 300px;
+	    height: 410px;
+	    transform: skew(-8deg, -4deg);
+	    margin: 0rem 0.5rem 0 auto;
+	    position: absolute;
+	    top: 0.15rem;
+	    right: 0;
+	    border-radius: 1.5rem;
+	    background-color: darkgray;    	
+    }
 	}
 }
