@@ -1,7 +1,7 @@
 ---
 templateKey: home-template
 english:
-  tsheading: Technical skills
+  tsheading: "Technical skills:"
   pbtn: view my projects
   paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
     eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet,
@@ -23,7 +23,7 @@ english:
     eiusmod temaliqua, enim ad minim veniam
   psheading: "Featured projects:"
 french:
-  tsheading: Compétences techniques
+  tsheading: "Compétences techniques:"
   pbtn: voir mes projets
   paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
     eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet,
