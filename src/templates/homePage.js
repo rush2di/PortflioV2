@@ -2,6 +2,14 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 import { useLanguages, languageFilter, useThemes } from "../utils/utils"
+import reactIcon from "../assets/react.png"
+import reduxIcon from "../assets/redux.png"
+import sassIcon from "../assets/sass.png"
+import gitIcon from "../assets/git.png"
+import nodejsIcon from "../assets/nodejs.png"
+import npmIcon from "../assets/npm.png"
+import gulpIcon from "../assets/gulp.png"
+import fbIcon from "../assets/firebase.png"
 
 const HomePage = ({data}) => {
 	const { lang } = useLanguages()
@@ -32,23 +40,39 @@ const HomePage = ({data}) => {
 	    <div className="section-skills-wrapper">
 		    <div className="section-skills-grid">
 			    <div className="section-skills-box">
-			    	<h3 className="heading heading-sm">{tsheading}</h3>
+			    	<h3 className="heading heading-md">{tsheading}</h3>
 			    	<p>{tsparagraph}</p>	    	
 			    </div>
 			    <div className="section-skills-box">
-			    	<div className="box box-pf" />
-			    	<div className="box box-pf" />
-			    	<div className="box box-pf last" />
-			    	<div className="box box-pm" />
-			    	<div className="box box-pm last" />
-			    	<div className="box box-pl first" />
-			    	<div className="box box-pl" />
-			    	<div className="box box-pl last" />
+			    	<div className="box box-pf">
+			    		<img src={sassIcon} alt=""/>
+			    	</div>
+			    	<div className="box box-pf">
+			    		<img src={reduxIcon} alt=""/>
+			    	</div>
+			    	<div className="box box-pf last">
+			    		<img src={reactIcon} alt=""/>
+			    	</div>
+			    	<div className="box box-pm">
+			    		<img src={npmIcon} alt=""/>
+			    	</div>
+			    	<div className="box box-pm last">
+			    		<img src={gitIcon} alt=""/>
+			    	</div>
+			    	<div className="box box-pl first">
+			    		<img src={gulpIcon} alt=""/>
+			    	</div>
+			    	<div className="box box-pl">
+			    		<img src={fbIcon} alt=""/>
+			    	</div>
+			    	<div className="box box-pl last">
+			    		<img src={nodejsIcon} alt=""/>
+			    	</div>
 			    </div>
 		    </div>
 	    </div>	    
 	    <div className="section-projects-wrapper">
-	    	<h3 className="heading">{psheading}</h3>
+	    	<h3 className="heading heading-md">{psheading}</h3>
 	    	<ProjectsSection lang={lang}/>
 	    </div>
 	  </div>
@@ -107,7 +131,7 @@ const UImapper = ({data, lang}) => (
 		const { frontmatter } = items.node
 
 		const content = languageFilter(frontmatter, lang)
-		const index = ""+i+1
+		const index = "0" + (i+1).toString()
 
 		const { type } = content
 		const { title } = frontmatter
