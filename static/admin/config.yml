@@ -33,6 +33,8 @@ collections:
         - { label: "TS Title", name: "tsheading", widget: "string"}
         - { label: "TS Paragraph", name: "tsparagraph", widget: "text"}
         - { label: "PS Title", name: "psheading", widget: "string"}
+        - { label: "PBTN", name: "pbtn", widget: "string"}
+        - { label: "CBTN", name: "cbtn", widget: "string"}
       - name: "french"
         label: "French"
         widget: "object"
@@ -45,13 +47,15 @@ collections:
         - { label: "TS Title", name: "tsheading", widget: "string"}
         - { label: "TS Paragraph", name: "tsparagraph", widget: "text"}
         - { label: "PS Title", name: "psheading", widget: "string"}
+        - { label: "PBTN", name: "pbtn", widget: "string"}
+        - { label: "CBTN", name: "cbtn", widget: "string"}
 
   - name: "projects"
     label: "Projects"
     folder: "static/projects"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true
-    identifier_field: templateKey
+    identifier_field: title
     fields:
       - {
           name: "templateKey",
@@ -67,18 +71,24 @@ collections:
         collapsed: true
         fields:
         - { label: 'Intro', name: 'intro', widget: 'text' }
-        - { label: 'Type', name: 'type', widget: 'select', options: ['Personal project', 'Freelance project'] }
+        - { label: 'Type', name: 'type', widget: 'select', options: ['Personal project', 'Freelance project'] }        
+        - { label: 'Role', name: 'role', widget: 'select', options: ['development', 'design & development'] }
         - { label: 'Description', name: 'description', widget: 'text' }
         - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+        - { label: "DemoBTN", name: "demobtn", widget: "string"}
+        - { label: "GithubBTN", name: "githubtn", widget: "string"}
       - name: "french"
         label: "French"
         widget: "object"
         collapsed: true
         fields:
         - { label: 'Intro', name: 'intro', widget: 'text' }
-        - { label: 'Type', name: 'type', widget: 'select', options: ['Projet personnel', 'Projet freelance'] }
+        - { label: 'Type', name: 'type', widget: 'select', options: ['Projet personnel', 'Projet freelance'] }        
+        - { label: 'Role', name: 'role', widget: 'select', options: ['development', 'design et development'] }
         - { label: 'Description', name: 'description', widget: 'text' }
         - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+        - { label: "DemoBTN", name: "demobtn", widget: "string"}
+        - { label: "GithubBTN", name: "githubtn", widget: "string"}
 
   - name: "info"
     label: "Personal Information"
@@ -105,11 +115,13 @@ collections:
         collapsed: true
         fields:
         - { name: "aboutHead", label: "Heading", widget: "text" }
-        - { name: "aboutText", label: "Text", widget: "text" }
+        - { name: "aboutText", label: "Text", widget: "text" }        
+        - { name: "contactHead", label: "Contact Heading", widget: "text" }
       - name: "french"
         label: "French"
         widget: "object" 
         collapsed: true
         fields:
         - { name: "aboutHead", label: "Heading", widget: "text" }
-        - { name: "aboutText", label: "Text", widget: "text" }      
+        - { name: "aboutText", label: "Text", widget: "text" }  
+        - { name: "contactHead", label: "Contact Heading", widget: "text" }    
