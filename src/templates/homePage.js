@@ -38,13 +38,12 @@ const HomePage = ({data}) => {
 			    <div className="section-skills-box">
 			    	<div className="box box-pf" />
 			    	<div className="box box-pf" />
-			    	<div className="box box-pf" />
+			    	<div className="box box-pf last" />
 			    	<div className="box box-pm" />
-			    	<div className="box box-pm" />
-			    	<div className="box box-pm" />
+			    	<div className="box box-pm last" />
+			    	<div className="box box-pl first" />
 			    	<div className="box box-pl" />
-			    	<div className="box box-pl" />
-			    	<div className="box box-pl" />
+			    	<div className="box box-pl last" />
 			    </div>
 		    </div>
 	    </div>	    
@@ -52,7 +51,6 @@ const HomePage = ({data}) => {
 	    	<h3 className="heading">{psheading}</h3>
 	    	<ProjectsSection lang={lang}/>
 	    </div>
-	    <Link to="/page-2/">Go to page 2</Link>
 	  </div>
 	)
 }
