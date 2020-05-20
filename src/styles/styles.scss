@@ -17,12 +17,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@mixin cardScale($skewX: -1.5deg ,$scale: 1) {
+	transform: skew(-8deg, $skewX) scale($scale);
+}
+
 // Main layout styles ////////////////////////////////
 /////////////////////////////////////////////////////
 .container {
 	width: 1200px;
 	margin: auto;
 	padding: 0 3rem;
+	@media (max-width: 1200px) {
+		width: 100%;
+		margin: 0;
+		padding: 0 2rem;
+	}
 }
 
 .section {
@@ -77,9 +86,50 @@ body {
 	}
 }
 
+.footer {
+	&-head {
+		height: 100px;
+    width: 100%;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+	}
+	&-wrapper {
+		background-color: $footerBG;
+		position: relative;
+		width: 100%;
+		height: 100%
+	}
+	&-body {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+	}
+	&-body-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+    align-items: normal;
+    justify-content: stretch;
+	}
+	&-box p {
+		color: $paragraph;
+		font-family: "Source Sans Pro", arial, sans-serif;
+		line-height: 1.5;
+		font-weight: 500;		
+    font-size: $textSIZE;
+	}
+	&-box h3 {
+		margin-bottom: 1.5rem;
+	}
+}
+
 // Navbar styles ////////////////////////////////////
 ////////////////////////////////////////////////////
 .nav{
+	&--logo {
+		width: 35px;
+		a,img {
+			width: inherit;
+		}
+	}
 	&--wrapper {
 		position: relative;
 		height: 4rem;
@@ -135,7 +185,7 @@ body {
 	}
 	&-skills-wrapper {
 		margin: 0 0 4rem;		
-    padding-top: 2rem;
+    padding-top: 3rem;
 	}
 	&-skills-grid {
 		display: grid;
@@ -148,22 +198,67 @@ body {
 		margin-bottom: 1.5rem;
 	}
 	&-skills-box {
-    padding: 0 0 5rem;
+    padding: 0 4rem 5rem 0;
 		display: block;
+		margin-top: 4rem;
 	}
 	&-skills-box:last-of-type {		
 		position: relative;
 		perspective: 500px;
+		min-height: 350px;
+    margin: 2rem 0 0;
 	}
 	&-skills-box .box {
 		background-color: $colorPEARL;
-		width: 8vw;
+		width: 8.25vw;
 		height: 8vw;		
     margin: .5rem;
+    position: absolute;
     display: inline-block;
-    transform: skew(-5deg, -5deg);
     border-radius: .75rem;
 	}
+	&-skills-box .box-pf {    
+  	@include cardScale(-2.5deg);
+  	left: 28%;
+    top: 20%;
+		&:first-child {
+    	@include cardScale(-2.5deg, -0.8);
+    	top: 57%;
+    	left: 12%;
+    }
+  	&.last {  		
+    	@include cardScale($scale: 1.35);
+	    left: 58%;
+	    top: 0
+  	}
+  }
+  &-skills-box .box-pm {
+  	@include cardScale(-2.5deg, -0.7);
+  	left: 19%;
+    top: -16%;
+    opacity: 0.5;
+  	&.last {
+  		@include cardScale(-2deg, -0.7);
+  		left: 45%;
+    	top: 50%;
+  	}
+  }
+  &-skills-box .box-pl {
+  	@include cardScale(-3.5deg, -0.588);
+  	left: 7%;
+    top: 30%;
+    opacity: 0.15;
+    &.first {
+	  	@include cardScale(-3.5deg, -0.475);
+	  	left: 1%;
+    	top: -4%;
+    }
+    &.last {
+	  	@include cardScale(-2.5deg, -0.65);
+	  	left: 81%;
+    	top: 11%;   	
+    }
+  }
 	&-projects-wrapper .heading {
 		margin-bottom: 1.5rem;
 	}
