@@ -26,6 +26,9 @@ english:
 
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniam
+  role: design & development
+  demobtn: view demo
+  githubtn: view github repo
 french:
   title: Theke
   intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -49,4 +52,7 @@ french:
 
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniam
+  role: design et development
+  demobtn: voir le demo
+  githubtn: voir la repo github
 ---
