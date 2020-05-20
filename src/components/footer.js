@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { useLanguages, languageFilter } from "../utils/utils"
+import footerHead from "../assets/footerhead.svg"
 
 const Footer = () => {
 	const { lang } = useLanguages()
@@ -38,8 +39,21 @@ const Footer = () => {
 
 	return (
 		<footer>
-			<h3>{aboutHead}</h3>
-			<p>{aboutText}</p>
+      <div 
+        style={{backgroundImage: `url(${footerHead})`}}
+        className="footer-head"
+       />
+      <div className="footer-wrapper">
+        <div className="footer-body container">
+           <div className="footer-body-grid">
+             <div className="footer-box">
+                <h3 className="heading">{aboutHead}</h3>
+                <p>{aboutText}</p>
+             </div>
+             <div className="footer-box"></div>
+           </div>
+        </div>
+      </div>
 		</footer>
 		)
 }
