@@ -38,7 +38,7 @@ const Footer = () => {
  	const { frontmatter } = allMarkdownRemark.edges[0].node
 	const content = languageFilter(frontmatter, lang)
 
-	const { aboutHead, aboutText } = content
+	const { aboutHead, aboutText, contactHead } = content
 	const { github, linkedin, phone } = frontmatter
 
 	return (
@@ -68,7 +68,20 @@ const Footer = () => {
                   </div>
                 </div>
              </div>
-             <div className="footer-box"></div>
+             <div className="footer-box">
+               <h3 className="heading heading-md">{contactHead}</h3>
+               <form 
+               name="contact"
+               method="post"
+               data-netlify="true"
+               data-netlify-honeypot="bot-field"
+               >
+                 <input type="text" name="name" placeholder="Full Name" />
+                 <input type="email" name="email" placeholder="Email" />
+                 <textarea placeholder="Write your message here..." resize="false"/>
+                 <button type="submit">Send</button>
+               </form>
+             </div>
            </div>
         </div>
       </div>
