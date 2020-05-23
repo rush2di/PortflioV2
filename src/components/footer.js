@@ -23,10 +23,12 @@ const Footer = () => {
           english {
             aboutHead
             aboutText
+            contactHead
           }
           french {
             aboutHead
             aboutText
+            contactHead
           }
         }
       }
@@ -71,10 +73,10 @@ const Footer = () => {
              <div className="footer-box">
                <h3 className="heading heading-md">{contactHead}</h3>
                <form 
-               name="contact"
-               method="post"
-               data-netlify="true"
-               data-netlify-honeypot="bot-field"
+                 name="contact"
+                 method="post"
+                 data-netlify="true"
+                 data-netlify-honeypot="bot-field"
                >
                  <input type="text" name="name" placeholder="Full Name" />
                  <input type="email" name="email" placeholder="Email" />
