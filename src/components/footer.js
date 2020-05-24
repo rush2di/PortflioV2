@@ -7,6 +7,7 @@ import emailIcon from "../assets/email.png"
 import phoneIcon from "../assets/phone.png"
 import githubIcon from "../assets/github.png"
 import linkedinIcon from "../assets/linkedin.png"
+import Formy from "./form"
 
 const Footer = () => {
 	const { lang } = useLanguages()
@@ -72,17 +73,7 @@ const Footer = () => {
              </div>
              <div className="footer-box">
                <h3 className="heading heading-md">{contactHead}</h3>
-               <form 
-                 name="contact"
-                 method="post"
-                 data-netlify="true"
-                 data-netlify-honeypot="bot-field"
-               >
-                 <input type="text" name="name" placeholder="Full Name" />
-                 <input type="email" name="email" placeholder="Email" />
-                 <textarea placeholder="Write your message here..." resize="false"/>
-                 <button type="submit">Send</button>
-               </form>
+               <Formy />
              </div>
            </div>
         </div>
