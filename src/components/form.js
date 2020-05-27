@@ -2,10 +2,15 @@ import React from "react"
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-const Formy = ({ errors, touched, isSubmitting }) => {
-
-
-
+const Formy = ({ 
+  errors, 
+  touched, 
+  status,
+  isSubmitting,
+  handleSubmit 
+}) => {
+  console.log(status)
+  const isDirty = (errors.name || errors.email) || errors.message ? true : false
   return (
     <Form 
     className="form"
@@ -13,23 +18,24 @@ const Formy = ({ errors, touched, isSubmitting }) => {
     method="post"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
+    onSubmit={handleSubmit}
     >
-      <div>{touched.name && errors.name && <p className="notification">{errors.name}</p>}</div>
+      <div className="notification">{touched.name && errors.name && <p>{errors.name}</p>}</div>
       <Field 
         className="field"
         type="text" 
         name="name" 
         placeholder="Full Name" 
       />
-      <div>{touched.email && errors.email && <p className="notification">{errors.email}</p>}</div>
+      <div className="notification">{touched.email && errors.email && <p>{errors.email}</p>}</div>
       <Field 
         className="field"
         type="email" 
-        name="email" 
+        name="email"
         placeholder="Email"  
       />
-      <div>
-        {touched.message && errors.message && <p className="notification">{errors.message}</p>}
+      <div className="notification">
+        {touched.message && errors.message && <p>{errors.message}</p>}
       </div>
       <Field 
         className="field field-message"
@@ -38,8 +44,8 @@ const Formy = ({ errors, touched, isSubmitting }) => {
         type="text" 
         name="message"
       />
-      <button disabled={isSubmitting} type="submit">
-        Send
+      <button disabled={isDirty || isSubmitting} type="submit">
+        { isSubmitting ? "loading..." : "Send"}
       </button>
     </Form>
   );
@@ -54,21 +60,22 @@ const mapPropsToValues = ({ name, email, message }) => {
 };
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required("name is required"),
+  name: Yup.string()
+    .min(2, "too short!")
+    .required("required"),
   email: Yup.string()
     .email("not a valid email")
-    .required("email is required"),
-  message: Yup.string().required()
+    .required("required"),
+  message: Yup.string().min(4, "too short!").required()
 });
 
-const handleSubmit = (values, { resetForm, setSubmitting }) => {
+const handleSubmit = (values, { resetForm, setSubmitting, setStatus }) => {
   setTimeout(() => {
     if (values.message.length < 5 || values.message === "") {
       console.log(values.message);
-      alert("invalid message");
     } else {
-      console.log("submited");
       resetForm();
+      setStatus(false)
       setSubmitting(false);
     }
   }, 1500);
