@@ -32,15 +32,16 @@ body {
 .toast {
   &-info {
     background-color: #1c47ad;
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-family: $secFONT;
   }
   &-success {
     background-color: #03b84e;
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-family: $secFONT;
+    font-size: 1rem;
   }
   &-error {
     background-color: $colorRED;
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-family: $secFONT;
   }
 }
 
@@ -62,7 +63,7 @@ body {
   padding-bottom: 2rem;
   p {
     color: $paragraph;
-    font-family: "Source Sans Pro", arial, sans-serif;
+    font-family: $secFONT;
     line-height: 1.5;
     font-weight: 500;
     font-size: $textSIZE;
@@ -77,7 +78,7 @@ body {
   &-spans {
     color: $lightSPANS;
     transition: 0.2s all ease-out;
-    font-family: "Source Sans Pro", arial, sans-serif;
+    font-family: $secFONT;
     line-height: 1.5;
     font-weight: 500;
     font-size: $textSIZE;
@@ -92,7 +93,7 @@ body {
   &-spans {
     color: $darkSPANS;
     transition: 0.2s all ease-out;
-    font-family: "Source Sans Pro", arial, sans-serif;
+    font-family: $secFONT;
     line-height: 1.5;
     font-weight: 500;
     font-size: $textSIZE;
@@ -101,7 +102,7 @@ body {
 
 .heading {
   color: $colorPEARL;
-  font-family: "Montserrat", sans-serif, helvatica;
+  font-family: $primFONT;
   &-xl {
     font-size: 9.5vw;
     font-weight: 800;
@@ -143,7 +144,7 @@ body {
   }
   &-box p {
     color: $paragraph;
-    font-family: "Source Sans Pro", arial, sans-serif;
+    font-family: $secFONT;
     line-height: 1.5;
     font-weight: 500;
     font-size: $textSIZE;
@@ -168,17 +169,10 @@ body {
       text-decoration: none;
       color: $darkSPANS;
       margin-left: 1rem;
+      font-size: 0.95rem;
     }
     img {
       width: 28px;
-    }
-  }
-  &-box .form {
-    input::placeholder,
-    textarea::placeholder {
-      color: #353535;
-      font-size: 0.75rem;
-      font-family: "Source Sans Pro", Arial, Helvatica;
     }
   }
   &-box .form .notification p {
@@ -190,16 +184,16 @@ body {
     padding: 0.25rem;
     border-radius: 0.15rem;
     border: 0;
-    background-color: gray;
-    color: whitesmoke;
   }
   &-box .form .send-btn {
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
     cursor: pointer;
     width: 100%;
     height: 1.5rem;
     background-color: $colorPEARL;
+    transition: 0.2s all ease-out;
     border-radius: 0.15rem;
+    font-weight: 600;
     color: white;
     border: 0;
     &:hover,
@@ -214,12 +208,35 @@ body {
   }
   &-box .form textarea {
     width: 100%;
+    resize: vertical;
     padding: 0.25rem;
     min-height: 100px;
-    background-color: gray;
-    color: whitesmoke;
     border-radius: 0.15rem;
     border: 0;
+  }
+  &-box .form {
+    margin-top: -0.15rem;
+    input,
+    textarea {
+      outline: none;
+      transition: 0.2s all ease-out;
+      background-color: #444444;
+      font-family: $secFONT;
+      color: #efefef;
+      font-size: 0.95rem;
+    }
+    input::placeholder,
+    textarea::placeholder {
+      transition: 0.2s all ease-out;
+      color: #bbbbbb;
+      font-size: 0.85rem;
+      font-family: $secFONT;
+      font-weight: 400;
+    }
+    input:focus,
+    textarea:focus {
+      border-left: 2px solid $colorPEARL;
+    }
   }
 }
 
@@ -449,4 +466,9 @@ body {
       background-color: darkgray;
     }
   }
+}
+
+// Article Page styles //////////////////////////////
+////////////////////////////////////////////////////
+.section {
 }
