@@ -19,12 +19,7 @@ const Formy = ({ errors, touched, isSubmitting, handleSubmit }) => {
       <div className="notification">
         {touched.name && errors.name && <p>{errors.name}</p>}
       </div>
-      <Field
-        className="field"
-        type="text"
-        name="name"
-        placeholder="Full Name"
-      />
+      <Field className="field" type="text" name="name" placeholder="Fullname" />
       <div className="notification">
         {touched.email && errors.email && <p>{errors.email}</p>}
       </div>
@@ -69,7 +64,7 @@ const success = () =>
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(2, "too short!").required("required"),
   email: Yup.string().email("not a valid email").required("required"),
-  message: Yup.string().min(5, "too short!").required(),
+  message: Yup.string().min(5, "too short!").required("required"),
 })
 
 const handleSubmit = (values, { resetForm, setSubmitting, setStatus }) => {
