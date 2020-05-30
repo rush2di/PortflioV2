@@ -51,6 +51,7 @@ export const ThemeContextProvider = ({ children }) => {
 
   const backgroundStyle = isDark ? "dark-bg" : "light-bg"
   const textStyle = isDark ? "dark-spans" : "light-spans"
+  const btnStyle = isDark ? "dark-btn" : "light-btn"
   const logoStyle = isDark ? logoLight : logoDark
   const iconStyle = isDark ? moonIcon : sunIcon
 
@@ -62,6 +63,7 @@ export const ThemeContextProvider = ({ children }) => {
       value={{
         logoStyle,
         textStyle,
+        btnStyle,
         backgroundStyle,
         iconStyle,
         handleThemeToggle,
