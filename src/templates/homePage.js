@@ -2,6 +2,7 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 import { useLanguages, languageFilter, useThemes } from "../utils/utils"
+import Footer from "../components/footer"
 import reactIcon from "../assets/react.png"
 import reduxIcon from "../assets/redux.png"
 import sassIcon from "../assets/sass.png"
@@ -35,58 +36,61 @@ const HomePage = ({ data }) => {
   )
 
   return (
-    <div className="container">
-      <div className="section-hero-wrapper">
-        <div className="section-hero">
-          <h1 className="heading heading-xl">{titleFixer()}</h1>
-        </div>
-        <div className="section-hero-grid">
-          <span className={textStyle}>{speciality}</span>
-          <p>
-            <span className={textStyle}>{introduction} </span>
-            {paragraph}
-          </p>
-        </div>
-      </div>
-      <div className="section-skills-wrapper">
-        <div className="section-skills-grid">
-          <div className="section-skills-box">
-            <h3 className="heading heading-md">{tsheading}</h3>
-            <p>{tsparagraph}</p>
+    <React.Fragment>
+      <div className="container">
+        <div className="section-hero-wrapper">
+          <div className="section-hero">
+            <h1 className="heading heading-xl">{titleFixer()}</h1>
           </div>
-          <div className="section-skills-box">
-            <div className="box box-pf">
-              <img src={sassIcon} alt="" />
-            </div>
-            <div className="box box-pf">
-              <img src={reduxIcon} alt="" />
-            </div>
-            <div className="box box-pf last">
-              <img src={reactIcon} alt="" />
-            </div>
-            <div className="box box-pm">
-              <img src={npmIcon} alt="" />
-            </div>
-            <div className="box box-pm last">
-              <img src={gitIcon} alt="" />
-            </div>
-            <div className="box box-pl first">
-              <img src={gulpIcon} alt="" />
-            </div>
-            <div className="box box-pl">
-              <img src={fbIcon} alt="" />
-            </div>
-            <div className="box box-pl last">
-              <img src={nodejsIcon} alt="" />
-            </div>
+          <div className="section-hero-grid">
+            <span className={textStyle}>{speciality}</span>
+            <p>
+              <span className={textStyle}>{introduction} </span>
+              {paragraph}
+            </p>
           </div>
         </div>
+        <div className="section-skills-wrapper">
+          <div className="section-skills-grid">
+            <div className="section-skills-box">
+              <h3 className="heading heading-md">{tsheading}</h3>
+              <p>{tsparagraph}</p>
+            </div>
+            <div className="section-skills-box">
+              <div className="box box-pf">
+                <img src={sassIcon} alt="" />
+              </div>
+              <div className="box box-pf">
+                <img src={reduxIcon} alt="" />
+              </div>
+              <div className="box box-pf last">
+                <img src={reactIcon} alt="" />
+              </div>
+              <div className="box box-pm">
+                <img src={npmIcon} alt="" />
+              </div>
+              <div className="box box-pm last">
+                <img src={gitIcon} alt="" />
+              </div>
+              <div className="box box-pl first">
+                <img src={gulpIcon} alt="" />
+              </div>
+              <div className="box box-pl">
+                <img src={fbIcon} alt="" />
+              </div>
+              <div className="box box-pl last">
+                <img src={nodejsIcon} alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="section-projects-wrapper">
+          <h3 className="heading heading-md">{psheading}</h3>
+          <ProjectsSection lang={lang} />
+        </div>
       </div>
-      <div className="section-projects-wrapper">
-        <h3 className="heading heading-md">{psheading}</h3>
-        <ProjectsSection lang={lang} />
-      </div>
-    </div>
+      <Footer />
+    </React.Fragment>
   )
 }
 
