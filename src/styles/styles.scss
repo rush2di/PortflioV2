@@ -60,7 +60,6 @@ body {
 
 .section {
   min-height: calc(100vh - 4rem);
-  padding-bottom: 2rem;
   p {
     color: $paragraph;
     font-family: $secFONT;
@@ -68,6 +67,18 @@ body {
     font-weight: 500;
     font-size: $textSIZE;
   }
+}
+
+.btn {
+  height: 1.95rem;
+  width: 5rem;
+  border-radius: 0.25rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  transition: 0.2s all ease-out;
+  font-family: $secFONT;
+  border: 0;
+  cursor: pointer;
 }
 
 .light {
@@ -83,6 +94,14 @@ body {
     font-weight: 500;
     font-size: $textSIZE;
   }
+  &-btn {
+    background-color: $darkBG;
+    color: $lightBG;
+    &:hover,
+    &:focus {
+      background-color: #1a1a1a;
+    }
+  }
 }
 
 .dark {
@@ -97,6 +116,14 @@ body {
     line-height: 1.5;
     font-weight: 500;
     font-size: $textSIZE;
+  }
+  &-btn {
+    background-color: #4e4e4e;
+    color: #d4d4d4;
+    &:hover,
+    &:focus {
+      background-color: #3f3f3f;
+    }
   }
 }
 
@@ -125,6 +152,7 @@ body {
 
 .footer {
   &-head {
+    margin-top: 2rem;
     height: 100px;
     width: 100%;
     background-position: left bottom;
@@ -272,6 +300,7 @@ body {
     }
     &:first-child button {
       margin: 0 0.3rem;
+      padding: 1rem 0.5rem;
     }
     button {
       border: 0;
@@ -308,8 +337,8 @@ body {
     justify-content: stretch;
   }
   &-skills-wrapper {
-    margin: 0 0 4rem;
-    padding-top: 3rem;
+    margin: 0 0 5.5rem;
+    padding-top: 5.5rem;
   }
   &-skills-grid {
     display: grid;
@@ -441,7 +470,7 @@ body {
       text-transform: lowercase;
     }
     h3 {
-      font-size: 4.75rem;
+      font-size: 4.5rem;
       font-weight: 800;
       letter-spacing: -0.06rem;
     }
@@ -452,16 +481,16 @@ body {
     margin: 1rem 0 0;
   }
   &-projects-box .project-card {
-    width: 295px;
-    height: 410px;
+    width: 285px;
+    height: 400px;
     transform: skew(-9deg, -6deg) rotate(-16deg);
     margin: 0rem 0.5rem 0 auto;
     position: relative;
     border-radius: 1.5rem;
     background-color: $colorPEARL;
     &-wrapper {
-      width: 290px;
-      height: 400px;
+      width: 280px;
+      height: 390px;
       transform: skew(-8deg, -4deg);
       margin: 0rem 0.5rem 0 auto;
       position: absolute;
@@ -476,4 +505,59 @@ body {
 // Article Page styles //////////////////////////////
 ////////////////////////////////////////////////////
 .section {
+  .buttons-wrapper {
+    margin-top: 1.5rem;
+  }
+  .buttons-wrapper button:first-child {
+    margin-right: 1rem;
+  }
+  .scroll-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0 1.5rem;
+  }
+  .scroll-cta span {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: $primFONT;
+  }
+  .section-main-info .img-wrapper {
+    width: 100%;
+    min-height: 400px;
+    background-color: $footerBG;
+    display: flex;
+    align-items: center;
+    &:last-of-type {
+      justify-content: space-around;
+    }
+  }
+  .section-main-info .text-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 3rem 0;
+    width: 100%;
+  }
+  .section-main-info .text-content h3 {
+    justify-self: end;
+    width: 245px;
+    margin-right: 0.5rem;
+    text-align: end;
+    display: inline-block;
+    line-height: 1.4;
+    font-size: 1.25rem;
+    font-weight: 900;
+    font-family: $primFONT;
+  }
+  .section-main-info .text-content div {
+    width: 295px;
+    margin-top: 4rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    color: $paragraph;
+    white-space: pre-wrap;
+    text-align: justify;
+  }
 }
