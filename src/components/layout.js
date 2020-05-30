@@ -7,7 +7,6 @@ import {
   useThemes,
 } from "../utils/utils"
 import Header from "./header"
-import Footer from "./footer"
 import "../styles/styles.scss"
 
 const Layout = ({ children }) => {
@@ -31,7 +30,6 @@ const AppWrapper = ({ children }) => {
     <div className={backgroundStyle}>
       <Header />
       {children}
-      <Footer />
     </div>
   )
 }

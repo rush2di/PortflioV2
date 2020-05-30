@@ -57,7 +57,7 @@ const Footer = () => {
           <div className="footer-body-grid">
             <div className="footer-box">
               <h3 className="heading heading-md">{aboutHead}</h3>
-              <p>{aboutText}</p>
+              <p className="paragraph">{aboutText}</p>
               <div className="footer-box-subgrid">
                 <div className="contact-info">
                   <img src={githubIcon} alt="github" />
