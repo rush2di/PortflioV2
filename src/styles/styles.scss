@@ -81,6 +81,10 @@ body {
   cursor: pointer;
 }
 
+.extra-y-margins {
+  margin: 4rem 0 !important;
+}
+
 .light {
   &-bg {
     background-color: $lightBG;
@@ -359,12 +363,12 @@ body {
     position: relative;
     perspective: 500px;
     min-height: 350px;
-    margin: 2rem 0 0;
+    margin: 2rem 0 0 2rem;
   }
   &-skills-box .box {
     background-color: $colorPEARL;
-    width: 8.25vw;
-    height: 8vw;
+    width: 7.5vw;
+    height: 7.25vw;
     margin: 0.5rem;
     position: absolute;
     display: inline-block;
@@ -506,7 +510,7 @@ body {
 ////////////////////////////////////////////////////
 .section {
   .buttons-wrapper {
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
   }
   .buttons-wrapper button:first-child {
     margin-right: 1rem;
@@ -515,13 +519,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 0 1.5rem;
+    padding: 3.5rem 0 1rem;
   }
   .scroll-cta span {
     display: block;
-    font-size: 0.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
+    font-size: 0.825rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
     font-family: $primFONT;
   }
   .section-main-info .img-wrapper {
@@ -537,7 +541,7 @@ body {
   .section-main-info .text-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 3rem 0;
+    padding: 3rem 0;
     width: 100%;
   }
   .section-main-info .text-content h3 {
@@ -552,12 +556,11 @@ body {
     font-family: $primFONT;
   }
   .section-main-info .text-content div {
-    width: 295px;
+    width: 290px;
     margin-top: 4rem;
-    line-height: 1.5;
+    line-height: 1.6;
     font-size: 0.95rem;
     color: $paragraph;
     white-space: pre-wrap;
-    text-align: justify;
   }
 }
