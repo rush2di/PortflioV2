@@ -27,8 +27,8 @@ const ProjectsPage = ({ data }) => {
   return (
     <div className="section">
       <div className="container">
-        <div className="section-hero-wrapper">
-          <div className="section-hero">
+        <div className="section-hero-wrapper extra-y-margins">
+          <div className="section-hero extra-y-margins">
             <h3 className="heading heading-lg">{title}</h3>
           </div>
           <div className="section-hero-grid">
@@ -71,6 +71,7 @@ const ProjectsPage = ({ data }) => {
             <img src="#" alt="mobile-design" />
           </div>
         </div>
+        <MobileFirstInfo {...{ textStyle, lang }} />
       </div>
     </div>
   )
@@ -85,6 +86,25 @@ const ButtonsRenderer = ({ demo, github, styles }) => {
       <button className={`btn ${styles}`}>{demoTextLogic}</button>
       <button className={`btn ${styles}`}>{githubTextLogic}</button>
     </React.Fragment>
+  )
+}
+
+const MobileFirstInfo = ({ lang, textStyle }) => {
+  const heading =
+    lang === "english"
+      ? "A MOBILE FRIENDLY APPROACH"
+      : "UNE APPROCHE MOBILE FIRST"
+  const paragraph =
+    lang === "english"
+      ? "In todays digital age, users expect every website to have a mobile version. So companies and developers must try to produce the same if not better experience for users interacting with their site on a mobile device. This project helped me understand how a professional team translates a desktop site into a mobile device."
+      : "L'internet dernièrement a été marqué par la forte croissance des populations mobinautes et tablonautes, donc l’importance des mobiles et des tablettes n’est plus à démontrer et les utilisateurs maintenet s'attendent toujours que chaque site Web ait un fonctionnement optimaux et compaptible en version mobile. Les entreprises et les développeurs doivent donc essayer de produire la même ou sinon une meilleure expérience pour ces utilisateurs. Ce projet m'a aidé à comprendre comment une équipe professionnelle se focalise sur l’essentiel utilisation mobile et simplifie la navigation au maximum."
+  return (
+    <div className="container">
+      <div className="text-content">
+        <h3 className={textStyle}>{heading}</h3>
+        <div>{paragraph}</div>
+      </div>
+    </div>
   )
 }
 

@@ -2,7 +2,7 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 import { useLanguages, languageFilter, useThemes } from "../utils/utils"
-import Footer from "../components/footer"
+import HomeFooter from "../components/homeFooter"
 import reactIcon from "../assets/react.png"
 import reduxIcon from "../assets/redux.png"
 import sassIcon from "../assets/sass.png"
@@ -89,7 +89,7 @@ const HomePage = ({ data }) => {
           <ProjectsSection lang={lang} />
         </div>
       </div>
-      <Footer />
+      <HomeFooter />
     </React.Fragment>
   )
 }
