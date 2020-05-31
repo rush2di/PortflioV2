@@ -3,13 +3,13 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { useLanguages, languageFilter } from "../utils/utils"
 import footerHead from "../assets/footerhead.svg"
-import emailIcon from "../assets/email.png"
+// import emailIcon from "../assets/email.png"
 import phoneIcon from "../assets/phone.png"
 import githubIcon from "../assets/github.png"
 import linkedinIcon from "../assets/linkedin.png"
 import Formy from "./form"
 
-const Footer = () => {
+const HomeFooter = () => {
   const { lang } = useLanguages()
   const { allMarkdownRemark } = useStaticQuery(graphql`
     {
@@ -84,4 +84,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default HomeFooter
