@@ -11,8 +11,7 @@ const Formy = ({ errors, touched, isSubmitting, handleSubmit }) => {
     <Form
       className="form"
       name="contact"
-      method="POST"
-      data-netlify="true"
+      data-netlify={true}
       data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
     >
@@ -47,6 +46,27 @@ const Formy = ({ errors, touched, isSubmitting, handleSubmit }) => {
   )
 }
 
+// helper function to encode the form into a compatible with netlify forms format
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
+// react-toastify notifications
+const successNotification = () =>
+  toast("email succesfully sent", {
+    type: "success",
+    className: "toast-success",
+  })
+
+const errorNotification = () =>
+  toast("something went wrong", {
+    type: "error",
+    className: "toast-error",
+  })
+
+// props to values mapper function for formik HOC
 const mapPropsToValues = ({ name, email, message }) => {
   return {
     name: name || "",
@@ -55,24 +75,28 @@ const mapPropsToValues = ({ name, email, message }) => {
   }
 }
 
-const success = () =>
-  toast("email succesfully sent", {
-    type: "success",
-    className: "toast-success",
-  })
-
+// formik validation schema for fomik HOC
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(2, "too short!").required("required"),
   email: Yup.string().email("not a valid email").required("required"),
   message: Yup.string().min(5, "too short!").required("required"),
 })
 
-const handleSubmit = (values, { resetForm, setSubmitting, setStatus }) => {
-  setTimeout(() => {
-    success()
-    resetForm()
-    setSubmitting(false)
-  }, 1500)
+// form submit handler function for formik HOC
+const handleSubmit = (values, { resetForm, setSubmitting }) => {
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({ "form-name": "contact", ...values }),
+  })
+    .then(() => {
+      successNotification()
+      resetForm()
+    })
+    .catch(() => {
+      errorNotification()
+    })
+    .finally(() => setSubmitting(false))
 }
 
 export default withFormik({
