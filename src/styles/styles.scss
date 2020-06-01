@@ -21,6 +21,7 @@ body {
   display: flex;
   height: 1.5rem;
   align-items: center;
+  font-size: 1rem;
 }
 
 @mixin cardScale($skewX: -1.5deg, $scale: 1) {
@@ -37,7 +38,6 @@ body {
   &-success {
     background-color: #03b84e;
     font-family: $secFONT;
-    font-size: 1rem;
   }
   &-error {
     background-color: $colorRED;
