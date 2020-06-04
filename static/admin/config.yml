@@ -26,29 +26,29 @@ collections:
         widget: "object"
         collapsed: true
         fields:
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Introduction", name: "introduction", widget: "text" }
-        - { label: "Paragraph", name: "paragraph", widget: "text"}
-        - { label: "Speciality", name: "speciality", widget: "string" }
-        - { label: "TS Title", name: "tsheading", widget: "string"}
-        - { label: "TS Paragraph", name: "tsparagraph", widget: "text"}
-        - { label: "PS Title", name: "psheading", widget: "string"}
-        - { label: "PBTN", name: "pbtn", widget: "string"}
-        - { label: "CBTN", name: "cbtn", widget: "string"}
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Introduction", name: "introduction", widget: "text" }
+          - { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "Speciality", name: "speciality", widget: "string" }
+          - { label: "TS Title", name: "tsheading", widget: "string" }
+          - { label: "TS Paragraph", name: "tsparagraph", widget: "text" }
+          - { label: "PS Title", name: "psheading", widget: "string" }
+          - { label: "PBTN", name: "pbtn", widget: "string" }
+          - { label: "CBTN", name: "cbtn", widget: "string" }
       - name: "french"
         label: "French"
         widget: "object"
         collapsed: true
         fields:
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Introduction", name: "introduction", widget: "text" }
-        - { label: "Paragraph", name: "paragraph", widget: "text"}
-        - { label: "Speciality", name: "speciality", widget: "string" }
-        - { label: "TS Title", name: "tsheading", widget: "string"}
-        - { label: "TS Paragraph", name: "tsparagraph", widget: "text"}
-        - { label: "PS Title", name: "psheading", widget: "string"}
-        - { label: "PBTN", name: "pbtn", widget: "string"}
-        - { label: "CBTN", name: "cbtn", widget: "string"}
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Introduction", name: "introduction", widget: "text" }
+          - { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "Speciality", name: "speciality", widget: "string" }
+          - { label: "TS Title", name: "tsheading", widget: "string" }
+          - { label: "TS Paragraph", name: "tsparagraph", widget: "text" }
+          - { label: "PS Title", name: "psheading", widget: "string" }
+          - { label: "PBTN", name: "pbtn", widget: "string" }
+          - { label: "CBTN", name: "cbtn", widget: "string" }
 
   - name: "projects"
     label: "Projects"
@@ -64,31 +64,56 @@ collections:
           default: "projects-template",
         }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Stack", name: "Stack", widget: "list" }
+      - { label: "Cover", name: "cover", widget: "Image" }
+      - { label: "Screenshot", name: "screenshot", widget: "Image" }
+      - { label: "Laptop", name: "laptop", widget: "Image" }
+      - { label: "Mobile", name: "mobile", widget: "Image" }
       - name: "english"
         label: "English"
         widget: "object"
         collapsed: true
         fields:
-        - { label: 'Intro', name: 'intro', widget: 'text' }
-        - { label: 'Type', name: 'type', widget: 'select', options: ['Personal project', 'Freelance project'] }        
-        - { label: 'Role', name: 'role', widget: 'select', options: ['development', 'design & development'] }
-        - { label: 'Description', name: 'description', widget: 'text' }
-        - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-        - { label: "DemoBTN", name: "demobtn", widget: "string"}
-        - { label: "GithubBTN", name: "githubtn", widget: "string"}
+          - { label: "Intro", name: "intro", widget: "text" }
+          - {
+              label: "Type",
+              name: "type",
+              widget: "select",
+              options: ["Personal project", "Freelance project"],
+            }
+          - {
+              label: "Role",
+              name: "role",
+              widget: "select",
+              options: ["development", "design & development"],
+            }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Markdown", name: "markdown", widget: "markdown" }
+          - { label: "DemoBTN", name: "demobtn", widget: "string" }
+          - { label: "GithubBTN", name: "githubtn", widget: "string" }
       - name: "french"
         label: "French"
         widget: "object"
         collapsed: true
         fields:
-        - { label: 'Intro', name: 'intro', widget: 'text' }
-        - { label: 'Type', name: 'type', widget: 'select', options: ['Projet personnel', 'Projet freelance'] }        
-        - { label: 'Role', name: 'role', widget: 'select', options: ['development', 'design et development'] }
-        - { label: 'Description', name: 'description', widget: 'text' }
-        - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-        - { label: "DemoBTN", name: "demobtn", widget: "string"}
-        - { label: "GithubBTN", name: "githubtn", widget: "string"}
+          - { label: "Intro", name: "intro", widget: "text" }
+          - {
+              label: "Type",
+              name: "type",
+              widget: "select",
+              options: ["Projet personnel", "Projet freelance"],
+            }
+          - {
+              label: "Role",
+              name: "role",
+              widget: "select",
+              options: ["development", "design et development"],
+            }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Markdown", name: "markdown", widget: "markdown" }
+          - { label: "DemoBTN", name: "demobtn", widget: "string" }
+          - { label: "GithubBTN", name: "githubtn", widget: "string" }
 
   - name: "info"
     label: "Personal Information"
@@ -96,7 +121,7 @@ collections:
     slug: "personal-information"
     create: true
     identifier_field: templateKey
-    editor: 
+    editor:
       preview: false
     fields:
       - {
@@ -104,24 +129,24 @@ collections:
           label: "Template Key",
           widget: "hidden",
           default: "personal-information",
-        }    
+        }
       - { name: "github", label: "Github", widget: "text" }
-      - { name: "linkedin", label: "Linkedin", widget: "text" }        
+      - { name: "linkedin", label: "Linkedin", widget: "text" }
       - { name: "email", label: "Email", widget: "text" }
       - { name: "phone", label: "Phone", widget: "text" }
       - name: "english"
         label: "English"
-        widget: "object" 
+        widget: "object"
         collapsed: true
         fields:
-        - { name: "aboutHead", label: "Heading", widget: "text" }
-        - { name: "aboutText", label: "Text", widget: "text" }        
-        - { name: "contactHead", label: "Contact Heading", widget: "text" }
+          - { name: "aboutHead", label: "Heading", widget: "text" }
+          - { name: "aboutText", label: "Text", widget: "text" }
+          - { name: "contactHead", label: "Contact Heading", widget: "text" }
       - name: "french"
         label: "French"
-        widget: "object" 
+        widget: "object"
         collapsed: true
         fields:
-        - { name: "aboutHead", label: "Heading", widget: "text" }
-        - { name: "aboutText", label: "Text", widget: "text" }  
-        - { name: "contactHead", label: "Contact Heading", widget: "text" }    
+          - { name: "aboutHead", label: "Heading", widget: "text" }
+          - { name: "aboutText", label: "Text", widget: "text" }
+          - { name: "contactHead", label: "Contact Heading", widget: "text" }
