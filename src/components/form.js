@@ -46,8 +46,8 @@ const Formy = ({ errors, touched, isSubmitting, handleSubmit }) => {
   )
 }
 
-// helper function to encode the form into a compatible with netlify forms format
-const encode = data => {
+// helper function to encode the form values into query fors netlify-forms
+const encodeFormValuesToQuery = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&")
@@ -87,7 +87,7 @@ const handleSubmit = (values, { resetForm, setSubmitting }) => {
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode({ "form-name": "contact", ...values }),
+    body: encodeFormValuesToQuery({ "form-name": "contact", ...values }),
   })
     .then(() => {
       successNotification()
