@@ -7,11 +7,12 @@ import {
   useThemes,
   useScreenSpy,
 } from "../utils/utils"
+import ProjectFooter from "../components/projectFooter"
 
 const ProjectsPage = ({ data }) => {
   const { textStyle, btnStyle } = useThemes()
   const { lang } = useLanguages()
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter, id } = data.markdownRemark
   const content = languageFilter(frontmatter, lang)
 
   const { description, intro, type, markdown, demobtn, githubtn } = content
@@ -23,8 +24,9 @@ const ProjectsPage = ({ data }) => {
   const headingTest = "THE TECH BEHIND THE WEBSITE"
   // include tech stack in CMS
 
-  console.log(data)
+  console.log(id)
   return (
+    <React.Fragment>
     <div className="section">
       <div className="container">
         <div className="section-hero-wrapper extra-y-margins">
@@ -74,6 +76,8 @@ const ProjectsPage = ({ data }) => {
         <MobileFirstInfo {...{ textStyle, lang }} />
       </div>
     </div>
+    <ProjectFooter targetId={id}/>
+    </React.Fragment>
   )
 }
 
