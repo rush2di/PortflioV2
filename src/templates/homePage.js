@@ -123,7 +123,7 @@ const ProjectsSection = ({ lang }) => {
       }
     }
   `)
-  console.log(allMarkdownRemark)
+
   return (
     <div className="section-projects-grid">
       <div className="section-projects-box">
@@ -156,7 +156,7 @@ const UImapper = ({ data, lang }) =>
 
     return (
       <li key={title + index}>
-        <Link to={`projects/${slug}`}>
+        <Link to={`/projects${slug}`}>
           <div>
             <span>{index}</span>
             <h3>{title}</h3>
