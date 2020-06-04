@@ -61,11 +61,15 @@ const HomeFooter = () => {
               <div className="footer-box-subgrid">
                 <div className="contact-info">
                   <img src={githubIcon} alt="github" />
-                  <a href={github}>Github</a>
+                  <a href={`http://${github}`} target="_blank">
+                    Github
+                  </a>
                 </div>
                 <div className="contact-info">
                   <img src={linkedinIcon} alt="linkedin" />
-                  <a href={linkedin}>Linkedin</a>
+                  <a href={`http://${linkedin}`} target="_blank">
+                    Linkedin
+                  </a>
                 </div>
                 <div className="contact-info">
                   <img src={phoneIcon} alt="phone" />
