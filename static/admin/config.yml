@@ -68,10 +68,10 @@ collections:
       - { label: "Github Link", name: "glink", widget: "string" }
       - { label: "Demo Link", name: "dlink", widget: "string" }
       - { label: "Stack", name: "Stack", widget: "list" }
-      - { label: "Cover", name: "cover", widget: "Image" }
-      - { label: "Screenshot", name: "screenshot", widget: "Image" }
-      - { label: "Laptop", name: "laptop", widget: "Image" }
-      - { label: "Mobile", name: "mobile", widget: "Image" }
+      - { label: "Cover", name: "cover", widget: "image" }
+      - { label: "Screenshot", name: "screenshot", widget: "image" }
+      - { label: "Laptop", name: "laptop", widget: "image" }
+      - { label: "Mobile", name: "mobile", widget: "image" }
       - name: "english"
         label: "English"
         widget: "object"
