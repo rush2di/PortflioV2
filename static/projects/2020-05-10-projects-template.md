@@ -1,6 +1,6 @@
 ---
 templateKey: projects-template
-date: 2020-05-10T18:15:37.680Z
+date: 2020-01-25T19:15:37.680Z
 title: Theke
 glink: https://github.com/rush2di/theke-v1
 dlink: https://theke.netlify.com/
