@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useRef,
-  useEffect,
-  useState,
-} from "react"
+import React, { createContext, useContext, useEffect, useState } from "react"
 
 import logoLight from "../assets/logo-light.svg"
 import logoDark from "../assets/logo-dark.svg"
