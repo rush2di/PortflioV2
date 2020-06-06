@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import gsap from "gsap"
 
 import { useLanguages, languageFilter, useThemes } from "../utils/utils"
+import Image from "../components/image"
 import HomeFooter from "../components/homeFooter"
 import reactIcon from "../assets/react.png"
 import reduxIcon from "../assets/redux.png"
@@ -95,6 +97,34 @@ const HomePage = ({ data }) => {
 }
 
 const ProjectsSection = ({ lang }) => {
+  const [projectIndex, setProjectIndex] = useState(0)
+
+  // const gsapDefaults = { duration: 0.25, ease: "power3.out" }
+  // const animations = params => params.play()
+
+  // useEffect(() => {
+  //   const initialState = gsap
+  //     .timeline({ gsapDefaults })
+  //     .from(".gatsby-image-wrapper", { opacity: 0 })
+
+  //   const fadeIn = gsap
+  //     .timeline({ gsapDefaults })
+  //     .to(".gatsby-image-wrapper", { opacity: 1 })
+
+  //   animations(initialState.add(fadeIn))
+  // }, [projectIndex])
+
+  const indexRetriever = index => {
+    // const onComplete = () => {
+    setProjectIndex(index)
+    // }
+    // const fadeOut = gsap
+    //   .timeline({ gsapDefaults, onComplete })
+    //   .to(".gatsby-image-wrapper", { opacity: 0 })
+
+    // animations(fadeOut)
+  }
+
   const { allMarkdownRemark } = useStaticQuery(graphql`
     {
       allMarkdownRemark(
@@ -109,6 +139,14 @@ const ProjectsSection = ({ lang }) => {
             frontmatter {
               title
               date
+              cover {
+                childImageSharp {
+                  fluid(maxWidth: 800, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+                publicURL
+              }
               english {
                 intro
                 type
@@ -124,26 +162,41 @@ const ProjectsSection = ({ lang }) => {
     }
   `)
 
+  console.log("rendered")
   return (
     <div className="section-projects-grid">
       <div className="section-projects-box">
         <div className="list-wrapper">
           <ul>
-            <UImapper data={allMarkdownRemark} lang={lang} />
+            <UImapper
+              data={allMarkdownRemark}
+              lang={lang}
+              indexRetriever={indexRetriever}
+              projectIndex={projectIndex}
+            />
           </ul>
         </div>
       </div>
       <div className="section-projects-box">
         <div className="project-card" />
         <div className="project-card-wrapper">
-          <div className="project-card-image"></div>
+          <div className="project-card-image">
+            <Image
+              image={
+                allMarkdownRemark.edges[projectIndex].node.frontmatter.cover
+              }
+              costumClass="gatsby-image-wrapper"
+            />
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-const UImapper = ({ data, lang }) =>
+const ProjectIndexer = () => {}
+
+const UImapper = ({ data, lang, indexRetriever, projectIndex }) =>
   data.edges.map((items, i) => {
     const { slug } = items.node.fields
     const { frontmatter } = items.node
@@ -156,7 +209,12 @@ const UImapper = ({ data, lang }) =>
 
     return (
       <li key={title + index}>
-        <Link to={`/projects${slug}`}>
+        <Link
+          to={`/projects${slug}`}
+          onMouseOver={() => {
+            projectIndex !== i && indexRetriever(i)
+          }}
+        >
           <div>
             <span>{index}</span>
             <h3>{title}</h3>
@@ -166,5 +224,12 @@ const UImapper = ({ data, lang }) =>
       </li>
     )
   })
+
+// const ImageResolver = ({ image }) =>
+//   !!image && !!image.childImageSharp ? (
+//     <Img fluid={image.childImageSharp.fluid} alt="cover" />
+//   ) : (
+//     <img src={image.publicURL} alt="cover" className="gatsby-image-wrapper" />
+//   )
 
 export default HomePage
