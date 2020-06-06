@@ -99,30 +99,21 @@ const HomePage = ({ data }) => {
 const ProjectsSection = ({ lang }) => {
   const [projectIndex, setProjectIndex] = useState(0)
 
-  // const gsapDefaults = { duration: 0.25, ease: "power3.out" }
-  // const animations = params => params.play()
+  const defaults = { duration: 0.25, ease: "power3.out" }
+  const animations = params => params.play()
 
-  // useEffect(() => {
-  //   const initialState = gsap
-  //     .timeline({ gsapDefaults })
-  //     .from(".gatsby-image-wrapper", { opacity: 0 })
-
-  //   const fadeIn = gsap
-  //     .timeline({ gsapDefaults })
-  //     .to(".gatsby-image-wrapper", { opacity: 1 })
-
-  //   animations(initialState.add(fadeIn))
-  // }, [projectIndex])
+  const indexSetter = index => setProjectIndex(index)
 
   const indexRetriever = index => {
-    // const onComplete = () => {
-    setProjectIndex(index)
-    // }
-    // const fadeOut = gsap
-    //   .timeline({ gsapDefaults, onComplete })
-    //   .to(".gatsby-image-wrapper", { opacity: 0 })
+    const onStart = () => indexSetter(index)
+    const fadeOut = gsap
+      .timeline({ defaults })
+      .to(".gatsby-image-wrapper", { opacity: 0 })
+    const fadeIn = gsap
+      .timeline({ onStart, defaults })
+      .to(".gatsby-image-wrapper", { opacity: 1 })
 
-    // animations(fadeOut)
+    animations(fadeOut.add(fadeIn))
   }
 
   const { allMarkdownRemark } = useStaticQuery(graphql`
@@ -162,7 +153,6 @@ const ProjectsSection = ({ lang }) => {
     }
   `)
 
-  console.log("rendered")
   return (
     <div className="section-projects-grid">
       <div className="section-projects-box">
@@ -194,8 +184,6 @@ const ProjectsSection = ({ lang }) => {
   )
 }
 
-const ProjectIndexer = () => {}
-
 const UImapper = ({ data, lang, indexRetriever, projectIndex }) =>
   data.edges.map((items, i) => {
     const { slug } = items.node.fields
@@ -224,12 +212,5 @@ const UImapper = ({ data, lang, indexRetriever, projectIndex }) =>
       </li>
     )
   })
-
-// const ImageResolver = ({ image }) =>
-//   !!image && !!image.childImageSharp ? (
-//     <Img fluid={image.childImageSharp.fluid} alt="cover" />
-//   ) : (
-//     <img src={image.publicURL} alt="cover" className="gatsby-image-wrapper" />
-//   )
 
 export default HomePage

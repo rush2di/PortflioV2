@@ -542,7 +542,7 @@ body {
   &-projects-box:last-of-type {
     display: block;
     position: relative;
-    margin: 1rem 0 0;
+    margin: 2.5rem 0 0;
   }
   &-projects-box .project-card {
     width: 285px;
@@ -561,7 +561,7 @@ body {
       top: 0.15rem;
       right: 0;
       border-radius: 1.5rem;
-      background-color: darkgray;
+      background-color: #3f3f3f;
     }
     &-image {
       overflow: hidden;
@@ -571,6 +571,7 @@ body {
       border-radius: 1.5rem;
       height: 100%;
       width: 100%;
+      box-shadow: 0px 7px 20px 2px #0000006e;
     }
     &-image .gatsby-image-wrapper {
       width: 119%;
