@@ -10,8 +10,8 @@ Stack:
   - Axios
 cover: /images/dribbble-shot-hd-1-3-.jpg
 screenshot: /images/fireshot-capture-005-patagonia-surfboards-patagonia-surfboards.netlify.app.png
-laptop: /images/fireshot-capture-008-patagonia-surfboards-patagonia-surfboards.netlify.app.png
-mobile: /images/fireshot-capture-006-patagonia-surfboards-patagonia-surfboards.netlify.app.png
+laptop: /images/fireshot-capture-015-patagonia-surfboards-patagonia-surfboards.netlify.app.png
+mobile: /images/fireshot-capture-014-patagonia-surfboards-patagonia-surfboards.netlify.app.png
 english:
   title: Theke
   intro: Ecommerce website
