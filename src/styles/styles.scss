@@ -48,10 +48,10 @@ body {
 // Main layout styles ////////////////////////////////
 /////////////////////////////////////////////////////
 .container {
-  width: 1200px;
+  width: 1150px;
   margin: auto;
   padding: 0 3rem;
-  @media (max-width: 1200px) {
+  @media (max-width: 1150px) {
     width: 100%;
     margin: 0;
     padding: 0 2rem;
@@ -135,7 +135,7 @@ body {
   color: $colorPEARL;
   font-family: $primFONT;
   &-xl {
-    font-size: 9.5vw;
+    font-size: 9vw;
     font-weight: 800;
     letter-spacing: -0.05rem;
   }
@@ -317,6 +317,10 @@ body {
   &-box a:first-child {
     text-transform: uppercase;
   }
+  &-box:last-of-type a:last-of-type {
+    text-decoration: none;
+    margin-top: 2rem;
+  }
   &-box a h3 {
     font-family: $primFONT;
     transition: 0.2s color ease-out;
@@ -326,6 +330,11 @@ body {
     font-weight: 800;
     margin-top: 1rem;
     letter-spacing: -0.06rem;
+  }
+  &-box .flex-footer {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
   }
 }
 
@@ -508,6 +517,7 @@ body {
     text-decoration: none;
     display: inline-block;
     color: $PROtitle;
+    margin-bottom: 1rem;
     &:hover,
     &:focus {
       color: $PROtitleHover;
@@ -520,13 +530,11 @@ body {
     }
     span:last-of-type {
       display: block;
-      margin-top: 0.5rem;
-      margin-bottom: 0;
       font-size: 0.95rem;
       text-transform: lowercase;
     }
     h3 {
-      font-size: 4.5rem;
+      font-size: 3.75rem;
       font-weight: 800;
       letter-spacing: -0.06rem;
     }
@@ -555,10 +563,27 @@ body {
       border-radius: 1.5rem;
       background-color: darkgray;
     }
+    &-image {
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 1.5rem;
+      height: 100%;
+      width: 100%;
+    }
+    &-image .gatsby-image-wrapper {
+      width: 119%;
+      height: 106%;
+      top: -13px;
+      left: -28px;
+      position: absolute;
+      transform: rotate(2deg) skew(10deg, 2deg);
+    }
   }
 }
 
-// Article Page styles //////////////////////////////
+// Project Page styles //////////////////////////////
 ////////////////////////////////////////////////////
 .section {
   .buttons-wrapper {
@@ -586,8 +611,31 @@ body {
     background-color: $footerBG;
     display: flex;
     align-items: center;
-    &:last-of-type {
-      justify-content: space-around;
+    &:first-of-type {
+      border-top: 2rem solid #212121;
+      border-bottom: 2rem solid #212121;
+      overflow: overlay;
+    }
+    .img-container-screen {
+      max-width: 50%;
+      margin: 0 auto;
+      max-height: 450px;
+    }
+    .img-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      align-items: center;
+      justify-content: center;
+    }
+    .img-container {
+      max-width: 670px;
+      margin: 2rem auto;
+      width: 100%;
+      height: inherit;
+    }
+    .img-container:last-of-type {
+      max-width: 200px;
+      width: 59%;
     }
   }
   .section-main-info .text-content {
