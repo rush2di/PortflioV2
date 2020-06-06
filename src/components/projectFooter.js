@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-import { useLanguages } from "../utils/utils"
+import { useLanguages, languageFilter } from "../utils/utils"
 
 const ProjectFooter = ({ targetId }) => {
   const { lang } = useLanguages()
@@ -20,12 +20,19 @@ const ProjectFooter = ({ targetId }) => {
             frontmatter {
               title
               date
+              english {
+                intro
+              }
+              french {
+                intro
+              }
             }
           }
         }
       }
     }
   `)
+
   const data = allMarkdownRemark.edges
   const indexer = nextProjectIndex(data, targetId)
   const backToHomeText =
@@ -43,12 +50,33 @@ const ProjectFooter = ({ targetId }) => {
           </div>
           <div className="project-footer-box">
             {indexer < data.length && (
-              <NextProjectUI {...{ data, indexer, nextProjectText }} />
+              <NextProjectUI {...{ data, indexer, nextProjectText, lang }} />
             )}
           </div>
         </div>
       </div>
     </div>
+  )
+}
+
+const NextProjectUI = ({ indexer, data, nextProjectText, lang }) => {
+  const content = languageFilter(data[indexer].node.frontmatter, lang)
+  const { intro } = content
+
+  return (
+    <React.Fragment>
+      <Link to={`/projects${data[indexer].node.fields.slug}`}>
+        {nextProjectText}
+      </Link>
+      <Link to={`/projects${data[indexer].node.fields.slug}`}>
+        <div className="flex-footer">
+          <h3 className="footer-title">
+            {data[indexer].node.frontmatter.title}
+          </h3>
+          <span>{intro}</span>
+        </div>
+      </Link>
+    </React.Fragment>
   )
 }
 
@@ -59,16 +87,5 @@ const nextProjectIndex = (data, targetId) => {
   })
   return index
 }
-
-const NextProjectUI = ({ indexer, data, nextProjectText }) => (
-  <React.Fragment>
-    <Link to={`/projects${data[indexer].node.fields.slug}`}>
-      {nextProjectText}
-    </Link>
-    <Link to={`/projects${data[indexer].node.fields.slug}`}>
-      <h3 className="footer-title">{data[indexer].node.frontmatter.title}</h3>
-    </Link>
-  </React.Fragment>
-)
 
 export default ProjectFooter

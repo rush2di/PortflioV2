@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { useLanguages, languageFilter } from "../utils/utils"
 import footerHead from "../assets/footerhead.svg"
-// import emailIcon from "../assets/email.png"
+import emailIcon from "../assets/email.png"
 import phoneIcon from "../assets/phone.png"
 import githubIcon from "../assets/github.png"
 import linkedinIcon from "../assets/linkedin.png"
@@ -44,7 +44,7 @@ const HomeFooter = () => {
   const content = languageFilter(frontmatter, lang)
 
   const { aboutHead, aboutText, contactHead } = content
-  const { github, linkedin, phone } = frontmatter
+  const { github, linkedin, phone, email } = frontmatter
 
   return (
     <footer>
@@ -61,19 +61,31 @@ const HomeFooter = () => {
               <div className="footer-box-subgrid">
                 <div className="contact-info">
                   <img src={githubIcon} alt="github" />
-                  <a href={`http://${github}`} target="_blank">
+                  <a
+                    href={`http://${github}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Github
                   </a>
                 </div>
                 <div className="contact-info">
                   <img src={linkedinIcon} alt="linkedin" />
-                  <a href={`http://${linkedin}`} target="_blank">
+                  <a
+                    href={`http://${linkedin}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Linkedin
                   </a>
                 </div>
                 <div className="contact-info">
                   <img src={phoneIcon} alt="phone" />
                   <span className="dark-spans">{phone}</span>
+                </div>
+                <div className="contact-info">
+                  <img src={emailIcon} alt="phone" />
+                  <span className="dark-spans">{email}</span>
                 </div>
               </div>
             </div>
