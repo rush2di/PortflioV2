@@ -5,8 +5,8 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -15,11 +15,18 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1200,
+              maxWidth: 800,
               linkImagesToOriginal: false,
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static/images`,
       },
     },
     {
@@ -42,14 +49,7 @@ module.exports = {
         name: `projects`,
         path: `${__dirname}/static/projects`,
       },
-    },    
-//     {
-//       resolve: `gatsby-source-filesystem`,
-//       options: {
-//         name: `images`,
-//         path: `${__dirname}/static/images`,
-//       },
-//     },
+    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
