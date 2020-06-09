@@ -99,22 +99,22 @@ const HomePage = ({ data }) => {
 const ProjectsSection = ({ lang }) => {
   const [projectIndex, setProjectIndex] = useState(0)
 
-  const defaults = { duration: 0.25, ease: "power3.out" }
+  const defaults = { duration: 0.05, ease: "power3.out" }
+
   const animations = params => params.play()
 
   const indexSetter = index => setProjectIndex(index)
 
   const indexRetriever = index => {
-    const onStart = () => indexSetter(index)
+    const onComplete = () => indexSetter(index)
     const fadeOut = gsap
-      .timeline({ defaults })
+      .timeline({ onComplete, defaults })
       .to(".gatsby-image-wrapper", { opacity: 0 })
-    const fadeIn = gsap
-      .timeline({ onStart, defaults })
-      .to(".gatsby-image-wrapper", { opacity: 1 })
 
-    animations(fadeOut.add(fadeIn))
+    animations(fadeOut)
   }
+
+  useEffect(() => {}, [projectIndex])
 
   const { allMarkdownRemark } = useStaticQuery(graphql`
     {
@@ -153,6 +153,8 @@ const ProjectsSection = ({ lang }) => {
     }
   `)
 
+  const data = allMarkdownRemark.edges.map(edge => edge.node.frontmatter.cover)
+
   return (
     <div className="section-projects-grid">
       <div className="section-projects-box">
@@ -171,12 +173,7 @@ const ProjectsSection = ({ lang }) => {
         <div className="project-card" />
         <div className="project-card-wrapper">
           <div className="project-card-image">
-            <Image
-              image={
-                allMarkdownRemark.edges[projectIndex].node.frontmatter.cover
-              }
-              costumClass="gatsby-image-wrapper"
-            />
+            <ImageBox {...{ data, projectIndex, defaults }} />
           </div>
         </div>
       </div>
@@ -212,5 +209,22 @@ const UImapper = ({ data, lang, indexRetriever, projectIndex }) =>
       </li>
     )
   })
+
+const ImageBox = ({ data, projectIndex, defaults }) => {
+  const filterTarget = data.filter(obj => data.indexOf(obj) === projectIndex)
+
+  useEffect(() => {
+    const fadeIn = gsap
+      .timeline(defaults)
+      .to(".gatsby-image-wrapper", { opacity: 1 })
+    fadeIn.play()
+  })
+
+  return (
+    filterTarget && (
+      <Image image={filterTarget[0]} costumClass="gatsby-image-wrapper" />
+    )
+  )
+}
 
 export default HomePage
