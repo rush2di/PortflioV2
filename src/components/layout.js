@@ -7,16 +7,19 @@ import {
   useThemes,
 } from "../utils/utils"
 import Header from "./header"
+import Transition from "./transition"
 import "../styles/styles.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   return (
     <LangContextProvider>
       <ThemeContextProvider>
         <ScreenSpyProvider>
-          <AppWrapper>
-            <main className="section">{children}</main>
-          </AppWrapper>
+          <Transition location={location}>
+            <AppWrapper>
+              <main className="section">{children}</main>
+            </AppWrapper>
+          </Transition>
         </ScreenSpyProvider>
       </ThemeContextProvider>
     </LangContextProvider>
