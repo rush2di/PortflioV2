@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 
 import ProjectFooter from "../components/projectFooter"
@@ -28,7 +28,9 @@ const ProjectsPage = ({ data: { markdownRemark } }) => {
         <div className="scroll-cta container">
           <span className={textStyle}>{scrollCTA}</span>
         </div>
-        <ProjectSection {...{ frontmatter, content, textStyle, lang }} />
+        <ProjectSection
+          {...{ frontmatter, content, textStyle, lang, btnStyle }}
+        />
       </div>
       <ProjectFooter targetId={id} />
     </React.Fragment>
@@ -39,7 +41,6 @@ const ProjectHero = ({ frontmatter, content, textStyle, btnStyle }) => {
   const { description, intro, type, demobtn, githubtn } = content
   const { title, date, glink, dlink } = frontmatter
 
-  console.log({ frontmatter })
   return (
     <div className="section-hero-wrapper extra-y-margins">
       <div className="section-hero extra-y-margins">
@@ -67,23 +68,50 @@ const ProjectHero = ({ frontmatter, content, textStyle, btnStyle }) => {
   )
 }
 
-const ProjectSection = ({ textStyle, lang, frontmatter, content }) => {
+const ProjectSection = ({
+  textStyle,
+  lang,
+  frontmatter,
+  content,
+  btnStyle,
+}) => {
+  const [revealed, setRevealed] = useState(false)
+  const [imgHeight, setimgHeight] = useState(0)
   const { markdown } = content
   const { screenshot, laptop, mobile } = frontmatter
+
+  const handleReveal = () => setRevealed(!revealed)
+
+  useEffect(() => {
+    let ismounted = true
+    let imageHeight = document.querySelector(".gatsby-image-wrapper>img")
+      .clientHeight
+    if (!imgHeight && ismounted) setimgHeight(imageHeight)
+    return () => {
+      ismounted = false
+    }
+  })
+
   const heading =
     lang === "english"
       ? "THE TECH BEHIND THE WEBSITE"
       : "LA TECHNOLOGIE DERRIÈRE CE SITE"
+  const heightLogic = !revealed ? 350 : imgHeight < 350 ? 350 : imgHeight
 
   return (
     <div className="section-main-info">
       <div className="img-wrapper">
         <div className="container">
-          <div className="img-container-screen">
+          <div className="img-container-screen" style={{ height: heightLogic }}>
             <Image image={screenshot} alt="screenshot" />
           </div>
         </div>
       </div>
+      {imgHeight > 350 && (
+        <button className={`reveal-btn btn ${btnStyle}`} onClick={handleReveal}>
+          {!revealed ? "reveal" : "hide"}
+        </button>
+      )}
       <div className="container">
         <div className="text-content">
           <h3 className={textStyle}>{heading}</h3>
