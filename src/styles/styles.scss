@@ -616,12 +616,12 @@ body {
     &:first-of-type {
       border-top: 2rem solid #212121;
       border-bottom: 2rem solid #212121;
-      overflow: overlay;
+      overflow: hidden;
     }
     .img-container-screen {
       max-width: 50%;
       margin: 0 auto;
-      max-height: 450px;
+      transition: all 0.4s ease-out;
     }
     .img-grid {
       display: grid;
@@ -639,6 +639,15 @@ body {
       max-width: 200px;
       width: 59%;
     }
+  }
+  .section-main-info .reveal-btn {
+    margin: -1.65rem auto 0;
+    display: block;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 0.8rem;
+    height: 1.65rem;
+    outline: none;
   }
   .section-main-info .text-content {
     display: grid;
