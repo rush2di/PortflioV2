@@ -66,7 +66,7 @@ const HomeFooter = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Github
+                    github
                   </a>
                 </div>
                 <div className="contact-info">
@@ -76,7 +76,7 @@ const HomeFooter = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Linkedin
+                    linkedin
                   </a>
                 </div>
                 <div className="contact-info">
