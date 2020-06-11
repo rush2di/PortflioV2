@@ -28,6 +28,16 @@ body {
   transform: skew(-8deg, $skewX) scale($scale);
 }
 
+@mixin cardAnimate(
+  $skewX: -1.5deg,
+  $scale: 1,
+  $trX: 0rem,
+  $trY: 0rem,
+  $trZ: 0rem
+) {
+  transform: skew(-8deg, $skewX) scale($scale) translate3d($trX, $trY, $trZ);
+}
+
 // Toast Notification styles /////////////////////////
 /////////////////////////////////////////////////////
 .toast {
@@ -388,6 +398,11 @@ body {
 .section {
   &-hero-wrapper {
     margin: 2rem 0 4rem;
+    &.extra-y-margins {
+      @media (max-width: $md) {
+        margin: 3.25rem 0 !important;
+      }
+    }
   }
   &-hero {
     display: block;
@@ -400,6 +415,10 @@ body {
     grid-template-columns: 1fr 1fr;
     align-items: normal;
     justify-content: stretch;
+    @media (max-width: $md) {
+      grid-template-columns: 1fr;
+      margin: 0;
+    }
   }
   &-skills-wrapper {
     margin: 0 0 5.5rem;
@@ -445,49 +464,58 @@ body {
   }
   &-skills-box .box-pf:nth-child(2) img {
     padding: 1.35rem;
+    transform: rotate(0deg);
   }
   &-skills-box .box-pf {
     @include cardScale(-2.5deg);
+    animation: Pfbounce1 10s ease-in-out infinite 5s;
     box-shadow: 2px 4px 10px #07c1a84d;
     left: 28%;
     top: 20%;
     &:first-child {
       @include cardScale(-2.5deg, -0.8);
+      animation: Pfbounce2 10s ease-in-out infinite 4.5s;
       box-shadow: -2px -4px 10px #07c1a84d;
       top: 57%;
       left: 12%;
     }
     &.last {
       @include cardScale($scale: 1.35);
+      animation: Pfbounce3 10s ease-in-out infinite 5.5s;
       left: 58%;
       top: 0;
     }
   }
   &-skills-box .box-pm {
     @include cardScale(-2.5deg, -0.7);
+    animation: Pmbounce1 10s ease-in-out infinite;
     box-shadow: -2px -4px 12px #07d0b557;
     left: 19%;
     top: -16%;
     opacity: 0.5;
     &.last {
       @include cardScale(-2deg, -0.7);
+      animation: Pmbounce2 10s ease-in-out infinite;
       left: 45%;
       top: 50%;
     }
   }
   &-skills-box .box-pl {
     @include cardScale(-3.5deg, -0.588);
+    animation: Plbounce1 10s ease-in-out infinite 2.5s;
     box-shadow: -2px -4px 12px #07d0b557;
     left: 7%;
     top: 30%;
     opacity: 0.15;
     &.first {
       @include cardScale(-3.5deg, -0.475);
+      animation: Plbounce2 10s ease-in-out infinite 5s;
       left: 1%;
       top: -4%;
     }
     &.last {
       @include cardScale(-2.5deg, -0.65);
+      animation: Plbounce3 10s ease-in-out infinite 5s;
       left: 81%;
       top: 11%;
     }
@@ -588,6 +616,11 @@ body {
 // Project Page styles //////////////////////////////
 ////////////////////////////////////////////////////
 .section {
+  &-hero-grid .project-intro-box:last-of-type {
+    @media (max-width: $md) {
+      margin-top: 2rem;
+    }
+  }
   .buttons-wrapper {
     margin-top: 2.5rem;
   }
@@ -599,6 +632,9 @@ body {
     align-items: center;
     justify-content: center;
     padding: 3.5rem 0 1rem;
+    @media (max-width: $md) {
+      padding: 1rem 0;
+    }
   }
   .scroll-cta span {
     display: block;
@@ -673,5 +709,123 @@ body {
     font-size: 0.95rem;
     color: $paragraph;
     white-space: pre-wrap;
+  }
+}
+
+@keyframes Pfbounce1 {
+  0% {
+    @include cardAnimate(-2.5deg, 1, $trZ: -1rem);
+    opacity: 0.85;
+  }
+  50% {
+    @include cardAnimate(-2.5deg, 1, -0.25rem, 0.25rem, 0.5rem);
+    opacity: 1;
+  }
+  100% {
+    @include cardAnimate(-2.5deg, 1, $trZ: -1rem);
+    opacity: 0.85;
+  }
+}
+@keyframes Pfbounce2 {
+  0% {
+    @include cardAnimate(-2.5deg, -0.8);
+    opacity: 0.7;
+  }
+  50% {
+    @include cardAnimate(-2.5deg, -0.8, -0.25rem, 0rem, 1.5rem);
+    opacity: 1;
+  }
+  100% {
+    @include cardAnimate(-2.5deg, -0.8);
+    opacity: 0.7;
+  }
+}
+@keyframes Pfbounce3 {
+  0% {
+    @include cardAnimate($scale: 1.35);
+    opacity: 0.85;
+  }
+  50% {
+    @include cardAnimate(
+      $scale: 1.35,
+      $trX: -0.35rem,
+      $trY: 0.25rem,
+      $trZ: 1rem
+    );
+    opacity: 1;
+  }
+  100% {
+    @include cardAnimate($scale: 1.35);
+    opacity: 0.85;
+  }
+}
+@keyframes Pmbounce1 {
+  0% {
+    @include cardAnimate(-2.5deg, -0.7, $trZ: -0.5rem);
+    opacity: 0.25;
+  }
+  50% {
+    @include cardAnimate(-2.5deg, -0.7, $trX: 0.25rem, $trY: -0.25rem);
+    opacity: 0.5;
+  }
+  100% {
+    @include cardAnimate(-2.5deg, -0.7, $trZ: -0.5rem);
+    opacity: 0.25;
+  }
+}
+@keyframes Pmbounce2 {
+  0% {
+    @include cardAnimate(-2deg, -0.7, $trZ: -0.5rem);
+    opacity: 0.25;
+  }
+  50% {
+    @include cardAnimate(-2deg, -0.7, $trX: 0.25rem, $trY: -0.25rem);
+    opacity: 0.5;
+  }
+  100% {
+    @include cardAnimate(-2deg, -0.7, $trZ: -0.5rem);
+    opacity: 0.25;
+  }
+}
+@keyframes Plbounce1 {
+  0% {
+    @include cardAnimate(-3.5deg, -0.588, $trZ: -0.5rem);
+    opacity: 0.05;
+  }
+  50% {
+    @include cardAnimate(-3.5deg, -0.588, $trX: 0.25rem, $trY: -0.25rem);
+    opacity: 0.15;
+  }
+  100% {
+    @include cardAnimate(-3.5deg, -0.588, $trZ: -0.5rem);
+    opacity: 0.05;
+  }
+}
+@keyframes Plbounce2 {
+  0% {
+    @include cardAnimate(-3.5deg, -0.475, $trZ: -0.5rem);
+    opacity: 0.05;
+  }
+  50% {
+    @include cardAnimate(-3.5deg, -0.475, $trX: 0.25rem, $trY: -0.25rem);
+    opacity: 0.15;
+  }
+  100% {
+    @include cardAnimate(-3.5deg, -0.475, $trZ: -0.5rem);
+    opacity: 0.05;
+  }
+}
+@keyframes Plbounce3 {
+  0% {
+    @include cardAnimate(-2.5deg, -0.65, $trZ: -0.5rem);
+    opacity: 0.05;
+  }
+  50% {
+    @include cardAnimate(-2.5deg, -0.65, $trX: 0.25rem, $trY: -0.25rem);
+    opacity: 0.15;
+  }
+  100% {
+    @include cardAnimate(-2.5deg, -0.65, $trZ: -0.5rem);
+    opacity: 0.05;
   }
 }
