@@ -1,30 +1,20 @@
 import React from "react"
 
-import {
-  ThemeContextProvider,
-  LangContextProvider,
-  ScreenSpyProvider,
-  useThemes,
-} from "../utils/utils"
-import Header from "./header"
+import { useThemes } from "../utils/utils"
 import Transition from "./transition"
+import Providers from "./providers"
+import Header from "./header"
 import "../styles/styles.scss"
 
-const Layout = ({ children, location }) => {
-  return (
-    <LangContextProvider>
-      <ThemeContextProvider>
-        <ScreenSpyProvider>
-          <Transition location={location}>
-            <AppWrapper>
-              <main className="section">{children}</main>
-            </AppWrapper>
-          </Transition>
-        </ScreenSpyProvider>
-      </ThemeContextProvider>
-    </LangContextProvider>
-  )
-}
+const Layout = ({ children, location }) => (
+  <Providers>
+    <AppWrapper>
+      <Transition location={location}>
+        <main className="section">{children}</main>
+      </Transition>
+    </AppWrapper>
+  </Providers>
+)
 
 const AppWrapper = ({ children }) => {
   const { backgroundStyle } = useThemes()

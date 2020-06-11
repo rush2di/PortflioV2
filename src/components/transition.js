@@ -9,7 +9,8 @@ const timeout = 500
 
 const getOpacityTransition = {
   entering: {
-    position: `absolute`,
+    transition: `all ${timeout}ms ease-in-out`,
+    position: `fixed`,
     opacity: 0,
     transform: "translateY(2rem)",
   },
@@ -24,9 +25,10 @@ const getOpacityTransition = {
   },
 }
 
+const styleFixer = { position: "relative", width: "100%" }
+
 const Transition = ({ children, location }) => {
-  const styleFixer = { position: "relative", width: "100%" }
-  const { backgroundStyle, coverStyle, logoStyle } = useThemes()
+  const { backgroundStyle } = useThemes()
 
   return (
     <TransitionGroup>
