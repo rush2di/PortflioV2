@@ -46,14 +46,18 @@ const Formy = ({ errors, touched, isSubmitting, handleSubmit }) => {
   )
 }
 
-// helper function to encode the form values into query fors netlify-forms
+// helper function to encode the form values into query for netlify-forms //
+///////////////////////////////////////////////////////////////////////////
+
 const encodeFormValuesToQuery = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&")
 }
 
-// react-toastify notifications
+// react-toastify notifications ///////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
 const successNotification = () =>
   toast("email succesfully sent", {
     type: "success",
@@ -66,7 +70,9 @@ const errorNotification = () =>
     className: "toast-error",
   })
 
-// props to values mapper function for formik HOC
+// props to values mapper function for formik HOC /////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
 const mapPropsToValues = ({ name, email, message }) => {
   return {
     name: name || "",
@@ -75,14 +81,18 @@ const mapPropsToValues = ({ name, email, message }) => {
   }
 }
 
-// formik validation schema for fomik HOC
+// formik validation schema for fomik HOC ///////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(2, "too short!").required("required"),
   email: Yup.string().email("not a valid email").required("required"),
   message: Yup.string().min(5, "too short!").required("required"),
 })
 
-// form submit handler function for formik HOC
+// form submit handler function for formik HOC /////////////////////////
+///////////////////////////////////////////////////////////////////////
+
 const handleSubmit = (values, { resetForm, setSubmitting }) => {
   fetch("/", {
     method: "POST",
