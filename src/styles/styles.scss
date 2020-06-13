@@ -66,6 +66,9 @@ body {
     margin: 0;
     padding: 0 2rem;
   }
+  @media (max-width: $md) {
+    padding: 0 3rem;
+  }
 }
 
 .section {
@@ -340,6 +343,9 @@ body {
     font-weight: 800;
     margin-top: 1rem;
     letter-spacing: -0.06rem;
+    @media (max-width: $md) {
+      font-size: 3rem;
+    }
   }
   &-box .flex-footer {
     display: flex;
@@ -398,10 +404,15 @@ body {
 .section {
   &-hero-wrapper {
     margin: 2rem 0 4rem;
-    &.extra-y-margins {
-      @media (max-width: $md) {
-        margin: 3.25rem 0 !important;
-      }
+  }
+  &-hero-wrapper.extra-y-margins {
+    @media (max-width: $md) {
+      margin: 2.5rem 0 !important;
+    }
+  }
+  &-hero.extra-y-margins {
+    @media (max-width: $md) {
+      margin: 1.25rem 0 !important;
     }
   }
   &-hero {
@@ -415,10 +426,6 @@ body {
     grid-template-columns: 1fr 1fr;
     align-items: normal;
     justify-content: stretch;
-    @media (max-width: $md) {
-      grid-template-columns: 1fr;
-      margin: 0;
-    }
   }
   &-skills-wrapper {
     margin: 0 0 5.5rem;
@@ -616,13 +623,27 @@ body {
 // Project Page styles //////////////////////////////
 ////////////////////////////////////////////////////
 .section {
+  &.section-project .section-hero-grid {
+    @media (max-width: $md) {
+      grid-template-columns: 1fr;
+      margin: 0;
+    }
+  }
+  &-hero.extra-y-margins .heading-lg {
+    @media (max-width: $md) {
+      font-size: 3.75rem;
+    }
+  }
   &-hero-grid .project-intro-box:last-of-type {
     @media (max-width: $md) {
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
   }
   .buttons-wrapper {
     margin-top: 2.5rem;
+    @media (max-width: $md) {
+      margin-top: 1.25rem;
+    }
   }
   .buttons-wrapper button:first-child {
     margin-right: 1rem;
@@ -633,7 +654,7 @@ body {
     justify-content: center;
     padding: 3.5rem 0 1rem;
     @media (max-width: $md) {
-      padding: 1rem 0;
+      padding: 0 0 1rem;
     }
   }
   .scroll-cta span {
@@ -658,6 +679,9 @@ body {
       max-width: 50%;
       margin: 0 auto;
       transition: all 0.4s ease-out;
+      @media (max-width: $md) {
+        max-width: 88%;
+      }
     }
     .img-grid {
       display: grid;
@@ -690,6 +714,11 @@ body {
     grid-template-columns: 1fr 1fr;
     padding: 3rem 0;
     width: 100%;
+    @media (max-width: $md) {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 0;
+    }
   }
   .section-main-info .text-content h3 {
     justify-self: end;
@@ -701,6 +730,10 @@ body {
     font-size: 1.25rem;
     font-weight: 900;
     font-family: $primFONT;
+    @media (max-width: $md) {
+      width: 100%;
+      text-align: start;
+    }
   }
   .section-main-info .text-content div {
     width: 290px;
@@ -709,6 +742,11 @@ body {
     font-size: 0.95rem;
     color: $paragraph;
     white-space: pre-wrap;
+    @media (max-width: $md) {
+      width: 100%;
+      margin-top: 1.5rem;
+      line-height: 1.5;
+    }
   }
 }
 
