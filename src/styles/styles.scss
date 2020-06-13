@@ -687,6 +687,9 @@ body {
     @media (max-width: $md) {
       grid-template-columns: 1fr;
       margin: 0;
+      .project-intro-box p {
+        margin-top: 0;
+      }
     }
   }
   &-hero.extra-y-margins .heading-lg {
