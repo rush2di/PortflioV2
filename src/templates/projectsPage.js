@@ -21,7 +21,7 @@ const ProjectsPage = ({ data: { markdownRemark } }) => {
 
   return (
     <React.Fragment>
-      <div className="section">
+      <div className="section section-project">
         <div className="container">
           <ProjectHero {...{ frontmatter, content, textStyle, btnStyle }} />
         </div>
