@@ -151,6 +151,9 @@ body {
     font-size: 9vw;
     font-weight: 800;
     letter-spacing: -0.05rem;
+    @media (min-width: 1200px) {
+      font-size: 7.5rem;
+    }
   }
   &-lg {
     font-size: 6.5vw;
@@ -404,6 +407,10 @@ body {
 .section {
   &-hero-wrapper {
     margin: 2rem 0 4rem;
+    @media (max-width: $md) {
+      margin: 4rem 0 2rem;
+      min-height: calc(100vh - 10.5rem);
+    }
   }
   &-hero-wrapper.extra-y-margins {
     @media (max-width: $md) {
@@ -426,10 +433,22 @@ body {
     grid-template-columns: 1fr 1fr;
     align-items: normal;
     justify-content: stretch;
+    @media (max-width: $md) {
+      display: flex;
+      flex-direction: column;
+      margin: 1.25rem 0 0;
+      p {
+        margin-top: 1.5rem;
+      }
+    }
   }
   &-skills-wrapper {
     margin: 0 0 5.5rem;
     padding-top: 5.5rem;
+    @media (max-width: $md) {
+      margin: 0 0 2rem;
+      padding-top: 2rem;
+    }
   }
   &-skills-grid {
     display: grid;
@@ -437,6 +456,9 @@ body {
     grid-template-columns: 1.5fr 2fr;
     align-items: normal;
     justify-content: stretch;
+    @media (max-width: $md) {
+      display: block;
+    }
   }
   &-skills-grid .heading {
     margin-bottom: 1.5rem;
@@ -445,12 +467,22 @@ body {
     padding: 0 4rem 5rem 0;
     display: block;
     margin-top: 4rem;
+    @media (max-width: $md) {
+      padding: 0 0 1rem;
+      display: block;
+      margin-top: 0rem;
+    }
   }
   &-skills-box:last-of-type {
     position: relative;
     perspective: 500px;
-    min-height: 350px;
+    height: 350px;
     margin: 2rem 0 0 2rem;
+    @media (max-width: $md) {
+      width: 420px;
+      height: 290px;
+      margin: 4rem auto;
+    }
   }
   &-skills-box .box {
     background-color: $colorPEARL;
@@ -460,6 +492,14 @@ body {
     position: absolute;
     display: inline-block;
     border-radius: 0.75rem;
+    @media (max-width: 1200px) {
+      width: 5.75rem;
+      height: 5.65rem;
+    }
+    @media (max-width: 900px) {
+      width: 4.75rem;
+      height: 4.65rem;
+    }
   }
   &-skills-box .box img {
     display: inline-block;
@@ -479,12 +519,19 @@ body {
     box-shadow: 2px 4px 10px #07c1a84d;
     left: 28%;
     top: 20%;
+    @media (max-width: 900px) {
+      left: 27%;
+      top: 20%;
+    }
     &:first-child {
       @include cardScale(-2.5deg, -0.8);
       animation: Pfbounce2 10s ease-in-out infinite 4.5s;
       box-shadow: -2px -4px 10px #07c1a84d;
       top: 57%;
       left: 12%;
+      @media (max-width: 900px) {
+        top: 53%;
+      }
     }
     &.last {
       @include cardScale($scale: 1.35);
@@ -500,11 +547,17 @@ body {
     left: 19%;
     top: -16%;
     opacity: 0.5;
+    @media (max-width: 900px) {
+      top: -10%;
+    }
     &.last {
       @include cardScale(-2deg, -0.7);
       animation: Pmbounce2 10s ease-in-out infinite;
       left: 45%;
       top: 50%;
+      @media (max-width: 900px) {
+        top: 47%;
+      }
     }
   }
   &-skills-box .box-pl {
@@ -514,11 +567,18 @@ body {
     left: 7%;
     top: 30%;
     opacity: 0.15;
+    @media (max-width: 900px) {
+      left: 6%;
+      top: 27%;
+    }
     &.first {
       @include cardScale(-3.5deg, -0.475);
       animation: Plbounce2 10s ease-in-out infinite 5s;
       left: 1%;
       top: -4%;
+      @media (max-width: 900px) {
+        top: 4%;
+      }
     }
     &.last {
       @include cardScale(-2.5deg, -0.65);
