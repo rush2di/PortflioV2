@@ -19,10 +19,18 @@ import npmIcon from "../assets/npm.png"
 import gulpIcon from "../assets/gulp.png"
 import fbIcon from "../assets/firebase.png"
 
+// Home page template wrapper component ////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
 const HomePage = ({ data }) => {
   const { lang } = useLanguages()
+  const { textStyle } = useThemes()
+  const { dimensions } = useScreenSpy()
+
   const { frontmatter } = data.edges[0].node
+
   const content = languageFilter(frontmatter, lang)
+
   const {
     title,
     introduction,
@@ -32,25 +40,18 @@ const HomePage = ({ data }) => {
     tsparagraph,
     psheading,
   } = content
-  const { textStyle } = useThemes()
-
-  const titleFixer = () => (
-    <React.Fragment>
-      <span>{title.substring(0, title.search("Ro"))}</span>
-      <br />
-      <span>{title.substring(title.search("Ro"))}</span>
-    </React.Fragment>
-  )
 
   return (
     <React.Fragment>
       <div className="container">
         <div className="section-hero-wrapper">
           <div className="section-hero">
-            <h1 className="heading heading-xl">{titleFixer()}</h1>
+            <h1 className="heading heading-xl">
+              <HeroHeading title={title} dimensions={dimensions} />
+            </h1>
           </div>
           <div className="section-hero-grid">
-            <span className={textStyle}>{speciality}</span>
+            <span className={textStyle + " -hm"}>{speciality}</span>
             <p>
               <span className={textStyle}>{introduction} </span>
               {paragraph}
@@ -68,10 +69,33 @@ const HomePage = ({ data }) => {
         </div>
         <div className="section-projects-wrapper">
           <h3 className="heading heading-md">{psheading}</h3>
-          <ProjectsSection lang={lang} />
+          <ProjectsSection lang={lang} dimensions={dimensions} />
         </div>
       </div>
       <HomeFooter />
+    </React.Fragment>
+  )
+}
+
+// Hero heading component //////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+const HeroHeading = ({ dimensions, title }) => {
+  const firstHeading = title.substring(0, title.search("Ro"))
+  const secondHeading = title.substring(title.search("Ro"))
+
+  const firstHeadingMobile =
+    dimensions <= 425 ? title.substring(0, title.search(",") + 1) : firstHeading
+  const secondHeadingMobile =
+    dimensions <= 425
+      ? title.substring(title.search(",") + 1, title.search("Be"))
+      : secondHeading
+
+  return (
+    <React.Fragment>
+      <span>{firstHeadingMobile}</span>
+      <br />
+      <span>{secondHeadingMobile}</span>
     </React.Fragment>
   )
 }
@@ -111,10 +135,10 @@ const SkillsAnimatedBoxs = () => (
 // Projects Section wrapper component //////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
-const ProjectsSection = ({ lang }) => {
+const ProjectsSection = ({ lang, dimensions }) => {
   const [projectIndex, setProjectIndex] = useState(0)
-  const { dimensions } = useScreenSpy()
 
+  // GSAP config defaults
   const defaults = { duration: 0.05, ease: "power3.out" }
 
   const animations = params => params.play()
@@ -123,15 +147,12 @@ const ProjectsSection = ({ lang }) => {
 
   const indexRetriever = index => {
     const onComplete = () => indexSetter(index)
-
     const fadeOut = gsap
       .timeline({ onComplete, defaults })
       .to(".gatsby-image-wrapper", { opacity: 0 })
 
     animations(fadeOut)
   }
-
-  // useEffect(() => {}, [projectIndex])
 
   const { allMarkdownRemark } = useStaticQuery(graphql`
     {
@@ -210,6 +231,7 @@ const UImapper = ({ data, lang, indexRetriever, projectIndex, isMobile }) =>
     const { frontmatter } = items.node
 
     const content = languageFilter(frontmatter, lang)
+
     const index = "0" + (i + 1).toString()
 
     const { intro } = content
@@ -279,9 +301,5 @@ const ImageBox = ({ data, projectIndex, defaults }) => {
     )
   )
 }
-
-// const ProjectsCards = ({data}) => {
-
-// }
 
 export default HomePage
