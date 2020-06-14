@@ -70,6 +70,10 @@ const HomeFooter = () => {
                   </a>
                 </div>
                 <div className="contact-info">
+                  <img src={phoneIcon} alt="phone" />
+                  <span className="dark-spans">{phone}</span>
+                </div>
+                <div className="contact-info">
                   <img src={linkedinIcon} alt="linkedin" />
                   <a
                     href={`http://${linkedin}`}
@@ -78,10 +82,6 @@ const HomeFooter = () => {
                   >
                     linkedin
                   </a>
-                </div>
-                <div className="contact-info">
-                  <img src={phoneIcon} alt="phone" />
-                  <span className="dark-spans">{phone}</span>
                 </div>
                 <div className="contact-info">
                   <img src={emailIcon} alt="phone" />
