@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import gsap from "gsap"
 
-import { useLanguages, languageFilter, useThemes } from "../utils/utils"
+import {
+  useLanguages,
+  languageFilter,
+  useThemes,
+  useScreenSpy,
+} from "../utils/utils"
 import Image from "../components/image"
 import HomeFooter from "../components/homeFooter"
 import reactIcon from "../assets/react.png"
@@ -58,32 +63,7 @@ const HomePage = ({ data }) => {
               <h3 className="heading heading-md">{tsheading}</h3>
               <p>{tsparagraph}</p>
             </div>
-            <div className="section-skills-box">
-              <div className="box box-pf">
-                <img src={sassIcon} alt="" />
-              </div>
-              <div className="box box-pf">
-                <img src={reduxIcon} alt="" />
-              </div>
-              <div className="box box-pf last">
-                <img src={reactIcon} alt="" />
-              </div>
-              <div className="box box-pm">
-                <img src={npmIcon} alt="" />
-              </div>
-              <div className="box box-pm last">
-                <img src={gitIcon} alt="" />
-              </div>
-              <div className="box box-pl first">
-                <img src={gulpIcon} alt="" />
-              </div>
-              <div className="box box-pl">
-                <img src={fbIcon} alt="" />
-              </div>
-              <div className="box box-pl last">
-                <img src={nodejsIcon} alt="" />
-              </div>
-            </div>
+            <SkillsAnimatedBoxs />
           </div>
         </div>
         <div className="section-projects-wrapper">
@@ -96,8 +76,44 @@ const HomePage = ({ data }) => {
   )
 }
 
+// Animated skills cover boxs component ////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+const SkillsAnimatedBoxs = () => (
+  <div className="section-skills-box">
+    <div className="box box-pf">
+      <img src={sassIcon} alt="" />
+    </div>
+    <div className="box box-pf">
+      <img src={reduxIcon} alt="" />
+    </div>
+    <div className="box box-pf last">
+      <img src={reactIcon} alt="" />
+    </div>
+    <div className="box box-pm">
+      <img src={npmIcon} alt="" />
+    </div>
+    <div className="box box-pm last">
+      <img src={gitIcon} alt="" />
+    </div>
+    <div className="box box-pl first">
+      <img src={gulpIcon} alt="" />
+    </div>
+    <div className="box box-pl">
+      <img src={fbIcon} alt="" />
+    </div>
+    <div className="box box-pl last">
+      <img src={nodejsIcon} alt="" />
+    </div>
+  </div>
+)
+
+// Projects Section wrapper component //////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
 const ProjectsSection = ({ lang }) => {
   const [projectIndex, setProjectIndex] = useState(0)
+  const { dimensions } = useScreenSpy()
 
   const defaults = { duration: 0.05, ease: "power3.out" }
 
@@ -107,6 +123,7 @@ const ProjectsSection = ({ lang }) => {
 
   const indexRetriever = index => {
     const onComplete = () => indexSetter(index)
+
     const fadeOut = gsap
       .timeline({ onComplete, defaults })
       .to(".gatsby-image-wrapper", { opacity: 0 })
@@ -114,7 +131,7 @@ const ProjectsSection = ({ lang }) => {
     animations(fadeOut)
   }
 
-  useEffect(() => {}, [projectIndex])
+  // useEffect(() => {}, [projectIndex])
 
   const { allMarkdownRemark } = useStaticQuery(graphql`
     {
@@ -165,23 +182,29 @@ const ProjectsSection = ({ lang }) => {
               lang={lang}
               indexRetriever={indexRetriever}
               projectIndex={projectIndex}
+              isMobile={dimensions < 768}
             />
           </ul>
         </div>
       </div>
-      <div className="section-projects-box">
-        <div className="project-card" />
-        <div className="project-card-wrapper">
-          <div className="project-card-image">
-            <ImageBox {...{ data, projectIndex, defaults }} />
+      {dimensions > 768 && (
+        <div className="section-projects-box">
+          <div className="project-card" />
+          <div className="project-card-wrapper">
+            <div className="project-card-image">
+              <ImageBox {...{ data, projectIndex, defaults }} />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
 
-const UImapper = ({ data, lang, indexRetriever, projectIndex }) =>
+// Project list mapper /////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+const UImapper = ({ data, lang, indexRetriever, projectIndex, isMobile }) =>
   data.edges.map((items, i) => {
     const { slug } = items.node.fields
     const { frontmatter } = items.node
@@ -189,8 +212,35 @@ const UImapper = ({ data, lang, indexRetriever, projectIndex }) =>
     const content = languageFilter(frontmatter, lang)
     const index = "0" + (i + 1).toString()
 
-    const { type } = content
+    const { intro } = content
     const { title } = frontmatter
+
+    if (isMobile) {
+      return (
+        <li key={index + title}>
+          <Link className="project-cardmodel" to={`/projects${slug}`}>
+            <div className="project-cardmodel-wrapper">
+              <div className="project-cardmodel-head">
+                <Image
+                  image={frontmatter.cover}
+                  style={{
+                    maxHeight: 145,
+                    width: "100%",
+                    borderTopLeftRadius: "0.5rem",
+                    borderTopRightRadius: "0.5rem",
+                  }}
+                />
+              </div>
+              <div className="project-cardmodel-body">
+                <span>{index}</span>
+                <h3>{title}</h3>
+                <span>{intro}</span>
+              </div>
+            </div>
+          </Link>
+        </li>
+      )
+    }
 
     return (
       <li key={title + index}>
@@ -203,12 +253,15 @@ const UImapper = ({ data, lang, indexRetriever, projectIndex }) =>
           <div>
             <span>{index}</span>
             <h3>{title}</h3>
-            <span>{type}</span>
+            <span>{intro}</span>
           </div>
         </Link>
       </li>
     )
   })
+
+// Project cover image renderer component //////////////////////////////
+///////////////////////////////////////////////////////////////////////
 
 const ImageBox = ({ data, projectIndex, defaults }) => {
   const filterTarget = data.filter(obj => data.indexOf(obj) === projectIndex)
@@ -226,5 +279,9 @@ const ImageBox = ({ data, projectIndex, defaults }) => {
     )
   )
 }
+
+// const ProjectsCards = ({data}) => {
+
+// }
 
 export default HomePage
