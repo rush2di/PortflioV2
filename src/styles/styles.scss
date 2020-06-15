@@ -286,7 +286,7 @@ body {
       text-decoration: none;
       color: $darkSPANS;
       margin-left: 1rem;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
     }
     img {
       width: 28px;
@@ -316,6 +316,11 @@ body {
     &:hover,
     &:focus {
       background-color: #15dbc1;
+    }
+    @media (max-width: $sm) {
+      height: 30px;
+      font-size: 1rem;
+      font-family: $secFONT;
     }
   }
   &-box .form .send-btn:disabled {
@@ -400,10 +405,12 @@ body {
     @media (max-width: $sm) {
       height: 100%;
       align-items: flex-start;
-      margin-top: 2rem;
       border-radius: 0.5rem;
       padding: 1rem;
-      a:first-child {
+      &.mt-2 {
+        margin-top: 2rem;
+      }
+      .w-arrow:first-child {
         &:after {
           content: "\27F6";
           color: inherit;
@@ -441,6 +448,9 @@ body {
   &-box:last-of-type a:last-of-type {
     text-decoration: none;
     margin-top: 2rem;
+    @media (max-width: $sm) {
+      margin-top: 0;
+    }
   }
   &-box a h3 {
     font-family: $primFONT;
@@ -497,9 +507,12 @@ body {
       background-color: transparent;
       font-family: "Source Sans Pro", Arial, Helvatica;
       font-size: 1rem;
-      color: $paragraph;
       outline: none;
       cursor: pointer;
+      @media (max-width: $sm) {
+        text-transform: uppercase;
+        font-size: 0.95rem;
+      }
     }
     span {
       display: inline-block;
