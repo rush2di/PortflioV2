@@ -54,7 +54,7 @@ const ProjectFooter = ({ targetId }) => {
           {indexer < data.length && (
             <NextProjectUI
               {...{ data, indexer, nextProjectText, lang }}
-              isMobile={dimensions < 425}
+              isMobile={dimensions < 426}
             />
           )}
         </div>
