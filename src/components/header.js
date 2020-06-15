@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { useThemes, useLanguages } from "../utils/utils"
 
 const Header = props => {
-  const { iconStyle, logoStyle, handleThemeToggle } = useThemes()
+  const { iconStyle, logoStyle, handleThemeToggle, textStyle } = useThemes()
   const { setEnglish, setFrench } = useLanguages()
 
   return (
@@ -17,9 +17,13 @@ const Header = props => {
         </div>
         <div className="nav--btns-wrapper">
           <div className="btn-box">
-            <button onClick={() => setEnglish()}>en</button>
+            <button className={textStyle} onClick={() => setEnglish()}>
+              en
+            </button>
             <span>|</span>
-            <button onClick={() => setFrench()}>fr</button>
+            <button className={textStyle} onClick={() => setFrench()}>
+              fr
+            </button>
           </div>
           <div className="btn-box">
             <button onClick={() => handleThemeToggle()}>
