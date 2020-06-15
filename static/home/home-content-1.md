@@ -15,7 +15,7 @@ english:
     Technologies I have learned and worked with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Npm ,Sass , Git and Github.
 
 
-    I have also used some Css and Javascript animation libraries like Bootsrap, MaterialUi, Pose, Scollmagic, and Gsap.
+    I have also used some Css and Javascript animation libraries like Bootsrap, MaterialUI, Pose, Scollmagic, and Gsap.
   speciality: frontend web developer
   title: Hello, I'm Roshdi Belhirsh
   cbtn: connect with me
@@ -35,9 +35,10 @@ french:
     mes projets.
 
 
-    Les technologies que j'ai apprises et avec lesquelles j'ai travaillé consistent de Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Npm, Sass, Git et Github.
+    Les technologies que j'ai apprises et travaillé avec consistent de Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Npm, Sass, Git et Github.
 
-    J'ai également utilisé des bibliothèques d'animation de Javascript et d'autre de Css et comme Bootsrap, MaterialUi, Pose, Scollmagic et Gsap.
+
+    J'ai également utilisé des bibliothèques d'animation de Javascript et d'autre de Css et comme Bootsrap, MaterialUI, Pose, Scollmagic et Gsap.
   speciality: développeur web frontend
   title: Hello, I'm Rochdi Belhirch
   cbtn: me contacter
