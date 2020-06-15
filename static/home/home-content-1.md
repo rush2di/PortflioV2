@@ -29,10 +29,10 @@ french:
     équipe où je peux contribuer à créer des produits digital incroyables.
   tsparagraph: >-
     En construisant constamment des projets personnels et en travaillant sur mes
-    compétences technique, j'ai réussi à apprendre de nombreuses nouvelles
-    technologies et concepts, cela m'a également aidé à acquérir une
-    connaissance a propos de la façon avec la quelle choisir la bonne stack pour
-    mes projets.
+    compétences technique, j'ai réussi à apprendre des nombreuses nouvelles
+    technologies et concepts technique, cela m'a également aidé à acquérir une
+    connaissance a la façon avec la quelle choisir la bonne stack pour mes
+    projets.
 
 
     Les technologies que j'ai apprises et travaillé avec consistent de Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Npm, Sass, Git et Github.
