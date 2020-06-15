@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 
 import ProjectFooter from "../components/projectFooter"
+import MobileBtns from "../components/mobileBtns"
 import Image from "../components/image"
 import {
   useLanguages,
@@ -135,17 +136,24 @@ const ProjectSection = ({
 
 const ButtonsRenderer = ({ demo, github, styles, links }) => {
   const { dimensions } = useScreenSpy()
-  const demoTextLogic = dimensions > 500 ? "Demo" : demo
-  const githubTextLogic = dimensions > 500 ? "Github" : github
-  return (
+  const demoTextLogic = dimensions > 425 ? "Demo" : demo
+  const githubTextLogic = dimensions > 425 ? "Github" : github
+  return dimensions > 425 ? (
     <React.Fragment>
       <a href={links.dlink} target="_blank" rel="noopener noreferrer">
         <button className={`btn ${styles}`}>{demoTextLogic}</button>
       </a>
-      <a href={links.glink} target="_blank" rel="noopener noreferrer">
+      <a href={links.glink}>
         <button className={`btn ${styles}`}>{githubTextLogic}</button>
       </a>
     </React.Fragment>
+  ) : (
+    <MobileBtns
+      githubLINK={links.glink}
+      demoLINK={links.dlink}
+      githubBTN={githubTextLogic}
+      demoBTN={demoTextLogic}
+    />
   )
 }
 

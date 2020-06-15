@@ -10,14 +10,15 @@ import {
 } from "../utils/utils"
 import Image from "../components/image"
 import HomeFooter from "../components/homeFooter"
+import MobileBtns from "../components/mobileBtns"
 import reactIcon from "../assets/react.png"
 import reduxIcon from "../assets/redux.png"
 import sassIcon from "../assets/sass.png"
 import gitIcon from "../assets/git.png"
-import nodejsIcon from "../assets/nodejs.png"
 import npmIcon from "../assets/npm.png"
 import gulpIcon from "../assets/gulp.png"
 import fbIcon from "../assets/firebase.png"
+import nodejsIcon from "../assets/nodejs.png"
 
 // Home page template wrapper component ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
@@ -57,6 +58,7 @@ const HomePage = ({ data }) => {
               {paragraph}
             </p>
           </div>
+          {dimensions <= 425 && <MobileBtns />}
         </div>
         <div className="section-skills-wrapper">
           <div className="section-skills-grid">
