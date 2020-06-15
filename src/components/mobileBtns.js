@@ -1,9 +1,15 @@
 import React from "react"
 import scrollTo from "gatsby-plugin-smoothscroll"
+import { useLanguages } from "../utils/utils"
 
 const MobileBtns = ({ githubBTN, demoBTN, githubLINK, demoLINK }) => {
-  const redButton = !!demoBTN ? demoBTN : "view my work"
-  const grayButton = !!githubBTN ? githubBTN : "connect with me"
+  const { lang } = useLanguages()
+
+  const firstText = lang === "english" ? "view my work" : "voir mes projets"
+  const secondText = lang === "english" ? "connect with me" : "me contactez"
+
+  const redButton = !!demoBTN ? demoBTN : firstText
+  const grayButton = !!githubBTN ? githubBTN : secondText
 
   const firstLinkLogic = !!githubLINK || {
     onClick: () => scrollTo(".section-projects-wrapper"),
@@ -15,8 +21,8 @@ const MobileBtns = ({ githubBTN, demoBTN, githubLINK, demoLINK }) => {
   return (
     <div className="mobile-btns-wrapper">
       <button {...firstLinkLogic} className="btn-lg btn-red">
-        {!!githubLINK ? (
-          <a href={githubLINK} target="_blank" rel="noopener noreferrer">
+        {!!demoLINK ? (
+          <a href={demoLINK} target="_blank" rel="noopener noreferrer">
             {redButton}
           </a>
         ) : (
@@ -24,8 +30,8 @@ const MobileBtns = ({ githubBTN, demoBTN, githubLINK, demoLINK }) => {
         )}
       </button>
       <button {...secondLinkLogic} className="btn-lg btn-gray">
-        {!!demoLINK ? (
-          <a href={demoLINK} target="_blank" rel="noopener noreferrer">
+        {!!githubLINK ? (
+          <a href={githubLINK} target="_blank" rel="noopener noreferrer">
             {grayButton}
           </a>
         ) : (
