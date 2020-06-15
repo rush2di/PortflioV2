@@ -7,15 +7,15 @@ english:
     and JavaScript animation libraries. I'm currently seeking out the right team
     where I can contribute in making amazing digital products.
   tsparagraph: >-
-    By constanly building personal projects and working on my problem solving
-    skills I managed to learn many new thechnologies and concepts, this has also
-    helped me gain knowledge on how to wisely chose the right stack for my
-    projects.
+    By constanly building personal projects I managed to learn many new
+    thechnologies and concepts, this has also helped me gain knowledge on how to
+    wisely chose the right stack for my projects.
 
 
     Technologies I have learned and worked with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Npm ,Sass , Git and Github.
 
-    I have also used some css and javascript animation libraries like Bootsrap, materialUi, Pose, Scollmagic, and Gsap.
+
+    I have also used some Css and Javascript animation libraries like Bootsrap, MaterialUi, Pose, Scollmagic, and Gsap.
   speciality: frontend web developer
   title: Hello, I'm Roshdi Belhirsh
   cbtn: connect with me
@@ -37,7 +37,7 @@ french:
 
     Les technologies que j'ai apprises et avec lesquelles j'ai travaillé consistent de Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Npm, Sass, Git et Github.
 
-    J'ai également utilisé des bibliothèques d'animation de javascript et d'autre de Css et comme Bootsrap, materialUi, Pose, Scollmagic et Gsap.
+    J'ai également utilisé des bibliothèques d'animation de Javascript et d'autre de Css et comme Bootsrap, MaterialUi, Pose, Scollmagic et Gsap.
   speciality: développeur web frontend
   title: Salut, c'est Rochdi Belhirch
   cbtn: me contacter
