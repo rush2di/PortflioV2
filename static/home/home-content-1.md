@@ -39,9 +39,9 @@ french:
 
     J'ai également utilisé des bibliothèques d'animation de Javascript et d'autre de Css et comme Bootsrap, MaterialUi, Pose, Scollmagic et Gsap.
   speciality: développeur web frontend
-  title: Salut, c'est Rochdi Belhirch
+  title: Hello, I'm Rochdi Belhirch
   cbtn: me contacter
-  introduction: Un développeur créatif en développement des sites Web élégants
-    avec les dernières technologies.
+  introduction: créatif en développement des sites Web élégants avec les dernières
+    technologies.
   psheading: "Projets en vedette:"
 ---
