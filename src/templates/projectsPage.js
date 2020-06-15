@@ -78,6 +78,8 @@ const ProjectSection = ({
 }) => {
   const [revealed, setRevealed] = useState(false)
   const [imgHeight, setimgHeight] = useState(0)
+  const { dimensions } = useScreenSpy()
+
   const { markdown } = content
   const { screenshot, laptop, mobile } = frontmatter
 
@@ -97,7 +99,14 @@ const ProjectSection = ({
     lang === "english"
       ? "THE TECH BEHIND THE WEBSITE"
       : "LA TECHNOLOGIE DERRIÈRE CE SITE"
-  const heightLogic = !revealed ? 350 : imgHeight < 350 ? 350 : imgHeight
+
+  const staticHeight = dimensions < 425 ? 220 : 350
+
+  const heightLogic = !revealed
+    ? staticHeight
+    : imgHeight < staticHeight
+    ? staticHeight
+    : imgHeight
 
   return (
     <div className="section-main-info">
