@@ -647,7 +647,7 @@ body {
       top: 20%;
     }
     @media (max-width: 470px) {
-      left: 21%;
+      left: 27%;
     }
     &:first-child {
       @include cardScale(-2.5deg, -0.8);
@@ -659,7 +659,7 @@ body {
         top: 53%;
       }
       @media (max-width: 470px) {
-        left: 4%;
+        left: 9%;
       }
     }
     &.last {
@@ -668,7 +668,7 @@ body {
       left: 58%;
       top: 0;
       @media (max-width: 470px) {
-        left: 57%;
+        left: 60%;
       }
     }
   }
@@ -683,7 +683,7 @@ body {
       top: -10%;
     }
     @media (max-width: 470px) {
-      left: 10%;
+      left: 15%;
     }
     &.last {
       @include cardScale(-2deg, -0.7);
@@ -694,7 +694,8 @@ body {
         top: 47%;
       }
       @media (max-width: 470px) {
-        left: 34%;
+        left: 40%;
+        top: 50%;
       }
     }
   }
@@ -710,7 +711,7 @@ body {
       top: 27%;
     }
     @media (max-width: 470px) {
-      left: -5%;
+      left: -1%;
     }
     &.first {
       @include cardScale(-3.5deg, -0.475);
@@ -721,7 +722,7 @@ body {
         top: 4%;
       }
       @media (max-width: 470px) {
-        left: -11%;
+        left: -8%;
       }
     }
     &.last {
