@@ -93,7 +93,7 @@ const ProjectSection = ({
     return () => {
       ismounted = false
     }
-  })
+  }, [imgHeight])
 
   const heading =
     lang === "english"

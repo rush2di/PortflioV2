@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useLayoutEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import gsap from "gsap"
 
@@ -7,6 +7,7 @@ import {
   languageFilter,
   useThemes,
   useScreenSpy,
+  scene,
 } from "../utils/utils"
 import Image from "../components/image"
 import HomeFooter from "../components/homeFooter"
@@ -32,129 +33,7 @@ const HomePage = ({ data }) => {
 
   const content = languageFilter(frontmatter, lang)
 
-  const {
-    title,
-    introduction,
-    paragraph,
-    speciality,
-    tsheading,
-    tsparagraph,
-    psheading,
-  } = content
-
-  return (
-    <React.Fragment>
-      <div className="container">
-        <div className="section-hero-wrapper">
-          <div className="section-hero">
-            <h1 className="heading heading-xl">
-              <HeroHeading title={title} dimensions={dimensions} />
-            </h1>
-          </div>
-          <div className="section-hero-grid">
-            <span className={textStyle + " -hm"}>{speciality}</span>
-            <p>
-              <span className={textStyle}>{introduction} </span>
-              {paragraph}
-            </p>
-          </div>
-          {dimensions <= 425 && <MobileBtns />}
-        </div>
-        <div className="section-skills-wrapper">
-          <div className="section-skills-grid">
-            <div className="section-skills-box">
-              <h3 className="heading heading-md">{tsheading}</h3>
-              <p>{tsparagraph}</p>
-            </div>
-            <SkillsAnimatedBoxs />
-          </div>
-        </div>
-        <div className="section-projects-wrapper">
-          <h3 className="heading heading-md">{psheading}</h3>
-          <ProjectsSection lang={lang} dimensions={dimensions} />
-        </div>
-      </div>
-      <HomeFooter />
-    </React.Fragment>
-  )
-}
-
-// Hero heading component //////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-
-const HeroHeading = ({ dimensions, title }) => {
-  const firstHeading = title.substring(0, title.search("Ro"))
-  const secondHeading = title.substring(title.search("Ro"))
-
-  const firstHeadingMobile =
-    dimensions <= 425 ? title.substring(0, title.search(",") + 1) : firstHeading
-  const secondHeadingMobile =
-    dimensions <= 425
-      ? title.substring(title.search(",") + 1, title.search("Be"))
-      : secondHeading
-
-  return (
-    <React.Fragment>
-      <span>{firstHeadingMobile}</span>
-      <br />
-      <span>{secondHeadingMobile}</span>
-    </React.Fragment>
-  )
-}
-
-// Animated skills cover boxs component ////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-
-const SkillsAnimatedBoxs = () => (
-  <div className="section-skills-box">
-    <div className="box box-pf">
-      <img src={sassIcon} alt="" />
-    </div>
-    <div className="box box-pf">
-      <img src={reduxIcon} alt="" />
-    </div>
-    <div className="box box-pf last">
-      <img src={reactIcon} alt="" />
-    </div>
-    <div className="box box-pm">
-      <img src={npmIcon} alt="" />
-    </div>
-    <div className="box box-pm last">
-      <img src={gitIcon} alt="" />
-    </div>
-    <div className="box box-pl first">
-      <img src={gulpIcon} alt="" />
-    </div>
-    <div className="box box-pl">
-      <img src={fbIcon} alt="" />
-    </div>
-    <div className="box box-pl last">
-      <img src={nodejsIcon} alt="" />
-    </div>
-  </div>
-)
-
-// Projects Section wrapper component //////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-
-const ProjectsSection = ({ lang, dimensions }) => {
-  const [projectIndex, setProjectIndex] = useState(0)
-
-  // GSAP config defaults
-  const defaults = { duration: 0.05, ease: "power3.out" }
-
-  const animations = params => params.play()
-
-  const indexSetter = index => setProjectIndex(index)
-
-  const indexRetriever = index => {
-    const onComplete = () => indexSetter(index)
-    const fadeOut = gsap
-      .timeline({ onComplete, defaults })
-      .to(".gatsby-image-wrapper", { opacity: 0 })
-
-    animations(fadeOut)
-  }
+  const { title, tsheading, tsparagraph, psheading } = content
 
   const { allMarkdownRemark } = useStaticQuery(graphql`
     {
@@ -193,34 +72,221 @@ const ProjectsSection = ({ lang, dimensions }) => {
     }
   `)
 
-  const data = allMarkdownRemark.edges.map(edge => edge.node.frontmatter.cover)
-
   return (
-    <div className="section-projects-grid">
-      <div className="section-projects-box">
-        <div className="list-wrapper">
-          <ul>
-            <UImapper
-              data={allMarkdownRemark}
-              lang={lang}
-              indexRetriever={indexRetriever}
-              projectIndex={projectIndex}
-              isMobile={dimensions < 768}
-            />
-          </ul>
+    <React.Fragment>
+      <div className="container">
+        <div className="section-hero-wrapper">
+          <HeroHeading title={title} dimensions={dimensions} />
+          <HeroParagraphs {...{ ...content, textStyle }} />
+          {dimensions <= 425 && <MobileBtns />}
+        </div>
+        <div className="section-skills-wrapper">
+          <SkillsSection tsheading={tsheading} tsparagraph={tsparagraph} />
+        </div>
+        <div className="section-projects-wrapper">
+          <ProjectsSection
+            lang={lang}
+            dimensions={dimensions}
+            allMarkdownRemark={allMarkdownRemark}
+            psheading={psheading}
+          />
         </div>
       </div>
-      {dimensions > 768 && (
+      <HomeFooter />
+    </React.Fragment>
+  )
+}
+
+// Hero heading component //////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+const HeroHeading = ({ dimensions, title }) => {
+  const firstHeading = title.substring(0, title.search("Ro"))
+  const secondHeading = title.substring(title.search("Ro"))
+
+  const firstHeadingMobile =
+    dimensions <= 425 ? title.substring(0, title.search(",") + 1) : firstHeading
+  const secondHeadingMobile =
+    dimensions <= 425
+      ? title.substring(title.search(",") + 1, title.search("Be"))
+      : secondHeading
+
+  useLayoutEffect(() => {
+    const animation = gsap
+      .timeline({ defaults: { ease: "power3.out", duration: 1 } })
+      .from("#title", { y: "100%", stagger: 0.3, display: "block", delay: 1 })
+      .from("#paragraph", { y: -10, stagger: 0.3, opacity: 0 }, "+=0.1")
+
+    const btnsAnimation = gsap
+      .timeline({ defaults: { ease: "power3.out", duration: 1 } })
+      .from(".btn-lg", { y: -10, stagger: 0.3, opacity: 0 })
+
+    if (dimensions < 426) animation.add(btnsAnimation)
+
+    animation.pause()
+
+    scene(".heading-xl", 200, () => animation.play())
+  }, [])
+
+  return (
+    <div className="section-hero">
+      <h1 className="heading heading-xl ohidden">
+        <span id="title">{firstHeadingMobile}</span>
+      </h1>
+      <br />
+      <h1 className="heading heading-xl ohidden">
+        <span id="title">{secondHeadingMobile}</span>
+      </h1>
+    </div>
+  )
+}
+
+// Hero paragraphs component ///////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+const HeroParagraphs = ({ textStyle, speciality, introduction, paragraph }) => (
+  <div className="section-hero-grid">
+    <p id="paragraph">
+      <span className={textStyle + " -hm"}>{speciality}</span>
+    </p>
+    <p id="paragraph">
+      <span className={textStyle}>{introduction}</span>
+      {paragraph}
+    </p>
+  </div>
+)
+
+// Skills section component ////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+const SkillsSection = ({ tsheading, tsparagraph }) => {
+  useLayoutEffect(() => {
+    const animation = gsap
+      .timeline({ defaults: { ease: "power3.out", duration: 1 } })
+      .from("#stitle", { y: "100%", display: "block" })
+      .from("#sparagraph", { y: -10, opacity: 0 })
+      .from("#sbox", { opacity: 0, duration: 5 }, "-=1")
+
+    animation.pause()
+
+    scene(".section-skills-grid", 100, () => animation.play())
+  }, [])
+
+  return (
+    <div className="section-skills-grid">
+      <div className="section-skills-box">
+        <h3 className="heading heading-md ohidden">
+          <span id="stitle">{tsheading}</span>
+        </h3>
+        <p id="sparagraph">{tsparagraph}</p>
+      </div>
+      <SkillsAnimatedBoxs />
+    </div>
+  )
+}
+
+// Animated skills cover boxs component ////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+const SkillsAnimatedBoxs = () => (
+  <div id="sbox" className="section-skills-box">
+    <div className="box box-pf">
+      <img src={sassIcon} alt="" />
+    </div>
+    <div className="box box-pf">
+      <img src={reduxIcon} alt="" />
+    </div>
+    <div className="box box-pf last">
+      <img src={reactIcon} alt="" />
+    </div>
+    <div className="box box-pm">
+      <img src={npmIcon} alt="" />
+    </div>
+    <div className="box box-pm last">
+      <img src={gitIcon} alt="" />
+    </div>
+    <div className="box box-pl first">
+      <img src={gulpIcon} alt="" />
+    </div>
+    <div className="box box-pl">
+      <img src={fbIcon} alt="" />
+    </div>
+    <div className="box box-pl last">
+      <img src={nodejsIcon} alt="" />
+    </div>
+  </div>
+)
+
+// Projects Section wrapper component //////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+const ProjectsSection = ({
+  lang,
+  dimensions,
+  allMarkdownRemark,
+  psheading,
+}) => {
+  const data = allMarkdownRemark.edges.map(edge => edge.node.frontmatter.cover)
+  const [projectIndex, setProjectIndex] = useState(0)
+
+  const animations = params => params.play()
+
+  const indexSetter = index => setProjectIndex(index)
+
+  const indexRetriever = index => {
+    const defaults = { duration: 0.05, ease: "power3.out" }
+    const onComplete = () => indexSetter(index)
+    const fadeOut = gsap
+      .timeline({ onComplete, defaults })
+      .to(".gatsby-image-wrapper", { opacity: 0 })
+
+    fadeOut.pause()
+    animations(fadeOut)
+  }
+
+  useLayoutEffect(() => {
+    const animation = gsap
+      .timeline({ defaults: { ease: "power3.out", duration: 1 } })
+      .from("#ptitle", { y: "100%", display: "block" })
+      .from(".list-wrapper", { opacity: 0 })
+      .from("#projects", { y: -10, opacity: 0, stagger: 0.3, delay: 0.5 })
+
+    animation.pause()
+
+    scene(".section-projects-wrapper", 10, () => animation.play())
+  }, [])
+
+  return (
+    <React.Fragment>
+      <h3 className="heading heading-md ohidden">
+        <span id="ptitle">{psheading}</span>
+      </h3>
+      <div className="section-projects-grid">
         <div className="section-projects-box">
-          <div className="project-card" />
-          <div className="project-card-wrapper">
-            <div className="project-card-image">
-              <ImageBox {...{ data, projectIndex, defaults }} />
-            </div>
+          <div className="list-wrapper">
+            <ul>
+              <UImapper
+                data={allMarkdownRemark}
+                lang={lang}
+                indexRetriever={indexRetriever}
+                projectIndex={projectIndex}
+                isMobile={dimensions < 768}
+              />
+            </ul>
           </div>
         </div>
-      )}
-    </div>
+        {dimensions > 768 && (
+          <div className="section-projects-box">
+            <div className="project-card" />
+            <div className="project-card-wrapper">
+              <div className="project-card-image">
+                <ImageBox {...{ data, projectIndex }} />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </React.Fragment>
   )
 }
 
@@ -242,7 +308,11 @@ const UImapper = ({ data, lang, indexRetriever, projectIndex, isMobile }) =>
     if (isMobile) {
       return (
         <li key={index + title}>
-          <Link className="project-cardmodel" to={`/projects${slug}`}>
+          <Link
+            id="projects"
+            className="project-cardmodel"
+            to={`/projects${slug}`}
+          >
             <div className="project-cardmodel-wrapper">
               <div className="project-cardmodel-head">
                 <Image
@@ -267,7 +337,7 @@ const UImapper = ({ data, lang, indexRetriever, projectIndex, isMobile }) =>
     }
 
     return (
-      <li key={title + index}>
+      <li id="projects" key={title + index}>
         <Link
           to={`/projects${slug}`}
           onMouseOver={() => {
@@ -287,12 +357,12 @@ const UImapper = ({ data, lang, indexRetriever, projectIndex, isMobile }) =>
 // Project cover image renderer component //////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
-const ImageBox = ({ data, projectIndex, defaults }) => {
+const ImageBox = ({ data, projectIndex }) => {
   const filterTarget = data.filter(obj => data.indexOf(obj) === projectIndex)
 
   useEffect(() => {
     const fadeIn = gsap
-      .timeline(defaults)
+      .timeline({ defaults: { duration: 0.05, ease: "power3.out" } })
       .to(".gatsby-image-wrapper", { opacity: 1 })
     fadeIn.play()
   })
