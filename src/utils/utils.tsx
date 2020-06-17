@@ -1,9 +1,23 @@
 import React, { createContext, useContext, useEffect, useState } from "react"
+import ScrollMagic from "ScrollMagic"
 
 import logoLight from "../assets/logo-light.svg"
 import logoDark from "../assets/logo-dark.svg"
 import moonIcon from "../assets/moon.svg"
 import sunIcon from "../assets/sun.svg"
+
+export const controller = new ScrollMagic.Controller()
+
+export const scene = (trigger, offset, callback) => {
+  new ScrollMagic.Scene({
+    triggerElement: trigger,
+    duration: 0,
+    triggerHook: 0.85,
+    offset: offset,
+  })
+    .on("enter", callback)
+    .addTo(controller)
+}
 
 /*
  useScreenSpy hook checks the window screen width on first 
@@ -41,7 +55,7 @@ of themeContextProvider
 const themeContext = createContext(null)
 
 export const ThemeContextProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState<boolean>(false)
+  const [isDark, setIsDark] = useState<boolean>(true)
 
   const backgroundStyle = isDark ? "dark-bg" : "light-bg"
   const textStyle = isDark ? "dark-spans" : "light-spans"
