@@ -57,6 +57,14 @@ body {
 
 // Main layout styles ////////////////////////////////
 /////////////////////////////////////////////////////
+.observer {
+  opacity: 0;
+}
+
+.ohidden {
+  overflow: hidden;
+}
+
 .container {
   width: 1150px;
   margin: auto;
@@ -86,7 +94,7 @@ body {
 }
 
 .mobile-btns-wrapper {
-  margin: 2rem 0.5rem 1.5rem;
+  margin: 2.5rem 0.5rem 1.5rem;
   display: flex;
   flex-direction: column;
 }
@@ -104,11 +112,11 @@ body {
   &-lg {
     width: 100%;
     border: 0;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     letter-spacing: 1.5px;
     font-weight: 500;
     font-family: $secFONT;
-    height: 52px;
+    height: 43px;
     border-radius: 1.25rem;
     color: #f1f1f1;
     cursor: pointer;
@@ -307,7 +315,7 @@ body {
     cursor: pointer;
     width: 100%;
     height: 1.5rem;
-    background-color: $colorPEARL;
+    background-color: #0ab2a2;
     transition: 0.2s all ease-out;
     border-radius: 0.15rem;
     font-weight: 600;
@@ -528,10 +536,10 @@ body {
     margin: 2rem 0 4rem;
     @media (max-width: $md) {
       margin: 4rem 0 2rem;
-      min-height: calc(100vh - 10.5rem);
+      min-height: 100%;
     }
     @media (max-width: $sm) {
-      margin: 1rem 0 2rem;
+      margin: 2rem 0 2rem;
     }
   }
   &-hero-wrapper.extra-y-margins {
@@ -601,11 +609,14 @@ body {
       margin-top: 0rem;
     }
   }
+  &-skills-box p {
+    white-space: break-spaces;
+  }
   &-skills-box:last-of-type {
     position: relative;
     perspective: 500px;
     height: 350px;
-    margin: 2rem 0 0 2rem;
+    margin: 6rem 0 0 2rem;
     @media (max-width: $md) {
       width: 420px;
       height: 290px;
@@ -1024,6 +1035,7 @@ body {
     margin-top: 4rem;
     line-height: 1.6;
     font-size: 0.95rem;
+    font-family: $secFONT;
     color: $paragraph;
     white-space: pre-wrap;
     @media (max-width: $md) {
