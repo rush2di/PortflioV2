@@ -20,7 +20,6 @@ import npmIcon from "../assets/npm.png"
 import gulpIcon from "../assets/gulp.png"
 import fbIcon from "../assets/firebase.png"
 import nodejsIcon from "../assets/nodejs.png"
-import { scene } from "../utils/config"
 
 // Home page template wrapper component ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
