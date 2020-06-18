@@ -288,7 +288,7 @@ const ProjectsSection = ({
       .timeline({ defaults: { ease: "power3.out", duration: 1 } })
       .from("#ptitle", { y: "100%", display: "block" })
       .from(".list-wrapper", { opacity: 0 })
-      .from("#projects", { y: -10, opacity: 0, stagger: 0.3, delay: 0.5 })
+      .from("#projects", { y: -10, opacity: 0, stagger: 0.3, delay: 0.3 })
 
     animation.pause()
 
