@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import ScrollMagic from "ScrollMagic"
+// import ScrollMagic from "ScrollMagic"
 import gsap from "gsap"
 
 import {
@@ -8,6 +8,7 @@ import {
   languageFilter,
   useThemes,
   useScreenSpy,
+  triggerAnimation,
 } from "../utils/utils"
 import Image from "../components/image"
 import HomeFooter from "../components/homeFooter"
@@ -112,19 +113,6 @@ const HeroHeading = ({ dimensions, title }) => {
       : secondHeading
 
   useLayoutEffect(() => {
-    const controller = new ScrollMagic.Controller()
-
-    const scene = (trigger, offset, callback) => {
-      new ScrollMagic.Scene({
-        triggerElement: trigger,
-        duration: 0,
-        triggerHook: 0.85,
-        offset: offset,
-      })
-        .on("enter", callback)
-        .addTo(controller)
-    }
-
     const animation = gsap
       .timeline({ defaults: { ease: "power3.out", duration: 1 } })
       .from("#title", { y: "100%", stagger: 0.3, display: "block", delay: 1 })
@@ -138,7 +126,7 @@ const HeroHeading = ({ dimensions, title }) => {
 
     animation.pause()
 
-    scene(".heading-xl", 200, () => animation.play())
+    triggerAnimation().scene(".heading-xl", 200, () => animation.play())
   }, [])
 
   return (
@@ -174,19 +162,6 @@ const HeroParagraphs = ({ textStyle, speciality, introduction, paragraph }) => (
 
 const SkillsSection = ({ tsheading, tsparagraph }) => {
   useLayoutEffect(() => {
-    const controller = new ScrollMagic.Controller()
-
-    const scene = (trigger, offset, callback) => {
-      new ScrollMagic.Scene({
-        triggerElement: trigger,
-        duration: 0,
-        triggerHook: 0.85,
-        offset: offset,
-      })
-        .on("enter", callback)
-        .addTo(controller)
-    }
-
     const animation = gsap
       .timeline({ defaults: { ease: "power3.out", duration: 1 } })
       .from("#stitle", { y: "100%", display: "block" })
@@ -195,7 +170,9 @@ const SkillsSection = ({ tsheading, tsparagraph }) => {
 
     animation.pause()
 
-    scene(".section-skills-grid", 100, () => animation.play())
+    triggerAnimation().scene(".section-skills-grid", 100, () =>
+      animation.play()
+    )
   }, [])
 
   return (
@@ -271,28 +248,17 @@ const ProjectsSection = ({
   }
 
   useLayoutEffect(() => {
-    const controller = new ScrollMagic.Controller()
-
-    const scene = (trigger, offset, callback) => {
-      new ScrollMagic.Scene({
-        triggerElement: trigger,
-        duration: 0,
-        triggerHook: 0.85,
-        offset: offset,
-      })
-        .on("enter", callback)
-        .addTo(controller)
-    }
-
     const animation = gsap
       .timeline({ defaults: { ease: "power3.out", duration: 1 } })
       .from("#ptitle", { y: "100%", display: "block" })
-      .from(".list-wrapper", { opacity: 0 })
+      .from(".list-wrapper", { opacity: 0, duration: 0.3 })
       .from("#projects", { y: -10, opacity: 0, stagger: 0.3, delay: 0.3 })
 
     animation.pause()
 
-    scene(".section-projects-wrapper", 10, () => animation.play())
+    triggerAnimation().scene(".section-projects-wrapper", 10, () =>
+      animation.play()
+    )
   }, [])
 
   return (
