@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import ScrollMagic from "ScrollMagic"
 import gsap from "gsap"
 
 import {
@@ -112,6 +113,19 @@ const HeroHeading = ({ dimensions, title }) => {
       : secondHeading
 
   useLayoutEffect(() => {
+    const controller = new ScrollMagic.Controller()
+
+    const scene = (trigger, offset, callback) => {
+      new ScrollMagic.Scene({
+        triggerElement: trigger,
+        duration: 0,
+        triggerHook: 0.85,
+        offset: offset,
+      })
+        .on("enter", callback)
+        .addTo(controller)
+    }
+
     const animation = gsap
       .timeline({ defaults: { ease: "power3.out", duration: 1 } })
       .from("#title", { y: "100%", stagger: 0.3, display: "block", delay: 1 })
@@ -161,6 +175,19 @@ const HeroParagraphs = ({ textStyle, speciality, introduction, paragraph }) => (
 
 const SkillsSection = ({ tsheading, tsparagraph }) => {
   useLayoutEffect(() => {
+    const controller = new ScrollMagic.Controller()
+
+    const scene = (trigger, offset, callback) => {
+      new ScrollMagic.Scene({
+        triggerElement: trigger,
+        duration: 0,
+        triggerHook: 0.85,
+        offset: offset,
+      })
+        .on("enter", callback)
+        .addTo(controller)
+    }
+
     const animation = gsap
       .timeline({ defaults: { ease: "power3.out", duration: 1 } })
       .from("#stitle", { y: "100%", display: "block" })
@@ -245,6 +272,19 @@ const ProjectsSection = ({
   }
 
   useLayoutEffect(() => {
+    const controller = new ScrollMagic.Controller()
+
+    const scene = (trigger, offset, callback) => {
+      new ScrollMagic.Scene({
+        triggerElement: trigger,
+        duration: 0,
+        triggerHook: 0.85,
+        offset: offset,
+      })
+        .on("enter", callback)
+        .addTo(controller)
+    }
+
     const animation = gsap
       .timeline({ defaults: { ease: "power3.out", duration: 1 } })
       .from("#ptitle", { y: "100%", display: "block" })
