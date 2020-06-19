@@ -136,7 +136,6 @@ const HeroHeading = ({ dimensions, title }) => {
         <div className="ohidden">
           <span id="title">{firstHeadingMobile}</span>
         </div>
-        <br />
         <div className="ohidden">
           <span id="title">{secondHeadingMobile}</span>
         </div>
