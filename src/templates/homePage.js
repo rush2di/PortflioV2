@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-// import ScrollMagic from "ScrollMagic"
 import gsap from "gsap"
 
 import {
@@ -10,9 +9,10 @@ import {
   useScreenSpy,
   triggerAnimation,
 } from "../utils/utils"
+import SEO from "../components/seo"
 import Image from "../components/image"
-import HomeFooter from "../components/homeFooter"
-import MobileBtns from "../components/mobileBtns"
+import HomeFooter from "../components/footers/homeFooter"
+import MobileBtns from "../components/buttons"
 import reactIcon from "../assets/react.png"
 import reduxIcon from "../assets/redux.png"
 import sassIcon from "../assets/sass.png"
@@ -75,6 +75,7 @@ const HomePage = ({ data }) => {
 
   return (
     <React.Fragment>
+      <SEO title={"Home"} />
       <div className="container">
         <div className="section-hero-wrapper">
           <HeroHeading title={title} dimensions={dimensions} />
@@ -298,8 +299,8 @@ const ProjectsSection = ({
 // Project list mapper /////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
-const UImapper = ({ data, lang, indexRetriever, projectIndex, isMobile }) =>
-  data.edges.map((items, i) => {
+const UImapper = ({ data, lang, indexRetriever, projectIndex, isMobile }) => {
+  return data.edges.map((items, i) => {
     const { slug } = items.node.fields
     const { frontmatter } = items.node
 
@@ -358,7 +359,7 @@ const UImapper = ({ data, lang, indexRetriever, projectIndex, isMobile }) =>
       </li>
     )
   })
-
+}
 // Project cover image renderer component //////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 

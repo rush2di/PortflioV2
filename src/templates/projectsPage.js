@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 
-import ProjectFooter from "../components/projectFooter"
-import MobileBtns from "../components/mobileBtns"
+import ProjectFooter from "../components/footers/projectFooter"
+import MobileBtns from "../components/buttons"
 import Image from "../components/image"
+import SEO from "../components/seo"
 import {
   useLanguages,
   languageFilter,
   useThemes,
   useScreenSpy,
 } from "../utils/utils"
+import {
+  scrollCTA,
+  heading1,
+  heading2,
+  paragraph,
+} from "../components/translations/translations"
 
 const ProjectsPage = ({ data: { markdownRemark } }) => {
   const { textStyle, btnStyle } = useThemes()
@@ -18,16 +25,19 @@ const ProjectsPage = ({ data: { markdownRemark } }) => {
   const { frontmatter, id } = markdownRemark
   const content = languageFilter(frontmatter, lang)
 
-  const scrollCTA = lang === "english" ? "scroll" : "défiler"
-
   return (
     <React.Fragment>
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.english.intro}
+        keywords={frontmatter.Stack}
+      />
       <div className="section section-project">
         <div className="container">
           <ProjectHero {...{ frontmatter, content, textStyle, btnStyle }} />
         </div>
         <div className="scroll-cta container">
-          <span className={textStyle}>{scrollCTA}</span>
+          <span className={textStyle}>{scrollCTA[lang]}</span>
         </div>
         <ProjectSection
           {...{ frontmatter, content, textStyle, lang, btnStyle }}
@@ -81,7 +91,7 @@ const ProjectSection = ({
   const { dimensions } = useScreenSpy()
 
   const { markdown } = content
-  const { screenshot, laptop, mobile } = frontmatter
+  const { screenshot, laptop, mobile, Stack } = frontmatter
 
   const handleReveal = () => setRevealed(!revealed)
 
@@ -94,11 +104,6 @@ const ProjectSection = ({
       ismounted = false
     }
   }, [imgHeight])
-
-  const heading =
-    lang === "english"
-      ? "THE TECH BEHIND THE WEBSITE"
-      : "LA TECHNOLOGIE DERRIÈRE CE SITE"
 
   const staticHeight = dimensions < 425 ? 220 : 350
 
@@ -124,8 +129,19 @@ const ProjectSection = ({
       )}
       <div className="container">
         <div className="text-content">
-          <h3 className={textStyle}>{heading}</h3>
-          <div dangerouslySetInnerHTML={{ __html: markdown }} />
+          <h3 className={textStyle}>{heading1[lang]}</h3>
+          <div className="text-content-box">
+            <div dangerouslySetInnerHTML={{ __html: markdown }} />
+            <ul className="text-stack">
+              {Stack.map((tech, index) => {
+                return (
+                  <li className={textStyle} key={index + "-stack"}>
+                    {tech}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         </div>
       </div>
       <div className="img-wrapper">
@@ -147,6 +163,7 @@ const ButtonsRenderer = ({ demo, github, styles, links }) => {
   const { dimensions } = useScreenSpy()
   const demoTextLogic = dimensions > 425 ? "Demo" : demo
   const githubTextLogic = dimensions > 425 ? "Github" : github
+
   return dimensions > 425 ? (
     <React.Fragment>
       <a href={links.dlink} target="_blank" rel="noopener noreferrer">
@@ -167,19 +184,11 @@ const ButtonsRenderer = ({ demo, github, styles, links }) => {
 }
 
 const MobileFirstInfo = ({ lang, textStyle }) => {
-  const heading =
-    lang === "english"
-      ? "A MOBILE FRIENDLY APPROACH"
-      : "UNE APPROCHE MOBILE FIRST"
-  const paragraph =
-    lang === "english"
-      ? "In todays digital age, users expect every website to have a mobile version. So companies and developers must try to produce the same if not better experience for users interacting with their site on a mobile device. This project helped me understand how a professional team translates a desktop site into a mobile device."
-      : "L'internet dernièrement a été marqué par la forte croissance des populations mobinautes et tablonautes, donc l’importance des mobiles et des tablettes n’est plus à démontrer et les utilisateurs maintenet s'attendent toujours que chaque site Web ait un fonctionnement optimaux et compaptible en version mobile. Les entreprises et les développeurs doivent donc essayer de produire la même ou sinon une meilleure expérience pour ces utilisateurs. Ce projet m'a aidé à comprendre comment une équipe professionnelle se focalise sur l’essentiel utilisation mobile et simplifie la navigation au maximum."
   return (
     <div className="container">
       <div className="text-content">
-        <h3 className={textStyle}>{heading}</h3>
-        <div>{paragraph}</div>
+        <h3 className={textStyle}>{heading2[lang]}</h3>
+        <div className="text-content-box">{paragraph[lang]}</div>
       </div>
     </div>
   )
