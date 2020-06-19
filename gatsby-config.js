@@ -1,10 +1,10 @@
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://www.roshdibelhirsh.com/',
+  URL: NETLIFY_SITE_URL = "https://www.roshdibelhirsh.com/",
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV,
 } = process.env
-const isNetlifyProduction = NETLIFY_ENV === 'production'
+const isNetlifyProduction = NETLIFY_ENV === "production"
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
 module.exports = {
@@ -13,6 +13,7 @@ module.exports = {
     description: `Rochdi Belhirch A creative developer building sleek websites with the latest technologies.I specialize in bringing great designs to life with tools like React and JavaScript animation libraries.`,
     author: `@rush2di`,
     keywords: `frontend,web developer,website creator,rochdi belhirch,frontend developer,react developer,javascript developer,js developer`,
+    siteUrl: "https://www.roshdibelhirsh.com/",
   },
   plugins: [
     `gatsby-plugin-sharp`,
@@ -63,6 +64,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-smoothscroll`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-layout`,
       options: {
@@ -88,21 +90,21 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
         resolveEnv: () => NETLIFY_ENV,
         env: {
           production: {
-            policy: [{ userAgent: '*' }],
-            sitemap: `https://www.roshdibelhirsh.com/sitemap.xml`
+            policy: [{ userAgent: "*" }],
+            sitemap: `https://www.roshdibelhirsh.com/sitemap.xml`,
           },
-          'branch-deploy': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+          "branch-deploy": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
             sitemap: null,
             host: null,
           },
-          'deploy-preview': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+          "deploy-preview": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
             sitemap: null,
             host: null,
           },
