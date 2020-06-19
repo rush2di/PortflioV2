@@ -132,12 +132,14 @@ const HeroHeading = ({ dimensions, title }) => {
 
   return (
     <div className="section-hero">
-      <h1 className="heading heading-xl ohidden">
-        <span id="title">{firstHeadingMobile}</span>
-      </h1>
-      <br />
-      <h1 className="heading heading-xl ohidden">
-        <span id="title">{secondHeadingMobile}</span>
+      <h1 className="heading heading-xl">
+        <div className="ohidden">
+          <span id="title">{firstHeadingMobile}</span>
+        </div>
+        <br />
+        <div className="ohidden">
+          <span id="title">{secondHeadingMobile}</span>
+        </div>
       </h1>
     </div>
   )
