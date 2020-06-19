@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `RB-PORTFOLIO`,
-    description: `Rochdi Belhirch frontend web developer portfolio`,
+    title: `ROCHDI BELHIRCH`,
+    description: `Rochdi Belhirch A creative developer building sleek websites with the latest technologies.I specialize in bringing great designs to life with tools like React and JavaScript animation libraries.`,
     author: `@rush2di`,
     keywords: `frontend,web developer,website creator,frontend developer,react developer,javascript developer,js developer`,
   },
@@ -76,6 +76,14 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/assets/favicon.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://www.roshdibelhirsh.com/`,
+        sitemap: `https://www.roshdibelhirsh.com/sitemap.xml`,
+        policy: [{ userAgent: `*`, allow: `/` }],
       },
     },
   ],
