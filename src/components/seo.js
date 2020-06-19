@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
+import bg from "../assets/background.png"
+
 const SEO = ({ description, lang, meta, title, keywords }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -49,12 +51,20 @@ const SEO = ({ description, lang, meta, title, keywords }) => {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: bg,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
         {
           name: `twitter:creator`,
           content: site.siteMetadata.author,
+        },
+        {
+          name: `twitter:image`,
+          content: bg,
         },
         {
           name: `twitter:title`,
