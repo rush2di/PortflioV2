@@ -1,13 +1,13 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { useLanguages, languageFilter } from "../utils/utils"
-import footerHead from "../assets/footerhead.svg"
-import emailIcon from "../assets/email.png"
-import phoneIcon from "../assets/phone.png"
-import githubIcon from "../assets/github.png"
-import linkedinIcon from "../assets/linkedin.png"
-import Formy from "./form"
+import { useLanguages, languageFilter } from "../../utils/utils"
+import footerHead from "../../assets/footerhead.svg"
+import emailIcon from "../../assets/email.png"
+import phoneIcon from "../../assets/phone.png"
+import githubIcon from "../../assets/github.png"
+import linkedinIcon from "../../assets/linkedin.png"
+import Formy from "../form"
 
 const HomeFooter = () => {
   const { lang } = useLanguages()
@@ -71,7 +71,9 @@ const HomeFooter = () => {
                 </div>
                 <div className="contact-info">
                   <img src={emailIcon} alt="phone" />
-                  <span className="dark-spans">{email}</span>
+                  <a href={`mailto:${email}`} className="dark-spans">
+                    {email}
+                  </a>
                 </div>
                 <div className="contact-info">
                   <img src={linkedinIcon} alt="linkedin" />

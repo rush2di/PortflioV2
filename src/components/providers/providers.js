@@ -4,7 +4,7 @@ import {
   ThemeContextProvider,
   LangContextProvider,
   ScreenSpyProvider,
-} from "../utils/utils"
+} from "../../utils/utils"
 
 const Providers = ({ children }) => (
   <LangContextProvider>

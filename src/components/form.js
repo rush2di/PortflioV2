@@ -87,7 +87,7 @@ const mapPropsToValues = ({ name, email, message }) => {
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(2, "too short!").required("required"),
   email: Yup.string().email("not a valid email").required("required"),
-  message: Yup.string().min(5, "too short!").required("required"),
+  message: Yup.string().min(30, "too short!").required("required"),
 })
 
 // form submit handler function for formik HOC /////////////////////////

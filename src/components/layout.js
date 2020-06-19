@@ -3,7 +3,7 @@ import gsap from "gsap"
 
 import { useThemes } from "../utils/utils"
 import Transition from "./transition"
-import Providers from "./providers"
+import Providers from "./providers/providers"
 import Header from "./header"
 import "../styles/styles.scss"
 

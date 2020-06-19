@@ -1,7 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-import { useLanguages, languageFilter, useScreenSpy } from "../utils/utils"
+import { useLanguages, languageFilter, useScreenSpy } from "../../utils/utils"
+import { nextProject, backToHome } from "../translations/translations"
 
 const ProjectFooter = ({ targetId }) => {
   const { dimensions } = useScreenSpy()
@@ -38,22 +39,18 @@ const ProjectFooter = ({ targetId }) => {
   const data = allMarkdownRemark.edges
   const indexer = nextProjectIndex(data, targetId)
 
-  const nextProjectText = lang === "english" ? "Next project" : "Projet suivant"
-  const backToHomeText =
-    lang === "english"
-      ? "Go back to home page"
-      : "Retournez à la page d'accueil"
-
   return (
     <div className="project-footer-wrapper">
       <div className="container">
         <div className="project-footer-grid">
           <div className="project-footer-box">
-            <Link to="/">{backToHomeText}</Link>
+            <Link to="/">{backToHome[lang]}</Link>
           </div>
           {indexer < data.length && (
             <NextProjectUI
-              {...{ data, indexer, nextProjectText, lang }}
+              data={data}
+              indexer={indexer}
+              lang={lang}
               isMobile={dimensions < 426}
             />
           )}
@@ -63,19 +60,19 @@ const ProjectFooter = ({ targetId }) => {
   )
 }
 
-const NextProjectUI = ({ indexer, data, nextProjectText, lang, isMobile }) => {
+const NextProjectUI = ({ indexer, data, lang, isMobile }) => {
   const content = languageFilter(data[indexer].node.frontmatter, lang)
   const { intro } = content
 
   return isMobile ? (
     <div className="project-footer-box mt-2">
       <Link to={`/projects${data[indexer].node.fields.slug}`}>
-        <Link
+        <span
           className="w-arrow"
           to={`/projects${data[indexer].node.fields.slug}`}
         >
-          {nextProjectText}
-        </Link>
+          {nextProject[lang]}
+        </span>
         <div className="flex-footer">
           <h3 className="footer-title">
             {data[indexer].node.frontmatter.title}
@@ -85,9 +82,9 @@ const NextProjectUI = ({ indexer, data, nextProjectText, lang, isMobile }) => {
       </Link>
     </div>
   ) : (
-    <div className="project-footer-box">
+    <div className="project-footer-box mt-2">
       <Link to={`/projects${data[indexer].node.fields.slug}`}>
-        {nextProjectText}
+        {nextProject[lang]}
       </Link>
       <Link to={`/projects${data[indexer].node.fields.slug}`}>
         <div className="flex-footer">
