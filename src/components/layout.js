@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import gsap from "gsap"
 
 import { useThemes } from "../utils/utils"
