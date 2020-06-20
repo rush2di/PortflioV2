@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react"
+import React, { useState, useEffect, useLayoutEffect, useMemo } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import gsap from "gsap"
 
@@ -8,6 +8,7 @@ import {
   useThemes,
   useScreenSpy,
   triggerAnimation,
+  titleFixer,
 } from "../utils/utils"
 import SEO from "../components/seo"
 import Image from "../components/image"
@@ -29,13 +30,11 @@ const HomePage = ({ data }) => {
   const { lang } = useLanguages()
   const { textStyle } = useThemes()
   const { dimensions } = useScreenSpy()
-
   const { frontmatter } = data.edges[0].node
 
   const content = languageFilter(frontmatter, lang)
 
   const { title, tsheading, tsparagraph, psheading } = content
-
   const { allMarkdownRemark } = useStaticQuery(graphql`
     {
       allMarkdownRemark(
@@ -52,7 +51,7 @@ const HomePage = ({ data }) => {
               date
               cover {
                 childImageSharp {
-                  fluid(maxWidth: 800, quality: 100) {
+                  fluid(maxWidth: 300, quality: 100) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -103,24 +102,17 @@ const HomePage = ({ data }) => {
 ///////////////////////////////////////////////////////////////////////
 
 const HeroHeading = ({ dimensions, title }) => {
-  const firstHeading = title.substring(0, title.search("Ro"))
-  const secondHeading = title.substring(title.search("Ro"))
-
-  const firstHeadingMobile =
-    dimensions <= 425 ? title.substring(0, title.search(",") + 1) : firstHeading
-  const secondHeadingMobile =
-    dimensions <= 425
-      ? title.substring(title.search(",") + 1, title.search("Be"))
-      : secondHeading
+  const [titleSliceOne, titleSliceTwo] = titleFixer(dimensions, title)
 
   useLayoutEffect(() => {
+    const defaults = { ease: "power3.out", duration: 1 }
     const animation = gsap
-      .timeline({ defaults: { ease: "power3.out", duration: 1 } })
+      .timeline({ defaults })
       .from("#title", { y: "100%", stagger: 0.3, display: "block", delay: 1 })
       .from("#paragraph", { y: -10, stagger: 0.3, opacity: 0 }, "+=0.1")
 
     const btnsAnimation = gsap
-      .timeline({ defaults: { ease: "power3.out", duration: 1 } })
+      .timeline({ defaults })
       .from(".btn-lg", { y: -10, stagger: 0.3, opacity: 0 })
 
     if (dimensions < 426) animation.add(btnsAnimation)
@@ -134,10 +126,10 @@ const HeroHeading = ({ dimensions, title }) => {
     <div className="section-hero">
       <h1 className="heading heading-xl">
         <div className="ohidden">
-          <span id="title">{firstHeadingMobile}</span>
+          <span id="title">{titleSliceOne}</span>
         </div>
         <div className="ohidden">
-          <span id="title">{secondHeadingMobile}</span>
+          <span id="title">{titleSliceTwo}</span>
         </div>
       </h1>
     </div>
@@ -167,10 +159,9 @@ const SkillsSection = ({ tsheading, tsparagraph }) => {
     const animation = gsap
       .timeline({ defaults: { ease: "power3.out", duration: 1 } })
       .from("#stitle", { y: "100%", display: "block" })
-      .from("#sparagraph", { y: -10, opacity: 0 })
-      .from("#sbox", { opacity: 0, duration: 5 }, "-=1")
-
-    animation.pause()
+      .from("#sparagraph", { y: -15, opacity: 0 })
+      .from("#sbox", { opacity: 0, duration: 5 })
+      .pause()
 
     triggerAnimation().scene(".section-skills-grid", 100, () =>
       animation.play()
@@ -234,19 +225,15 @@ const ProjectsSection = ({
   const data = allMarkdownRemark.edges.map(edge => edge.node.frontmatter.cover)
   const [projectIndex, setProjectIndex] = useState(0)
 
-  const animations = params => params.play()
-
   const indexSetter = index => setProjectIndex(index)
 
   const indexRetriever = index => {
-    const defaults = { duration: 0.05, ease: "power3.out" }
+    const defaults = { duration: 0.15, ease: "power3.out" }
     const onComplete = () => indexSetter(index)
     const fadeOut = gsap
       .timeline({ onComplete, defaults })
       .to(".gatsby-image-wrapper", { opacity: 0 })
-
-    fadeOut.pause()
-    animations(fadeOut)
+    fadeOut.play()
   }
 
   useLayoutEffect(() => {
@@ -255,13 +242,24 @@ const ProjectsSection = ({
       .from("#ptitle", { y: "100%", display: "block" })
       .from(".list-wrapper", { opacity: 0, duration: 0.3 })
       .from("#projects", { y: -10, opacity: 0, stagger: 0.3, delay: 0.3 })
-
-    animation.pause()
+      .pause()
 
     triggerAnimation().scene(".section-projects-wrapper", 10, () =>
       animation.play()
     )
   }, [])
+
+  const memorizedUImapper = useMemo(() => {
+    return (
+      <UImapper
+        data={allMarkdownRemark}
+        lang={lang}
+        indexRetriever={indexRetriever}
+        projectIndex={projectIndex}
+        isMobile={dimensions < 768}
+      />
+    )
+  }, [dimensions, lang, projectIndex])
 
   return (
     <React.Fragment>
@@ -271,15 +269,7 @@ const ProjectsSection = ({
       <div className="section-projects-grid">
         <div className="section-projects-box">
           <div className="list-wrapper">
-            <ul>
-              <UImapper
-                data={allMarkdownRemark}
-                lang={lang}
-                indexRetriever={indexRetriever}
-                projectIndex={projectIndex}
-                isMobile={dimensions < 768}
-              />
-            </ul>
+            <ul>{memorizedUImapper}</ul>
           </div>
         </div>
         {dimensions > 768 && (
@@ -361,6 +351,7 @@ const UImapper = ({ data, lang, indexRetriever, projectIndex, isMobile }) => {
     )
   })
 }
+
 // Project cover image renderer component //////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
