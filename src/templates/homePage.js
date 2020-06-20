@@ -74,7 +74,7 @@ const HomePage = ({ data }) => {
 
   return (
     <React.Fragment>
-      <SEO title={"Home"} />
+      <SEO title={"Portfolio"} />
       <div className="container">
         <div className="section-hero-wrapper">
           <HeroHeading title={title} dimensions={dimensions} />
