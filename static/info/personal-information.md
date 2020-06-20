@@ -10,6 +10,7 @@ english:
     I’m currently seeking a remote job as a frontend ReactJs developer a job in
     wich I can take my skills to the next level, and grow as a web developer.
 
+
     So you like my portfolio and think I’m suitable for your job position? Let’s work togheter! 
   contactHead: Say hello!
 french:
@@ -18,6 +19,7 @@ french:
     Je suis actuellement à la recherche d'un emploi à distance en tant que
     développeur ReactJs, un emploi dans lequel je peux faire passer mes
     compétences a un niveau supérieur et évoluer en tant que développeur Web.
+
 
     Vous aimez donc mon portfolio et pensez que je suis bon candidat? Travaillons ensemble!
   contactHead: Contactez moi!
