@@ -19,7 +19,7 @@ english:
   speciality: frontend web developer
   title: Hello, I'm Roshdi Belhirsh
   cbtn: connect with me
-  introduction: A creative developer building sleek websites with the latest technologies.
+  introduction: A creative developer building modern websites with the latest technologies.
   psheading: "Featured projects:"
 french:
   tsheading: "Compétences techniques:"
