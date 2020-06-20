@@ -3,9 +3,9 @@ templateKey: home-template
 english:
   tsheading: "Technical skills:"
   pbtn: view my projects
-  paragraph: I specialize in bringing great designs to life with tools like React
-    and JavaScript animation libraries. I'm currently seeking out the right team
-    where I can contribute in making amazing digital products.
+  paragraph: " I specialize in bringing great designs to life with tools like
+    React and JavaScript animation libraries. I'm currently seeking out the
+    right team where I can contribute in making amazing digital products."
   tsparagraph: >-
     By constanly building personal projects I managed to learn many new
     thechnologies and concepts, this has also helped me gain knowledge on how to
@@ -24,14 +24,15 @@ english:
 french:
   tsheading: "Compétences techniques:"
   pbtn: voir mes projets
-  paragraph: Je me spécialise en création frontend avec des outils comme React et
-    les bibliothèques d'animation JavaScript. Je cherche actuellement la bonne
-    équipe où je peux contribuer à créer des produits digital incroyables.
+  paragraph: " Je me spécialise en création frontend avec des outils comme React
+    et les bibliothèques d'animation JavaScript. Je cherche actuellement la
+    bonne équipe où je peux contribuer à créer des produits digital
+    incroyables."
   tsparagraph: >-
     En construisant constamment des projets personnels et en travaillant sur mes
     compétences, j'ai réussi à apprendre des nombreuses nouvelles technologies
-    et concepts technique, cela m'a également aidé à acquérir une connaissance a
-    la façon avec la quelle choisir la bonne stack pour mes projets.
+    et concepts technique, cela m'a également aidé à savoir comment choisir la
+    bonne stack pour mes projets.
 
 
     Les technologies que j'ai apprises et travaillé avec consistent de Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Npm, Sass, Gulp, Git et Github.
