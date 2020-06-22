@@ -12,10 +12,10 @@ english:
     wisely chose the right stack for my projects.
 
 
-    Technologies I have learned and worked with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Npm ,Sass , Gulp, Git and Github.
+    Technologies I have learned and worked with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Firebase, Npm ,Sass , Gulp, Git and Github.
 
 
-    I have also used some Css and Javascript animation libraries like Bootsrap, MaterialUI, Pose, Scollmagic, and Gsap.
+    I have also used some Css and Javascript animation libraries like Bootsrap, MaterialUI, Pose, Scrollmagic, and Gsap.
   speciality: frontend web developer
   title: Hello, I'm Roshdi Belhirsh
   cbtn: connect with me
@@ -35,10 +35,10 @@ french:
     bonne stack pour mes projets.
 
 
-    Les technologies que j'ai apprises et travaillé avec consistent de Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Npm, Sass, Gulp, Git et Github.
+    Les technologies que j'ai apprises et travaillé avec consistent de Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Firebase, Npm, Sass, Gulp, Git et Github.
 
 
-    J'ai également utilisé des bibliothèques d'animation de Javascript et d'autre de la Css et comme Bootsrap, MaterialUI, Pose, Scollmagic et Gsap.
+    J'ai également utilisé des bibliothèques d'animation de Javascript et d'autre de la Css et comme Bootsrap, MaterialUI, Pose, Scrollmagic et Gsap.
   speciality: développeur web frontend
   title: Hello, I'm Rochdi Belhirch
   cbtn: me contacter
