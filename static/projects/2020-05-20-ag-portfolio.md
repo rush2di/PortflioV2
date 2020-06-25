@@ -20,26 +20,21 @@ mobile: /images/fireshot-capture-013-home-grana.ab-agportfolio.netlify.app.png
 english:
   title: Theke
   intro: photography portfolio website
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet,
-    consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniam
+  description: Grana.ab is the portfolio website of a young photographer where he
+    showcase his works, photography skills, and also write articles about
+    compostion, photo editting, and photography tips.
   type: Freelance project
   markdown: >-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur
-    adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum
-    dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim
-    ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-    do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet,
-    consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim
-    veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod temaliqua, enim ad minim veniam
+    What I learned from building this website is that creating your own custom
+    hooks in React comes with many benefits and allows you to increase
+    performance by coupling related logic into one custom hook, this makes the
+    code look cleaner and easier to read.
 
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniam
+    For Graphql I have learned and used new concepts like aliases and fragments. Fragments let you construct sets of fields, and then include them in queries where you need to while Aliases help you retrieve different data for the same field with different arguments provided to it, this saves you from retrieving the whole data set and applying filters in the frontend.
 
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniam
+    For stylings, I used Sass and I followed bem methodology but also applyed small changes that suited my development needs to it. Gsap along with Scrollmagic for scroll animations and React-transition-group for pages transitions.
   role: design & development
   demobtn: view demo
   githubtn: view github repo
