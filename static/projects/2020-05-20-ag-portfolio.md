@@ -22,7 +22,7 @@ english:
   intro: photography portfolio website
   description: Grana.ab is the portfolio website of a young photographer where he
     showcase his works, photography skills, and also write articles about
-    compostion, photo editting, and photography tips.
+    composition, photo editing, and photography tips.
   type: Freelance project
   markdown: >-
     What I learned from building this website is that creating your own custom
@@ -42,23 +42,21 @@ french:
   title: Theke
   intro: Site portfolio de photographie
   type: Projet personnel
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet,
-    consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniam
+  description: Grana.ab est un site portfolio d'un jeune photographe où il
+    présente ses compétences en photographie et écrit également des articles sur
+    la composition, le montage des photos et post des conseils en ce qui
+    concerne la photographie.
   markdown: >-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur
-    adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum
-    dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim
-    ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-    do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet,
-    consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniam
+    Ce que j'ai appris de la création de ce site, c'est que la création de vos
+    propres custom hooks dans React présente de nombreux avantages et vous
+    permet d'augmenter les performances en couplant la logique associée en un
+    seul custom hook, ce qui rend le code plus propre et plus facile à lire.
 
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniam
+    Pour Graphql, j'ai appris et utilisé de nouveaux concepts comme les alias et les fragments. Les fragments vous permettent de construire des ensembles de champs, puis de les inclure dans les requêtes où vous en avez besoin tandis que les alias vous aident à récupérer différentes données pour le même champ avec différents arguments fournis, cela vous aide a éviter de récupérer l'ensemble des données complets et d'appliquer des filtres dans la côté frontend.
 
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniam
+    Pour les stylings, j'ai utilisé Sass et j'ai suivi la méthodologie bem mais j'ai également appliqué de petits changements qui correspondaient à mes besoins de développement. Gsap avec Scrollmagic pour les animations de défilement et React-transition-group pour les transitions des pages.
   role: design et development
   demobtn: voir le demo
   githubtn: voir la repo github
