@@ -57,6 +57,11 @@ body {
 
 // Main layout styles ////////////////////////////////
 /////////////////////////////////////////////////////
+.vh-100 {
+  @media (min-width: $md) and (max-height: $md) {
+    height: calc(100vh - 220px);
+  }
+}
 .observer {
   opacity: 0;
 }
@@ -583,7 +588,7 @@ body {
         display: none;
       }
       p:first-child {
-      margin-top: 0;
+        margin-top: 0;
       }
     }
   }
@@ -671,7 +676,7 @@ body {
   }
   &-skills-box .box-pf {
     @include cardScale(-2.5deg);
-    animation: Pfbounce1 10s ease-in-out infinite 5s;
+    animation: Pfbounce1 8s ease-in-out infinite 5s;
     box-shadow: 2px 4px 10px #07c1a84d;
     left: 28%;
     top: 20%;
@@ -684,7 +689,7 @@ body {
     }
     &:first-child {
       @include cardScale(-2.5deg, -0.8);
-      animation: Pfbounce2 10s ease-in-out infinite 4.5s;
+      animation: Pfbounce2 8s ease-in-out infinite 4.5s;
       box-shadow: -2px -4px 10px #07c1a84d;
       top: 57%;
       left: 12%;
@@ -697,7 +702,7 @@ body {
     }
     &.last {
       @include cardScale($scale: 1.35);
-      animation: Pfbounce3 10s ease-in-out infinite 5.5s;
+      animation: Pfbounce3 8s ease-in-out infinite 5.5s;
       left: 58%;
       top: 0;
       @media (max-width: 470px) {
@@ -707,7 +712,7 @@ body {
   }
   &-skills-box .box-pm {
     @include cardScale(-2.5deg, -0.7);
-    animation: Pmbounce1 10s ease-in-out infinite;
+    animation: Pmbounce1 8s ease-in-out infinite;
     box-shadow: -2px -4px 12px #07d0b557;
     left: 19%;
     top: -16%;
@@ -720,7 +725,7 @@ body {
     }
     &.last {
       @include cardScale(-2deg, -0.7);
-      animation: Pmbounce2 10s ease-in-out infinite;
+      animation: Pmbounce2 8s ease-in-out infinite;
       left: 45%;
       top: 50%;
       @media (max-width: 900px) {
@@ -734,7 +739,7 @@ body {
   }
   &-skills-box .box-pl {
     @include cardScale(-3.5deg, -0.588);
-    animation: Plbounce1 10s ease-in-out infinite 2.5s;
+    animation: Plbounce1 8s ease-in-out infinite 4s;
     box-shadow: -2px -4px 12px #07d0b557;
     left: 7%;
     top: 30%;
@@ -748,7 +753,7 @@ body {
     }
     &.first {
       @include cardScale(-3.5deg, -0.475);
-      animation: Plbounce2 10s ease-in-out infinite 5s;
+      animation: Plbounce2 8s ease-in-out infinite 5s;
       left: 1%;
       top: -4%;
       @media (max-width: 900px) {
@@ -760,7 +765,7 @@ body {
     }
     &.last {
       @include cardScale(-2.5deg, -0.65);
-      animation: Plbounce3 10s ease-in-out infinite 5s;
+      animation: Plbounce3 8s ease-in-out infinite 5s;
       left: 81%;
       top: 11%;
       @media (max-width: 470px) {
@@ -1016,7 +1021,7 @@ body {
   .section-main-info .text-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 3rem 0;
+    padding: 3rem 0 3.5rem;
     width: 100%;
     @media (max-width: $md) {
       display: flex;
@@ -1041,7 +1046,7 @@ body {
   }
   .section-main-info .text-content .text-content-box {
     width: 290px;
-    margin-top: 4rem;
+    margin-top: 3.8rem;
     line-height: 1.6;
     font-size: 0.95rem;
     font-family: $secFONT;
@@ -1054,7 +1059,7 @@ body {
     }
   }
   .section-main-info .text-stack {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     list-style: none;
     display: flex;
     flex-flow: wrap;
