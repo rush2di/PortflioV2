@@ -10,9 +10,9 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 module.exports = {
   siteMetadata: {
     title: `Rochdi Belhirch`,
-    description: `Rochdi Belhirch A creative developer building sleek websites with the latest technologies.I specialize in bringing great designs to life with tools like React and JavaScript animation libraries.`,
+    description: `Rochdi Belhirch A creative developer building modern websites with the latest technologies.I specialize in bringing great designs to life with tools like React and JavaScript animation libraries.`,
     author: `@rush2di`,
-    keywords: `frontend,web developer,website creator,rochdi belhirch,frontend developer,react developer,javascript developer,js developer`,
+    keywords: `frontend,web developer,website creator,rochdi belhirch,frontend developer,react developer,javascript developer,js developer,rochdi,belhirch,rush2di,roshdi,belhirsh,roshdi belhirsh,jamstack,jamstack developer`,
     siteUrl: "https://www.roshdibelhirsh.com/",
   },
   plugins: [
