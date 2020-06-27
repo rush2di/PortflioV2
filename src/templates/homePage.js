@@ -110,14 +110,16 @@ const HeroHeading = ({ dimensions, title }) => {
       .timeline({ defaults })
       .from("#title", { y: "100%", stagger: 0.3, display: "block", delay: 1 })
       .from("#paragraph", { y: -10, stagger: 0.3, opacity: 0 }, "+=0.1")
+      .pause()
 
-    const btnsAnimation = gsap
-      .timeline({ defaults })
-      .from(".btn-lg", { y: -10, stagger: 0.3, opacity: 0 })
+    if (dimensions < 426) {
+      const btnsAnimation = gsap
+        .timeline({ defaults })
+        .from(".btn-lg", { y: -10, stagger: 0.3, opacity: 0 })
+        .pause()
 
-    if (dimensions < 426) animation.add(btnsAnimation)
-
-    animation.pause()
+      animation.add(btnsAnimation)
+    }
 
     triggerAnimation().scene(".heading-xl", 200, () => animation.play())
   }, [])
@@ -157,7 +159,7 @@ const HeroParagraphs = ({ textStyle, speciality, introduction, paragraph }) => (
 const SkillsSection = ({ tsheading, tsparagraph }) => {
   useLayoutEffect(() => {
     const animation = gsap
-      .timeline({ defaults: { ease: "power3.out", duration: 1 } })
+      .timeline({ defaults: { ease: "power3.out", duration: 0.7 } })
       .from("#stitle", { y: "100%", display: "block" })
       .from("#sparagraph", { y: -15, opacity: 0 })
       .from("#sbox", { opacity: 0, duration: 5 })
@@ -236,17 +238,20 @@ const ProjectsSection = ({
     fadeOut.play()
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const animation = gsap
-      .timeline({ defaults: { ease: "power3.out", duration: 1 } })
+      .timeline({ defaults: { ease: "power3.out", duration: 0.7 } })
       .from("#ptitle", { y: "100%", display: "block" })
-      .from(".list-wrapper", { opacity: 0, duration: 0.3 })
-      .from("#projects", { y: -10, opacity: 0, stagger: 0.3, delay: 0.3 })
+      .from(".list-wrapper", { opacity: 0, duration: 0.35 })
+      .from("#projects", { y: -10, opacity: 0, stagger: 0.3, delay: 0.35 })
       .pause()
 
     triggerAnimation().scene(".section-projects-wrapper", 10, () =>
       animation.play()
     )
+    return () => {
+      setProjectIndex(0)
+    }
   }, [])
 
   const memorizedUImapper = useMemo(() => {
@@ -273,7 +278,7 @@ const ProjectsSection = ({
           </div>
         </div>
         {dimensions > 768 && (
-          <div className="section-projects-box">
+          <div id="covers" className="section-projects-box">
             <div className="project-card" />
             <div className="project-card-wrapper">
               <div className="project-card-image">

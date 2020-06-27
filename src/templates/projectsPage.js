@@ -16,6 +16,8 @@ import {
   heading1,
   heading2,
   paragraph,
+  coverBtnReveal,
+  coverBtnHide,
 } from "../components/translations/translations"
 
 const ProjectsPage = ({ data: { markdownRemark } }) => {
@@ -33,7 +35,7 @@ const ProjectsPage = ({ data: { markdownRemark } }) => {
         keywords={frontmatter.Stack}
       />
       <div className="section section-project">
-        <div className="container">
+        <div className="container vh-100">
           <ProjectHero {...{ frontmatter, content, textStyle, btnStyle }} />
         </div>
         <div className="scroll-cta container">
@@ -124,7 +126,7 @@ const ProjectSection = ({
       </div>
       {imgHeight > 350 && (
         <button className={`reveal-btn btn ${btnStyle}`} onClick={handleReveal}>
-          {!revealed ? "reveal" : "hide"}
+          {!revealed ? coverBtnReveal[lang] : coverBtnHide[lang]}
         </button>
       )}
       <div className="container">
