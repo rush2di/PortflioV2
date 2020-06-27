@@ -93,7 +93,7 @@ const HomeFooter = () => {
             </div>
             <div className="footer-box">
               <h3 className="heading heading-md no-mb">{contactHead}</h3>
-              <Formy />
+              <Formy lang={lang} />
             </div>
           </div>
         </div>

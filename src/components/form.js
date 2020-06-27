@@ -4,7 +4,16 @@ import { withFormik, Form, Field } from "formik"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
-const Formy = ({ errors, touched, isSubmitting, handleSubmit }) => {
+import {
+  formName,
+  formMessage,
+  formBtn,
+  formBtnLoading,
+  successToast,
+  errorToast,
+} from "./translations/translations"
+
+const Formy = ({ errors, touched, isSubmitting, handleSubmit, lang }) => {
   const isDirty = errors.name || errors.email || errors.message ? true : false
 
   return (
@@ -15,10 +24,16 @@ const Formy = ({ errors, touched, isSubmitting, handleSubmit }) => {
       data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
     >
+      <Field style={{ display: "none" }} name="lang" value={lang} />
       <div className="notification">
         {touched.name && errors.name && <p>{errors.name}</p>}
       </div>
-      <Field className="field" type="text" name="name" placeholder="Fullname" />
+      <Field
+        className="field"
+        type="text"
+        name="name"
+        placeholder={formName[lang]}
+      />
       <div className="notification">
         {touched.email && errors.email && <p>{errors.email}</p>}
       </div>
@@ -32,7 +47,7 @@ const Formy = ({ errors, touched, isSubmitting, handleSubmit }) => {
         rows="2"
         type="text"
         name="message"
-        placeholder="Write your message here"
+        placeholder={formMessage[lang]}
       />
       <ToastContainer />
       <button
@@ -40,7 +55,7 @@ const Formy = ({ errors, touched, isSubmitting, handleSubmit }) => {
         disabled={isDirty || isSubmitting}
         type="submit"
       >
-        {isSubmitting ? "loading..." : "Send"}
+        {isSubmitting ? formBtnLoading[lang] : formBtn[lang]}
       </button>
     </Form>
   )
@@ -55,17 +70,22 @@ const encodeFormValuesToQuery = data => {
     .join("&")
 }
 
+// Enable reinitialize to detect lang prop changes /////////////////////
+///////////////////////////////////////////////////////////////////////
+
+const enableReinitialize = true
+
 // react-toastify notifications ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
 
-const successNotification = () =>
-  toast("email succesfully sent", {
+const successNotification = lang =>
+  toast(successToast[lang], {
     type: "success",
     className: "toast-success",
   })
 
-const errorNotification = () =>
-  toast("something went wrong", {
+const errorNotification = lang =>
+  toast(errorToast[lang], {
     type: "error",
     className: "toast-error",
   })
@@ -73,11 +93,12 @@ const errorNotification = () =>
 // props to values mapper function for formik HOC /////////////////////////
 //////////////////////////////////////////////////////////////////////////
 
-const mapPropsToValues = ({ name, email, message }) => {
+const mapPropsToValues = ({ name, email, message, lang }) => {
   return {
     name: name || "",
     email: email || "",
     message: message || "",
+    lang: lang || "english",
   }
 }
 
@@ -100,11 +121,11 @@ const handleSubmit = (values, { resetForm, setSubmitting }) => {
     body: encodeFormValuesToQuery({ "form-name": "contact", ...values }),
   })
     .then(() => {
-      successNotification()
+      successNotification(values.lang)
       resetForm()
     })
     .catch(() => {
-      errorNotification()
+      errorNotification(values.lang)
     })
     .finally(() => setSubmitting(false))
 }
@@ -113,4 +134,5 @@ export default withFormik({
   mapPropsToValues,
   validationSchema,
   handleSubmit,
+  enableReinitialize,
 })(Formy)

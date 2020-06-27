@@ -33,4 +33,43 @@ const backToHome = translations(
   "Retournez à la page d'accueil"
 )
 
-export { scrollCTA, heading1, heading2, paragraph, nextProject, backToHome }
+const formName = translations("Fullname", "Nom et Prénom")
+
+const formMessage = translations(
+  "Write your message here",
+  "Ecrivez votre message ici"
+)
+
+const formBtn = translations("Send", "Envoyer")
+
+const formBtnLoading = translations("Loading...", "Chargement...")
+
+const successToast = translations(
+  "email succesfully sent",
+  "email envoyer avec succès"
+)
+
+const errorToast = translations(
+  "error, something went wrong",
+  "error, quelque chose s'est mal passé"
+)
+
+const coverBtnReveal = translations("Reveal", "Dévoiler")
+const coverBtnHide = translations("Hide", "Masquer")
+
+export {
+  scrollCTA,
+  heading1,
+  heading2,
+  paragraph,
+  nextProject,
+  backToHome,
+  formName,
+  formMessage,
+  formBtn,
+  formBtnLoading,
+  successToast,
+  errorToast,
+  coverBtnHide,
+  coverBtnReveal,
+}
