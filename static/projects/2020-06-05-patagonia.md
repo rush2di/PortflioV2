@@ -15,9 +15,9 @@ mobile: /images/fireshot-capture-014-patagonia-surfboards-patagonia-surfboards.n
 english:
   title: Theke
   intro: Ecommerce website
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod temaliqua, enim ad minim veniamLorem ipsum dolor sit amet,
-    consectetur adipiscing elit, sed do eiusmod temaliqua, enim ad minim veniam
+  description: Patagonia is a fictional e-commerce website for selling modern
+    surfboards, and surfing items. Introducing three major trademarks that yu
+    can chse surfboards from depending on the range of your level.
   type: Freelance project
   markdown: >-
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
