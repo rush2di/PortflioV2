@@ -17,13 +17,7 @@ const Formy = ({ errors, touched, isSubmitting, handleSubmit, lang }) => {
   const isDirty = errors.name || errors.email || errors.message ? true : false
 
   return (
-    <Form
-      className="form"
-      name="contact"
-      data-netlify={true}
-      data-netlify-honeypot="bot-field"
-      onSubmit={handleSubmit}
-    >
+    <Form className="form" name="contact" onSubmit={handleSubmit}>
       <Field style={{ display: "none" }} name="lang" value={lang} />
       <div className="notification">
         {touched.name && errors.name && <p>{errors.name}</p>}
@@ -63,12 +57,13 @@ const Formy = ({ errors, touched, isSubmitting, handleSubmit, lang }) => {
 
 // helper function to encode the form values into query for netlify-forms //
 ///////////////////////////////////////////////////////////////////////////
-
+/*
 const encodeFormValuesToQuery = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&")
 }
+*/
 
 // Enable reinitialize to detect lang prop changes /////////////////////
 ///////////////////////////////////////////////////////////////////////
@@ -115,17 +110,27 @@ const validationSchema = Yup.object().shape({
 ///////////////////////////////////////////////////////////////////////
 
 const handleSubmit = (values, { resetForm, setSubmitting }) => {
-  fetch("/", {
+  const { name, email, message, lang } = values
+  fetch("https://portfoliov2020.herokuapp.com/api", {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encodeFormValuesToQuery({ "form-name": "contact", ...values }),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name, email, message }),
   })
-    .then(() => {
-      successNotification(values.lang)
-      resetForm()
+    .then(res => {
+      console.log(res)
+      if (res.status == 400) {
+        errorNotification(lang)
+      } else {
+        successNotification(lang)
+        resetForm()
+      }
     })
-    .catch(() => {
-      errorNotification(values.lang)
+    .catch(err => {
+      console.log(err)
+      errorNotification(lang)
     })
     .finally(() => setSubmitting(false))
 }
