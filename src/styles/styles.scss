@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap");
 @import "./variables.scss";
 
@@ -274,7 +274,7 @@ body {
   }
   &-box p {
     color: $paragraph;
-    white-space: break-spaces;
+    white-space: pre-wrap;
     font-family: $secFONT;
     line-height: 1.5;
     font-weight: 500;
@@ -624,7 +624,7 @@ body {
     }
   }
   &-skills-box p {
-    white-space: break-spaces;
+    white-space: pre-wrap;
   }
   &-skills-box:last-of-type {
     position: relative;
