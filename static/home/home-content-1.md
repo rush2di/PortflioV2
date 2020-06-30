@@ -8,9 +8,9 @@ english:
     right team where I can contribute in making amazing digital products."
   tsparagraph: >-
     Being curious and a problem solver by nature always drives me to learn new
-    thechnologies and concepts by building projects on my spare time, thereby I
-    gained knowledge on how to wisely chose the right stack for my projects and
-    absolutely grow as a developer.
+    thechnologies and concepts through building projects on my spare time,
+    thereby I gained knowledge on how to wisely chose the right stack for my
+    projects and absolutely grow as a developer.
 
 
     Technologies I work with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Graphql, Redux, Firebase, Npm ,Sass , Gulp, Git and Github.
