@@ -8,15 +8,15 @@ english:
     right team where I can contribute in making amazing digital products."
   tsparagraph: >-
     Being curious and a problem solver by nature always drives me to learn new
-    thechnologies and concepts by building projects on my spare time, thereby I
-    gained knowledge on how to wisely chose the right stack for my projects and
-    absolutely grow as a developer.
+    thechnologies and concepts through building projects on my spare time,
+    thereby I gained knowledge on how to wisely chose the right stack for my
+    projects and absolutely grow as a developer.
 
 
-    Technologies I work with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Graphql, Redux, Firebase, Npm ,Sass , Gulp, Git and Github.
+    Technologies I work with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Graphql, Redux, Firebase, Npm, Sass , Gulp, Git and Github.
 
 
-    I also work with Css linbraries like Bootsrap, MaterialUI, and Javascript animation libraries like Pose, Scrollmagic, and Gsap.
+    I also work with Css libraries like Bootsrap, MaterialUI, and Javascript animation libraries like Pose, Scrollmagic, and Gsap.
   speciality: frontend web developer
   title: Hello, I'm Roshdi Belhirsh
   cbtn: connect with me
