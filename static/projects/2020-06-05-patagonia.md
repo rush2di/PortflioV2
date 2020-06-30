@@ -15,20 +15,20 @@ mobile: /images/fireshot-capture-014-patagonia-surfboards-patagonia-surfboards.n
 english:
   title: Theke
   intro: Ecommerce website
-  description: Patagonia is a fictional e-commerce website for selling modern
-    surfboards, and surfing items. Introducing three major trademarks that you
-    can chose surfboards from depending on the range of your level.
+  description: Patagonia is a fictional e-commerce website selling modern
+    surfboards, and surfing items. Introducing three major trademarks to chose
+    surfboards from depending on the range of your experience and level.
   type: Personal project
   markdown: >-
-    My goal from building this website was to test my frontend skills and my
+    The goal from building this web app was to test my frontend skills and my
     ability to work with modern React using rest-apis, also modern css with flex
     and grid displays. 
 
 
-    After finishing the design and gathering all the assets I started my development planing, so the first thing I had to deal with is the data structure my products wich I used a json file to store every product under it's own trademark and category.
+    The concept design and gathering of all the assets was done in few hours and I started my development planing, the first problem I had to deal with is building products' data structure.Therefore I used a json file to store every product under it's own trademark, category, and id which properly facilitate managing and working with data on the frontend code.
 
 
-    And finally populate the instagram section on the home page I used Axios to fetch the last 6 images of an instagram surfing page using instagram query link api, and I applied code splitting with suspense and react.lazy for the pages.
+    The app had many pages and components with a associated and interchangeable state, I chosed React to build the app to solve this problems using it's context api, another problem I had to undertake was sourcing images from instagram to a component on the home page and increase the overall performance of the app, as a solution I used an instagram query link api along with Axios to fetch the required assets and I applied code splitting with suspense and react.lazy for the pages.
   role: design & development
   demobtn: view demo
   githubtn: view github repo
