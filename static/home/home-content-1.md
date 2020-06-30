@@ -13,10 +13,10 @@ english:
     projects and absolutely grow as a developer.
 
 
-    Technologies I work with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Graphql, Redux, Firebase, Npm ,Sass , Gulp, Git and Github.
+    Technologies I work with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Graphql, Redux, Firebase, Npm, Sass , Gulp, Git and Github.
 
 
-    I also work with Css linbraries like Bootsrap, MaterialUI, and Javascript animation libraries like Pose, Scrollmagic, and Gsap.
+    I also work with Css libraries like Bootsrap, MaterialUI, and Javascript animation libraries like Pose, Scrollmagic, and Gsap.
   speciality: frontend web developer
   title: Hello, I'm Roshdi Belhirsh
   cbtn: connect with me
