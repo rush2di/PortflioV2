@@ -20,21 +20,32 @@ mobile: /images/fireshot-capture-013-home-grana.ab-agportfolio.netlify.app.png
 english:
   title: Theke
   intro: photography portfolio website
-  description: Grana.ab is the portfolio website of a young photographer where he
-    showcase his works, photography skills, and also write articles about
-    composition, photo editing, and photography tips.
+  description: The client has portrayed an idea of creating a mobile first
+    portfolio website where he can showcase his works, photography skills, and
+    also a place where he can write articles about composition, photo editing,
+    and photography tips that people can share on social media platforms.
   type: Freelance project
   markdown: >-
-    What I learned from building this website is that creating your own custom
-    hooks in React comes with many benefits and allows you to increase
-    performance by coupling related logic into one custom hook, this makes the
-    code look cleaner and easier to read.
+    The major task was to create such an application, that can synchronize with
+    assets sourced from the flickr website where the client stores his works. To
+    address this problem I signed up for a flickr developer account to be able
+    to use flickr's api using the api key they provided, doing so the important
+    assets were retrieved and ready to be used.
 
 
-    For Graphql I have learned and used new concepts like aliases and fragments. Fragments let you construct sets of fields, and then include them in queries where you need to while Aliases help you retrieve different data for the same field with different arguments provided to it, this saves you from retrieving the whole data set and applying filters in the frontend.
+    To enable the client content creation a cms had to be provided, besides the website had to be seo friendly with the right meta tags in case users shared an article on social media. Therefore I chosed to work with GatsbyJs ( a static site generator with the ability to be server side rendred ) in combination with Netlify cms. This combination guarantees fast performance and an easy to use interface for content creation by the highly customizable configuration that Nelify cms comes with.
 
 
-    For stylings, I used Sass and I followed bem methodology but also applyed small changes that suited my development needs to it. Gsap along with Scrollmagic for scroll animations and React-transition-group for pages transitions.
+    The approved mobile design radically contradicted with the laptop design in terms of ui components, thus dynamic responsive components had to be implemented. The best solution was to create a react hook which returns the screen width and listens to screen resize events, this assures the following advantages: 
+
+
+    1- only one event listener was implemented
+
+
+    2- specific components can be mounted or unmounted conditionally according to exact screen widths
+
+
+    3- increase in performance by coupling related logic
   role: design & development
   demobtn: view demo
   githubtn: view github repo
