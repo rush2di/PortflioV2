@@ -7,15 +7,16 @@ english:
     React and JavaScript animation libraries. I'm currently seeking out the
     right team where I can contribute in making amazing digital products."
   tsparagraph: >-
-    By constanly building personal projects I managed to learn many new
-    thechnologies and concepts, this has also helped me gain knowledge on how to
-    wisely chose the right stack for my projects.
+    Being curious and a problem solver by nature always drives me to learn new
+    thechnologies and concepts by building projects on my spare time, thereby I
+    gained knowledge on how to wisely chose the right stack for my projects and
+    absolutely grow as a developer.
 
 
-    Technologies I have learned and worked with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Redux, Firebase, Npm ,Sass , Gulp, Git and Github.
+    Technologies I work with consist of Html5, Css3, Javascript, ReactJs, NodeJs, GatsbyJs, Graphql, Redux, Firebase, Npm ,Sass , Gulp, Git and Github.
 
 
-    I have also used some Css and Javascript animation libraries like Bootsrap, MaterialUI, Pose, Scrollmagic, and Gsap.
+    I also work with Css linbraries like Bootsrap, MaterialUI, and Javascript animation libraries like Pose, Scrollmagic, and Gsap.
   speciality: frontend web developer
   title: Hello, I'm Roshdi Belhirsh
   cbtn: connect with me
