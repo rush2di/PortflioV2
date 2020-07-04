@@ -5,7 +5,7 @@ linkedin: www.linkedin.com/in/rochdi-belhirch-b6390a1a2/
 email: roch2di@gmail.com
 phone: 2126 76 74 74 26
 english:
-  aboutHead: Let's work togheter
+  aboutHead: Let's work together
   aboutText: >-
     I’m currently seeking a remote job as a frontend ReactJs developer a job in
     wich I can take my skills to the next level, and grow as a web developer.

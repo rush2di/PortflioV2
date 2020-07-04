@@ -81,7 +81,7 @@ of themeContextProvider
 const themeContext = createContext(null)
 
 export const ThemeContextProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState<boolean>(true)
+  const [isDark, setIsDark] = useState<boolean>(false)
 
   const backgroundStyle = isDark ? "dark-bg" : "light-bg"
   const textStyle = isDark ? "dark-spans" : "light-spans"

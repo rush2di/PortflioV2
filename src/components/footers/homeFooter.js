@@ -72,7 +72,7 @@ const HomeFooter = () => {
                 <div className="contact-info">
                   <img src={emailIcon} alt="phone" />
                   <a href={`mailto:${email}`} className="dark-spans">
-                    {email}
+                    email
                   </a>
                 </div>
                 <div className="contact-info">
@@ -87,7 +87,7 @@ const HomeFooter = () => {
                 </div>
                 <div className="contact-info">
                   <img src={phoneIcon} alt="phone" />
-                  <span className="dark-spans">{phone}</span>
+                  <span className="dark-spans">+{phone}</span>
                 </div>
               </div>
             </div>

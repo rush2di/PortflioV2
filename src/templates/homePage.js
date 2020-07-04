@@ -111,15 +111,12 @@ const HeroHeading = ({ dimensions, title }) => {
       .from("#title", { y: "100%", stagger: 0.3, display: "block", delay: 1 })
       .from("#paragraph", { y: -10, stagger: 0.3, opacity: 0 }, "+=0.1")
       .pause()
+    
+    const btnsAnimation = gsap
+      .timeline({ defaults })
+      .from(".btn-lg", { y: -10, stagger: 0.3, opacity: 0 })
 
-    if (dimensions < 426) {
-      const btnsAnimation = gsap
-        .timeline({ defaults })
-        .from(".btn-lg", { y: -10, stagger: 0.3, opacity: 0 })
-        .pause()
-
-      animation.add(btnsAnimation)
-    }
+    if (dimensions < 426) animation.add(btnsAnimation)
 
     triggerAnimation().scene(".heading-xl", 200, () => animation.play())
   }, [])

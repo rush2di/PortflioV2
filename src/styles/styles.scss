@@ -277,7 +277,7 @@ body {
   }
   &-box p {
     color: $paragraph;
-    white-space: break-spaces;
+    white-space: pre-wrap;
     font-family: $secFONT;
     line-height: 1.5;
     font-weight: 500;
@@ -627,7 +627,7 @@ body {
     }
   }
   &-skills-box p {
-    white-space: break-spaces;
+    white-space: pre-wrap;
   }
   &-skills-box:last-of-type {
     position: relative;
