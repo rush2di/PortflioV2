@@ -78,7 +78,7 @@ const HomePage = ({ data }) => {
       <div className="container">
         <div className="section-hero-wrapper">
           <HeroHeading title={title} dimensions={dimensions} />
-          <HeroParagraphs {...{ ...content, textStyle }} />
+          <HeroParagraphs {...{ ...content, textStyle, dimensions }} />
           {dimensions <= 425 && <MobileBtns />}
         </div>
         <div className="section-skills-wrapper">
@@ -141,14 +141,14 @@ const HeroHeading = ({ dimensions, title }) => {
 // Hero paragraphs component ///////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
-const HeroParagraphs = ({ textStyle, speciality, introduction, paragraph }) => (
+const HeroParagraphs = ({ textStyle, speciality, introduction, paragraph, dimensions }) => (
   <div className="section-hero-grid">
     <p id="paragraph">
       <span className={textStyle + " -hm"}>{speciality}</span>
     </p>
     <p id="paragraph">
       <span className={textStyle}>{introduction}</span>
-      {paragraph}
+      { dimensions > 1002 ? paragraph : <></br>{paragraph}</>}
     </p>
   </div>
 )
