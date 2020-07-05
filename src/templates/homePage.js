@@ -145,7 +145,15 @@ const HeroParagraphs = ({ textStyle, speciality, introduction, paragraph, dimens
     </p>
     <p id="paragraph">
       <span className={textStyle}>{introduction}</span>
-      { dimensions > 1002 ? paragraph : <></br>{paragraph}</>}
+      { dimensions > 1002 ?
+        (paragraph) : 
+      (
+      <React.Fragment>
+        </br>
+        {paragraph}
+      </React.Fragment>
+      )
+      }
     </p>
   </div>
 )
