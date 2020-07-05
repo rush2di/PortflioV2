@@ -577,6 +577,11 @@ body {
     grid-template-columns: 1fr 1fr;
     align-items: normal;
     justify-content: stretch;
+    @media (min-width: 1003px) {
+      p#paragraph {
+        white-space: pre-line;
+      }
+    }
     @media (max-width: $md) {
       display: flex;
       flex-direction: column;

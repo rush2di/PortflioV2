@@ -144,8 +144,8 @@ const HeroParagraphs = ({ textStyle, speciality, introduction, paragraph, dimens
       <span className={textStyle + " -hm"}>{speciality}</span>
     </p>
     <p id="paragraph">
-      <span className={textStyle}>{introduction}</span>
-      { dimensions > 1002 ? paragraph : <></br>{paragraph}</>}
+      <span className={textStyle}>{introduction+"\n"}</span>
+      {paragraph}
     </p>
   </div>
 )
