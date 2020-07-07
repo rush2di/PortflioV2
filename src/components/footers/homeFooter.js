@@ -87,7 +87,9 @@ const HomeFooter = () => {
                 </div>
                 <div className="contact-info">
                   <img src={phoneIcon} alt="phone" />
-                  <span className="dark-spans">+{phone}</span>
+                  <a href={`tel:+${phone}`} className="dark-spans">
+                    +{phone}
+                  </a>
                 </div>
               </div>
             </div>
