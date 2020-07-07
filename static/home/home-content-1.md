@@ -8,7 +8,7 @@ english:
     right team where I can contribute in making amazing digital products."
   tsparagraph: >-
     Being curious and a problem solver by nature always drives me to learn new
-    thechnologies and concepts through building projects on my spare time,
+    technologies and concepts through building projects in my spare time,
     thereby I gained knowledge on how to wisely chose the right stack for my
     projects and absolutely grow as a developer.
 
